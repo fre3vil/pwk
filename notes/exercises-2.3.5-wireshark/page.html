@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises-2.3.5-Wireshark</title>
+</head><body>1. 1. Use Wireshark to capture the network activity of Netcat connecting to port 110<br/>
+(POP3) and attempting a login.<br/>
+2. Read and understand the output. Where is the session three-way handshake?<br/>
+Where is the session closed?<br/>
+3. Follow the TCP stream to read the login attempt.<br/>
+4. Use the display filter to only see the port 110 traffic<br/>
+5. Re-run the capture, this time using the capture filter to only collect port 110<br/>
+<br/>
+1. Run Wireshark with capture filter "host 10.11.10.14 and port 110".<br/>
+2. The three-way handshake is in the first three packets before the response saying "POP3 server ready."<br/>
+3. Completed.<br/>
+4. Use display filter "tcp.port eq 110"<br/>
+5. Completed<br/>
+<br/>
+</body></html>

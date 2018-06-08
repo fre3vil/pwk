@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises-2.4.3-Tcpdump</title>
+</head><body>1. Use tcpdump to recreate the wireshark exercise of capturing traffic on port 110.<br/>
+2. Use the -X flag to view the content of the packet. If data is truncated, investigate<br/>
+how the -s flag might help.<br/>
+<br/>
+1. <br/>
+root@:~&gt; tcpdump -n -w exerciseTcpDump<br/>
+root@:~&gt; nc -nv 10.11.10.124 110<br/>
+<br/>
+2. <br/>
+tcpdump -nnvvXS -tttt host 10.11.10.124 and port 110 -r exerciseTcpDump.pcap<br/>
+<br/>
+Using the -S filter expands the sequence and ack numbers.<br/>
+</body></html>

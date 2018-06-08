@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises-4.5.4-SNMP</title>
+</head><body>1. Scan your target network with onesixtyone. Identify any SNMP servers.<br/>
+2. Use snmpwalk and snmp-check to gather information about the discovered<br/>
+targets.<br/>
+<br/>
+1. <br/>
+root@:~/enumeration&gt; echo public &gt; community<br/>
+root@:~/enumeration&gt; echo private &gt;&gt; community<br/>
+root@:~/enumeration&gt; echo manager &gt;&gt; community<br/>
+root@:~/enumeration&gt; echo admin &gt;&gt; community<br/>
+<br/>
+Scanning 254 hosts, 4 communities<br/>
+<b>10.11.1.14</b>&nbsp;[public] Hardware: x86 Family 6 Model 12 Stepping 2 AT/AT COMPATIBLE - Software: Windows 2000 Version 5.1 (Build 2600 Uniprocessor Free)<br/>
+<b>10.11.1.13</b>&nbsp;[public] Hardware: x86 Family 6 Model 12 Stepping 2 AT/AT COMPATIBLE - Software: Windows 2000 Version 5.1 (Build 2600 Uniprocessor Free)<br/>
+<b>10.11.1.22</b>&nbsp;[public] Linux barry 2.4.18-3 #1 Thu Apr 18 07:37:53 EDT 2002 i686<br/>
+<b>10.11.1.73 </b>[public] Hardware: x86 Family 6 Model 44 Stepping 2 AT/AT COMPATIBLE - Software: Windows Version 6.1 (Build 7601 Multiprocessor Free)<br/>
+<b>10.11.1.115</b>&nbsp;[public] Linux tophat.acme.com 2.4.20-8 #1 Thu Mar 13 17:54:28 EST 2003 i686<br/>
+<b>10.11.1.128</b>&nbsp;[public] Hardware: x86 Family 6 Model 12 Stepping 2 AT/AT COMPATIBLE - Software: Windows 2000 Version 5.0 (Build 2195 Uniprocessor Free)<br/>
+<b>10.11.1.227 </b>[public] Hardware: x86 Family 6 Model 12 Stepping 2 AT/AT COMPATIBLE - Software: Windows 2000 Version 5.0 (Build 2195 Uniprocessor Free)<br/>
+<br/>
+2. <br/>
+snmpwalk -c public -v1 10.11.1.22 1.3.6.1.4.1.77.1.2.25 --&gt; Enumerating Windows Users<br/>
+snmpwalk -c public -v1 10.11.1.22 1.3.6.1.2.1.25.6.3.1.2 --&gt; Enumerating Running Windows Processes<br/>
+snmpwalk -c public -v1 10.11.1.13 1.3.6.1.2.1.6.13.1.3 --&gt; Enumerating Open TCP Ports<br/>
+snmpwalk -c public -v1 10.11.1.22 1.3.6.1.2.1.25.6.3.1.2 --&gt; Enumerating Installed Software<br/>
+<br/>
+<br/>
+10.11.1.14<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.3.98.111.98 = STRING: "bob"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.5.71.117.101.115.116 = STRING: "Guest"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.8.73.85.83.82.95.66.79.66 = STRING: "IUSR_BOB"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.8.73.87.65.77.95.66.79.66 = STRING: "IWAM_BOB"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.13.65.100.109.105.110.105.115.116.114.97.116.111.114 = STRING: "Administrator"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.13.72.101.108.112.65.115.115.105.115.116.97.110.116 = STRING: "HelpAssistant"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.16.83.85.80.80.79.82.84.95.51.56.56.57.52.53.97.48 = STRING: "SUPPORT_388945a0"<br/>
+<br/>
+10.11.1.13<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.3.98.111.98 = STRING: "bob"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.5.71.117.101.115.116 = STRING: "Guest"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.8.73.85.83.82.95.66.79.66 = STRING: "IUSR_BOB"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.8.73.87.65.77.95.66.79.66 = STRING: "IWAM_BOB"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.13.65.100.109.105.110.105.115.116.114.97.116.111.114 = STRING: "Administrator"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.13.72.101.108.112.65.115.115.105.115.116.97.110.116 = STRING: "HelpAssistant"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.16.83.85.80.80.79.82.84.95.51.56.56.57.52.53.97.48 = STRING: "SUPPORT_388945a0"<br/>
+<br/>
+10.11.1.22<br/>
+nothing<br/>
+<br/>
+10.11.1.73<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.4.106.105.108.108 = STRING: "jill"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.5.71.117.101.115.116 = STRING: "Guest"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.5.97.100.109.105.110 = STRING: "admin"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.13.65.100.109.105.110.105.115.116.114.97.116.111.114 = STRING: "Administrator"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.14.72.111.109.101.71.114.111.117.112.85.115.101.114.36 = STRING: "HomeGroupUser$"<br/>
+<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1 = STRING: "System Idle Process"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.4 = STRING: "System"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.224 = STRING: "smss.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.268 = STRING: "httpd.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.292 = STRING: "httpd.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.320 = STRING: "csrss.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.360 = STRING: "wininit.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.368 = STRING: "csrss.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.416 = STRING: "winlogon.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.460 = STRING: "services.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.468 = STRING: "lsass.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.476 = STRING: "lsm.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.580 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.648 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.696 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.788 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.864 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.884 = STRING: "rundll32.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.968 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.980 = STRING: "notepad.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1080 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1220 = STRING: "spoolsv.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1268 = STRING: "taskhost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1276 = STRING: "dwm.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1296 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1308 = STRING: "explorer.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1400 = STRING: "rotatelogs.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1460 = STRING: "vmtoolsd.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1468 = STRING: "tvnserver.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1476 = STRING: "wampmanager.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1500 = STRING: "conhost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1612 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1688 = STRING: "httpd.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1724 = STRING: "snmp.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1760 = STRING: "dbsrv12.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1852 = STRING: "tvnserver.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1880 = STRING: "rotatelogs.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1900 = STRING: "conhost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1916 = STRING: "vmtoolsd.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.2036 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.3188 = STRING: "httpd.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.3216 = STRING: "mysqld.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.3252 = STRING: "SemSvc.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.4040 = STRING: "notepad.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.4100 = STRING: "dllhost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.4140 = STRING: "notepad.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.4264 = STRING: "msdtc.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.4548 = STRING: "conhost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.4560 = STRING: "java.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.4600 = STRING: "notepad.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.4612 = STRING: "notepad.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.5464 = STRING: "taskhost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.5656 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.5724 = STRING: "wmpnetwk.exe"<br/>
+<br/>
+iso.3.6.1.2.1.25.6.3.1.2.1 = STRING: "LiveUpdate 3.3 (Symantec Corporation)"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.2 = STRING: "WampServer 2.5"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.3 = STRING: "VMware Tools"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.4 = STRING: "Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.4148"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.5 = STRING: "Microsoft Visual C++ 2012 Redistributable (x86) - 11.0.61030"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.6 = STRING: "Microsoft Visual C++ 2012 x86 Additional Runtime - 11.0.61030"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.7 = STRING: "Microsoft Visual C++ 2012 x86 Minimum Runtime - 11.0.61030"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.8 = STRING: "Symantec Endpoint Protection Manager"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.9 = STRING: "TightVNC"<br/>
+<br/>
+10.11.1.115<br/>
+nothing<br/>
+<br/>
+10.11.1.128<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.5.71.117.101.115.116 = STRING: "Guest"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.9.73.85.83.82.95.83.82.86.50 = STRING: "IUSR_SRV2"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.9.73.87.65.77.95.83.82.86.50 = STRING: "IWAM_SRV2"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.13.65.100.109.105.110.105.115.116.114.97.116.111.114 = STRING: "Administrator"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.14.84.115.73.110.116.101.114.110.101.116.85.115.101.114 = STRING: "TsInternetUser"<br/>
+<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1 = STRING: "System Idle Process"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.8 = STRING: "System"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.144 = STRING: "SMSS.EXE"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.200 = STRING: "CSRSS.EXE"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.220 = STRING: "WINLOGON.EXE"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.248 = STRING: "SERVICES.EXE"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.260 = STRING: "LSASS.EXE"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.444 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.476 = STRING: "spoolsv.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.508 = STRING: "msdtc.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.640 = STRING: "LLSSRV.EXE"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.676 = STRING: "sqlservr.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.744 = STRING: "regsvc.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.772 = STRING: "mstask.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.800 = STRING: "snmp.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.832 = STRING: "vmtoolsd.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.924 = STRING: "WinMgmt.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.936 = STRING: "WinVNC.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.948 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.964 = STRING: "inetinfo.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.976 = STRING: "mssearch.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1212 = STRING: "sqlagent.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1296 = STRING: "dfssvc.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1412 = STRING: "CMD.EXE"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1620 = STRING: "DLLHOST.EXE"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1768 = STRING: "DLLHOST.EXE"<br/>
+<br/>
+iso.3.6.1.2.1.25.6.3.1.2.1 = STRING: "Windows 2000 Hotfix - KB819696"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.2 = STRING: "Windows 2000 Hotfix - KB823182"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.3 = STRING: "Windows 2000 Hotfix - KB823559"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.4 = STRING: "Windows 2000 Hotfix - KB824105"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.5 = STRING: "Windows 2000 Hotfix - KB824151"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.6 = STRING: "Windows 2000 Hotfix - KB826232"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.7 = STRING: "Windows 2000 Hotfix - KB828035"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.8 = STRING: "Windows 2000 Hotfix - KB828741"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.9 = STRING: "Windows 2000 Hotfix - KB828749"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.10 = STRING: "Windows 2000 Hotfix - KB835732"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.11 = STRING: "Windows 2000 Hotfix - KB837001"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.12 = STRING: "Windows 2000 Hotfix - KB839643"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.13 = STRING: "Windows 2000 Hotfix - KB839645"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.14 = STRING: "Windows 2000 Hotfix - KB840987"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.15 = STRING: "Windows 2000 Hotfix - KB841356"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.16 = STRING: "Windows 2000 Hotfix - KB841533"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.17 = STRING: "Windows 2000 Hotfix - KB841872"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.18 = STRING: "Windows 2000 Hotfix - KB841873"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.19 = STRING: "Windows 2000 Hotfix - KB842526"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.20 = STRING: "Windows 2000 Hotfix - KB842773"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.21 = STRING: "Microsoft Data Access Components KB870669"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.22 = STRING: "Windows 2000 Hotfix - KB871250"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.23 = STRING: "Windows 2000 Hotfix - KB873333"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.24 = STRING: "Windows 2000 Hotfix - KB873339"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.25 = STRING: "Windows 2000 Hotfix - KB885250"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.26 = STRING: "Windows 2000 Hotfix - KB885834"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.27 = STRING: "Windows 2000 Hotfix - KB885835"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.28 = STRING: "Windows 2000 Hotfix - KB885836"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.29 = STRING: "Windows 2000 Hotfix - KB888113"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.30 = STRING: "Windows 2000 Hotfix - KB890046"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.31 = STRING: "Windows 2000 Hotfix - KB890859"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.32 = STRING: "Windows 2000 Hotfix - KB891781"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.33 = STRING: "Windows 2000 Hotfix - KB893066"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.34 = STRING: "Windows 2000 Hotfix - KB893086"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.35 = STRING: "Windows Installer 3.1 (KB893803)"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.36 = STRING: "Windows 2000 Hotfix - KB894320"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.37 = STRING: "Windows 2000 Hotfix - KB896358"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.38 = STRING: "Windows 2000 Hotfix - KB896422"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.39 = STRING: "Windows 2000 Hotfix - KB958644"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.40 = STRING: "Microsoft SQL Server 2000"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.41 = STRING: "TightVNC 1.3.10"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.42 = STRING: "Windows 2000 Service Pack 4"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.43 = STRING: "WinRAR archiver"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.44 = STRING: "VMware Tools"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.45 = STRING: "Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.4148"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.46 = STRING: "WebFldrs"<br/>
+<br/>
+10.11.1.227<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.3.108.101.101 = STRING: "lee"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.3.110.101.100 = STRING: "ned"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.4.103.97.114.121 = STRING: "gary"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.4.106.111.104.110 = STRING: "john"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.4.108.105.115.97 = STRING: "lisa"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.4.109.97.114.107 = STRING: "mark"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.4.110.105.99.107 = STRING: "nick"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.4.116.111.100.100 = STRING: "todd"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.5.71.117.101.115.116 = STRING: "Guest"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.5.97.100.109.105.110 = STRING: "admin"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.5.100.97.118.105.100 = STRING: "david"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.5.104.111.109.101.114 = STRING: "homer"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.5.115.105.109.111.110 = STRING: "simon"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.6.98.97.99.107.117.112 = STRING: "backup"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.6.115.113.108.117.115.114 = STRING: "sqlusr"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.9.73.85.83.82.95.83.82.86.50 = STRING: "IUSR_SRV2"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.9.73.87.65.77.95.83.82.86.50 = STRING: "IWAM_SRV2"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.13.65.100.109.105.110.105.115.116.114.97.116.111.114 = STRING: "Administrator"<br/>
+iso.3.6.1.4.1.77.1.2.25.1.1.14.84.115.73.110.116.101.114.110.101.116.85.115.101.114 = STRING: "TsInternetUser"<br/>
+<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1 = STRING: "System Idle Process"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.8 = STRING: "System"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.144 = STRING: "smss.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.200 = STRING: "csrss.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.220 = STRING: "WINLOGON.EXE"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.248 = STRING: "services.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.260 = STRING: "LSASS.EXE"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.456 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.488 = STRING: "SPOOLSV.EXE"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.520 = STRING: "msdtc.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.620 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.648 = STRING: "LLSSRV.EXE"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.680 = STRING: "sqlservr.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.752 = STRING: "regsvc.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.788 = STRING: "mstask.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.816 = STRING: "snmp.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.848 = STRING: "vmtoolsd.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.940 = STRING: "winmgmt.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.952 = STRING: "winvnc4.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.964 = STRING: "svchost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.984 = STRING: "inetinfo.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.996 = STRING: "mssearch.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1024 = STRING: "dllhost.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1104 = STRING: "dfssvc.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1356 = STRING: "sqlagent.exe"<br/>
+iso.3.6.1.2.1.25.4.2.1.2.1588 = STRING: "svchost.exe"<br/>
+<br/>
+iso.3.6.1.2.1.25.6.3.1.2.1 = STRING: "Windows 2000 Hotfix (SP4) KB810217"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.2 = STRING: "Windows 2000 Hotfix (SP4) KB817606"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.3 = STRING: "Windows 2000 Hotfix - KB819696"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.4 = STRING: "Windows 2000 Hotfix - KB823182"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.5 = STRING: "Windows 2000 Hotfix - KB823559"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.6 = STRING: "Windows 2000 Hotfix - KB824105"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.7 = STRING: "Windows 2000 Hotfix - KB824151"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.8 = STRING: "Windows 2000 Hotfix - KB826232"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.9 = STRING: "Windows 2000 Hotfix - KB828035"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.10 = STRING: "Windows 2000 Hotfix - KB828741"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.11 = STRING: "Windows 2000 Hotfix - KB828749"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.12 = STRING: "Windows 2000 Hotfix - KB835732"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.13 = STRING: "Windows 2000 Hotfix - KB837001"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.14 = STRING: "Windows 2000 Hotfix - KB839643"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.15 = STRING: "Windows 2000 Hotfix - KB839645"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.16 = STRING: "Windows 2000 Hotfix - KB840987"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.17 = STRING: "Windows 2000 Hotfix - KB841356"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.18 = STRING: "Windows 2000 Hotfix - KB841533"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.19 = STRING: "Windows 2000 Hotfix - KB841872"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.20 = STRING: "Windows 2000 Hotfix - KB841873"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.21 = STRING: "Windows 2000 Hotfix - KB842526"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.22 = STRING: "Windows 2000 Hotfix - KB842773"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.23 = STRING: "Microsoft Data Access Components KB870669"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.24 = STRING: "Windows 2000 Hotfix - KB871250"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.25 = STRING: "Windows 2000 Hotfix - KB873333"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.26 = STRING: "Windows 2000 Hotfix - KB873339"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.27 = STRING: "Windows 2000 Hotfix - KB883939"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.28 = STRING: "Windows 2000 Hotfix - KB885250"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.29 = STRING: "Windows 2000 Hotfix - KB885834"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.30 = STRING: "Windows 2000 Hotfix - KB885835"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.31 = STRING: "Windows 2000 Hotfix - KB885836"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.32 = STRING: "Windows 2000 Hotfix - KB888113"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.33 = STRING: "Windows 2000 Hotfix - KB890046"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.34 = STRING: "Windows 2000 Hotfix - KB890859"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.35 = STRING: "Windows 2000 Hotfix - KB891781"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.36 = STRING: "Windows 2000 Hotfix - KB893066"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.37 = STRING: "Windows 2000 Hotfix - KB893086"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.38 = STRING: "Windows Installer 3.1 (KB893803)"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.39 = STRING: "Windows 2000 Hotfix - KB894320"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.40 = STRING: "Windows 2000 Hotfix - KB896358"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.41 = STRING: "Windows 2000 Hotfix - KB896422"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.42 = STRING: "Windows 2000 Hotfix - KB897715"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.43 = STRING: "Microsoft SQL Server 2000"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.44 = STRING: "Windows 2000 Hotfix (Pre-SP4) [See q323172 for more information]"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.45 = STRING: "Windows 2000 Hotfix (Pre-SP4) [See Q326830 for more information]"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.46 = STRING: "Windows 2000 Hotfix (Pre-SP4) [See Q326886 for more information]"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.47 = STRING: "Windows 2000 Hotfix (Pre-SP4) [See Q329115 for more information]"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.48 = STRING: "Windows 2000 Hotfix (Pre-SP4) Q329170"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.49 = STRING: "Windows 2000 Hotfix (SP4) Q329553"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.50 = STRING: "Windows 2000 Hotfix (Pre-SP4) [See Q329834 for more information]"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.51 = STRING: "Windows 2000 Hotfix (Pre-SP4) Q810833"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.52 = STRING: "Windows 2000 Hotfix (SP4) Q811114"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.53 = STRING: "Windows 2000 Hotfix (SP4) Q814033"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.54 = STRING: "Windows Media Player Hotfix [See Q828026 for more information]"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.55 = STRING: "VNC Free Edition 4.1.1"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.56 = STRING: "WinRAR archiver"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.57 = STRING: "VMware Tools"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.58 = STRING: "Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.4148"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.59 = STRING: "ActiveState ActivePython 2.4.3"<br/>
+iso.3.6.1.2.1.25.6.3.1.2.60 = STRING: "WebFldrs"<br/>
+<br/>
+snmp-check<br/>
+&nbsp;Host IP address &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : <b>10.11.1.13</b><br/>
+&nbsp; Hostname &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: BOB<br/>
+&nbsp; Description &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Hardware: x86 Family 6 Model 12 Stepping 2 AT/AT COMPATIBLE - Software: Windows 2000 Version 5.1 (Build 2600 Uniprocessor Free)<br/>
+&nbsp; Contact &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : -<br/>
+&nbsp; Location &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: -<br/>
+&nbsp; Uptime snmp &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : -<br/>
+&nbsp; Uptime system &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 337 days, 18:49:57.04<br/>
+&nbsp; System date &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : -<br/>
+&nbsp; Domain &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: WORKGROUP\<br/>
+<br/>
+<b>Many results for 10.11.1.13<br/>
+<br/>
+</b>&nbsp; Host IP address &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : <b>10.11.1.14</b><br/>
+&nbsp; Hostname &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: BOB2<br/>
+&nbsp; Description &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Hardware: x86 Family 6 Model 12 Stepping 2 AT/AT COMPATIBLE - Software: Windows 2000 Version 5.1 (Build 2600 Uniprocessor Free)<br/>
+&nbsp; Contact &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : -<br/>
+&nbsp; Location &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: -<br/>
+&nbsp; Uptime snmp &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : -<br/>
+&nbsp; Uptime system &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 1 day, 01:32:36.20<br/>
+&nbsp; System date &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : -<br/>
+&nbsp; Domain &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: WORKGROUP<br/>
+<b>Many results for 10.11.1.14</b><br/>
+<br/>
+<br/>
++[*] System information:<br/>
+<br/>
+&nbsp; Host IP address &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 10.11.1.22<br/>
+&nbsp; Hostname &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: barry<br/>
+&nbsp; Description &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Linux barry 2.4.18-3 #1 Thu Apr 18 07:37:53 EDT 2002 i686<br/>
+&nbsp; Contact &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Root &lt;root@localhost&gt; (configure /etc/snmp/snmp.local.conf)<br/>
+&nbsp; Location &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: Unknown (edit /etc/snmp/snmpd.conf)<br/>
+&nbsp; Uptime snmp &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : -<br/>
+&nbsp; Uptime system &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 16 days, 13:01:14.52<br/>
+&nbsp; System date &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : -<br/>
+<br/>
+[*] System information:<br/>
+<br/>
+&nbsp; Host IP address &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 10.11.1.73<br/>
+&nbsp; Hostname &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: gamma<br/>
+&nbsp; Description &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Hardware: x86 Family 6 Model 44 Stepping 2 AT/AT COMPATIBLE - Software: Windows Version 6.1 (Build 7601 Multiprocessor Free)<br/>
+&nbsp; Contact &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Administrator<br/>
+&nbsp; Location &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: PWK Lab<br/>
+&nbsp; Uptime snmp &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 01:48:18.22<br/>
+&nbsp; Uptime system &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 350 days, 06:00:30.93<br/>
+&nbsp; System date &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 2018-5-30 11:22:02.5<br/>
+&nbsp; Domain &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: WORKGROUP<br/>
+<br/>
+[*] User accounts:<br/>
+<br/>
+&nbsp; jill &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
+&nbsp; Guest &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; admin &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; Administrator &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; HomeGroupUser$ <br/>
+<br/>
+&nbsp; Host IP address &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 10.11.1.128<br/>
+&nbsp; Hostname &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: DJ<br/>
+&nbsp; Description &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Hardware: x86 Family 6 Model 12 Stepping 2 AT/AT COMPATIBLE - Software: Windows 2000 Version 5.0 (Build 2195 Uniprocessor Free)<br/>
+&nbsp; Contact &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : HASH(0xDEADBEF)<br/>
+&nbsp; Location &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: -<br/>
+&nbsp; Uptime snmp &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 20 days, 23:34:32.96<br/>
+&nbsp; Uptime system &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 255 days, 07:00:10.61<br/>
+&nbsp; System date &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 2018-5-30 20:23:14.3<br/>
+&nbsp; Domain &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: WORKGROUP<br/>
+<br/>
+[*] User accounts:<br/>
+<br/>
+&nbsp; Guest &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; IUSR_SRV2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; IWAM_SRV2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; Administrator &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; TsInternetUser<br/>
+<br/>
+&nbsp; Host IP address &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 10.11.1.227<br/>
+&nbsp; Hostname &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: JD<br/>
+&nbsp; Description &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Hardware: x86 Family 6 Model 12 Stepping 2 AT/AT COMPATIBLE - Software: Windows 2000 Version 5.0 (Build 2195 Uniprocessor Free)<br/>
+&nbsp; Contact &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : -<br/>
+&nbsp; Location &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: -<br/>
+&nbsp; Uptime snmp &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 20 days, 03:12:39.68<br/>
+&nbsp; Uptime system &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 255 days, 10:32:20.18<br/>
+&nbsp; System date &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : 2018-5-30 20:24:10.1<br/>
+&nbsp; Domain &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: WORKGROUP<br/>
+<br/>
+[*] User accounts:<br/>
+<br/>
+&nbsp; lee &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; ned &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; gary &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
+&nbsp; john &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
+&nbsp; lisa &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
+&nbsp; mark &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
+&nbsp; nick &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
+&nbsp; todd &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
+&nbsp; Guest &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; admin &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; david &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; homer &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; simon &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; backup &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
+&nbsp; sqlusr &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br/>
+&nbsp; IUSR_SRV2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; IWAM_SRV2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; Administrator &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; TsInternetUser<br/>
+</body></html>

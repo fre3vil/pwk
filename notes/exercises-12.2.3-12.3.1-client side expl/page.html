@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises-12.2.3-12.3.1-Client Side Exploits</title>
+</head><body>12.2.3 - Exercises<br/>
+1. Use MS12-037 to exploit your Windows host from your Kali system, using the<br/>
+default exploit.<br/>
+2. Enable the Windows firewall and remove any whitelisted processes (e.g.<br/>
+iexplore.exe) or port numbers (TCP 80, 443, 4444) and try to exploit it again.<br/>
+Identify why the attack no longer works and correct it so you can get a shell.]<br/>
+<br/>
+1.<br/>
+Obtained a reverse shell via the MS12-037 exploit.<br/>
+<img src="screenshot 2.png" /><br/>
+<br/>
+<br/>
+2. Changed the payload to be a reverse shell instead. The attack wasn't working with the firewall enabled because it filters incoming connections.<br/>
+<img src="screenshot.png" /><br/>
+<br/>
+12.3.1 - Exercises<br/>
+1. Exploit your Windows host with a Java payload attack.<br/>
+2. Play with the settings you used when generating the payload. What makes the<br/>
+attack look more believable? What makes it look less believable?<br/>
+<br/>
+1.<br/>
+Reverse shell obtained through Java:<br/>
+<img src="screenshot 3.png" /><br/>
+<br/>
+2.<br/>
+The attack looks more believable if signed by a recognized and trusted company name such as Google Inc and if the name of the webpage is not suspicious. Also, having something on the web page to make it look legitimate instead of blank makes it look more believable. Showing the popup with suspicious words and a suspicious webpage URL will make it less believable.<br/>
+<br/>
+</body></html>

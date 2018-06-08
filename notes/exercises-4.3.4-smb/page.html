@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises-4.3.4-SMB</title>
+</head><body>1. Use Nmap to make a list of which SMB servers in the lab are running Windows.<br/>
+2. Use NSE scripts to scan these systems for SMB vulnerabilities.<br/>
+3. Use nbtscan and enum4linux against these systems and identify the kinds of<br/>
+data you can obtain from different versions of Windows.<br/>
+<br/>
+1. SAME AS #3 FROM PREVIOUS EXERCISE<br/>
+for ip in $(cat targetHostsOnline.txt); do nmap --script=smb-os-discovery.nse $ip; done &gt; targetSMB.txt<br/>
+<br/>
+10.11.1.5<br/>
+OS: Windows XP (Windows 2000 LAN Manager)<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.31<br/>
+OS: Windows Server 2003 3790 Service Pack 1 (Windows Server 2003 5.2)<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.73<br/>
+OS: Windows 7 Professional 7601 Service Pack 1 (Windows 7 Professional 6.1)<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp; open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.128<br/>
+OS: Windows 2000 (Windows 2000 LAN Manager)<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+443/tcp &nbsp;open &nbsp;https<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.145<br/>
+OS: Windows Server (R) 2008 Standard 6001 Service Pack 1 (Windows Server (R) 2008 Standard 6.0)<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.202<br/>
+OS: Windows 2000 (Windows 2000 LAN Manager)<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.218<br/>
+OS: Windows 7 Professional 7601 Service Pack 1 (Windows 7 Professional 6.1)<br/>
+135/tcp open &nbsp;msrpc<br/>
+139/tcp open &nbsp;netbios-ssn<br/>
+445/tcp open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.219<br/>
+OS: Windows Server 2008 R2 Standard 7601 Service Pack 1 (Windows Server 2008 R2 Standard 6.1)<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp; open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.220<br/>
+OS: Windows Server 2008 R2 Standard 7601 Service Pack 1 (Windows Server 2008 R2 Standard 6.1)<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+<br/>
+10.11.1.223<br/>
+OS: Windows Server (R) 2008 Standard 6001 Service Pack 1 (Windows Server (R) 2008 Standard 6.0)<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp; open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.227<br/>
+OS: Windows 2000 (Windows 2000 LAN Manager)<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.230<br/>
+OS: Windows 7 Ultimate N 7600 (Windows 7 Ultimate N 6.1)<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp; open &nbsp;microsoft-ds<br/>
+<br/>
+2. <br/>
+for ip in $(cat targetSMBWindows.txt); do nmap -v -p 139,445 --script=smb-vuln-ms08-067 --script-args=unsafe=1 $ip; done &gt; targetSMBVuln-ms08-067.txt<br/>
+<br/>
+for ip in $(cat targetSMBWindows.txt); do nmap -v -p 139,445 --script=smb-vuln-ms17-010 --script-args=unsafe=1 $ip; done &gt; targetSMBVuln-ms17-010.txt<br/>
+<br/>
+for ip in $(cat targetSMBWindows.txt); do nmap -v -p 139,445 --script=smb-vuln-ms10-061 --script-args=unsafe=1 $ip; done &gt; targetSMBVuln-ms10-061.txt<br/>
+<br/>
+for ip in $(cat targetSMBWindows.txt); do nmap -v -p 139,445 --script=smb-vuln-ms10-054 --script-args=unsafe=1 $ip; done &gt; targetSMBVuln-ms10-054.txt<br/>
+<br/>
+for ip in $(cat targetSMBWindows.txt); do nmap -v -p 139,445 --script=smb-vuln-ms07-029 --script-args=unsafe=1 $ip; done &gt; targetSMBVuln-ms07-029.txt<br/>
+<br/>
+for ip in $(cat targetSMBWindows.txt); do nmap -v -p 139,445 --script=smb-vuln-ms06-025 --script-args=unsafe=1 $ip; done &gt; targetSMBVuln-ms06-025.txt<br/>
+<br/>
+for ip in $(cat targetSMBWindows.txt); do nmap -v -p 139,445 --script=smb-vuln-cve2009-3103 --script-args=unsafe=1 $ip; done &gt; targetSMBVuln-cve2009-3103.txt<br/>
+<br/>
+for ip in $(cat targetSMBWindows.txt); do nmap -v -p 139,445 --script=smb-vuln-cve-2017-7494 --script-args=unsafe=1 $ip; done &gt; targetSMBVuln-cve-2017-7494.txt<br/>
+<br/>
+for ip in $(cat targetSMBWindows.txt); do nmap -v -p 139,445 --script=smb-vuln-conficker --script-args=unsafe=1 $ip; done &gt; targetSMBVuln-conficker.txt<br/>
+<br/>
+for ip in $(cat targetSMBWindows.txt); do nmap -v -p 139,445 --script=smb-vuln-regsvc-dos --script-args=unsafe=1 $ip; done &gt; targetSMBVuln-regsvc-dos.txt<br/>
+<br/>
+10.11.1.5<br/>
+smb-vuln-ms08-067: LIKELY VULNERABLE:<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.31<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.73<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.128<br/>
+smb-vuln-ms06-025: VULNERABLE:<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.145<br/>
+smb-vuln-cve2009-3103: VULNERABLE:<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.202<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.218<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.219<br/>
+10.11.1.220<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.223<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.227<br/>
+smb-vuln-ms08-067: VULNERABLE:<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.230<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+<br/>
+3. <br/>
+With nbtscan, you can gain usernames or group names on the computers. With the servers, you can more easily identify by the names what type of server it is. With enum4linux, more information about users and shares is made available.<br/>
+<br/>
+</body></html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises-4.4.1-SMTP</title>
+</head><body>1. Search your target network range, and see if you can identify any systems that<br/>
+respond to the SMTP VRFY command.<br/>
+<br/>
+Port 25 open and responsive:<br/>
+(UNKNOWN) [10.11.1.22] 25 (smtp) open<br/>
+220 barry ESMTP Sendmail 8.11.6/8.11.6; Wed, 30 May 2018 20:42:09 +0300<br/>
+<b>250 2.1.5 root &lt;root@barry&gt;</b><br/>
+<br/>
+(UNKNOWN) [10.11.1.72] 25 (smtp) open<br/>
+&nbsp; 220 beta SMTP Server (JAMES SMTP Server 2.3.2) ready Wed, 30 May 2018 13:33:02 -0400 (EDT)<br/>
+502 5.3.3 VRFY is not supported<br/>
+<br/>
+(UNKNOWN) [10.11.1.115] 25 (smtp) open<br/>
+220 tophat.acme.com ESMTP Sendmail 8.12.8/8.12.8; Wed, 30 May 2018 20:43:24 +0300<br/>
+<b>250 2.1.5 root &lt;root@tophat.acme.com&gt;</b><br/>
+<br/>
+<br/>
+(UNKNOWN) [10.11.1.128] 25 (smtp) open<br/>
+&nbsp; 220 dj.acme.local Microsoft ESMTP MAIL Service, Version: 5.0.2195.6713 ready at &nbsp;Wed, 30 May 2018 19:35:39 +0200<br/>
+<b>252 2.1.5 Cannot VRFY user, but will take message for &lt;root@dj.acme.local&gt;</b><br/>
+<br/>
+<br/>
+(UNKNOWN) [10.11.1.217] 25 (smtp) open<br/>
+220 hotline.localdomain ESMTP Postfix<br/>
+<b>252 2.0.0 root</b><br/>
+<br/>
+(UNKNOWN) [10.11.1.227] 25 (smtp) open<br/>
+220 jd.acme.local Microsoft ESMTP MAIL Service, Version: 5.0.2195.5329 ready at &nbsp;Wed, 30 May 2018 19:37:23 +0200 <br/>
+<b>252 2.1.5 Cannot VRFY user, but will take message for &lt;root@jd.acme.local&gt;</b><br/>
+<br/>
+The following servers are responsive to VRFY command for 'root':<br/>
+.22<br/>
+.115<br/>
+.128<br/>
+.217<br/>
+.227<br/>
+<br/>
+<br/>
+</body></html>

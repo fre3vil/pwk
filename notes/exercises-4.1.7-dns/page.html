@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises-4.1.7-DNS</title>
+</head><body>1. Find the DNS servers for the megacorpone.com domain<br/>
+2. Write a small Bash script to attempt a zone transfer from megacorpone.com<br/>
+3. Use dnsrecon to attempt a zone transfer from megacorpone.com<br/>
+<br/>
+1. <br/>
+NS ns1.megacorpone.com 38.100.193.70<br/>
+NS ns2.megacorpone.com 38.100.193.80<br/>
+NS ns3.megacorpone.com 38.100.193.90<br/>
+<br/>
+2. <br/>
+root@:~/enumeration&gt; cat dnsZoneTransfer.sh <br/>
+#!/bin/bash<br/>
+# Simple Zone Transfer Bash Script<br/>
+# $1 is the first argument given after teh bash script<br/>
+# Check if argument was given. If not, print usage.<br/>
+<br/>
+if [ -z "$1" ]; then<br/>
+&nbsp; echo "[*] Simple Zone Transfer Script"<br/>
+&nbsp; echo "[*] Usage : $0 &lt;domain name&gt; "<br/>
+&nbsp; exit 0<br/>
+fi<br/>
+<br/>
+# If argument was given, idenitfy the DNS servers for the domain.<br/>
+# For each of these servers, attempt a zone transfer.<br/>
+<br/>
+for server in $(host -t ns $1 | cut -d " " -f4); do<br/>
+&nbsp; host -l $1 $server | grep "has address"<br/>
+done<br/>
+<br/>
+3. <br/>
+root@:~/enumeration&gt; dnsrecon -d megacorpone.com -t axfr<br/>
+</body></html>

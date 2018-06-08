@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises-3.2.1-EmailHarvester</title>
+</head><body>1. Use theharvester to enumerate email addresses belonging to the organization<br/>
+you chose in the previous exercises<br/>
+2. Experiment with different data sources (-b). Which work best for you?<br/>
+<br/>
+root@:~&gt; theharvester -d bethesda.net -b google &gt; harvesterBethesdaGoogle.txt<br/>
+root@:~&gt; theharvester -d bethesda.net -b bing &gt; harvesterBethesdaBing.txt<br/>
+root@:~&gt; theharvester -d bethesda.net -b linkedin &gt; harvesterBethesdaLinkedin.txt<br/>
+root@:~&gt; theharvester -d bethesda.net -b twitter &gt; harvesterBethesdaTwitter.txt<br/>
+<br/>
+Nothing was found until I searched with "all":<br/>
+root@:~&gt; theharvester -d bethesda.net -b all &gt; harvesterBethesdaAll.txt<br/>
+<br/>
+This returned four email addresses and many IP addresses of servers:<br/>
+mark.stouffer@bethesda.net<br/>
+pixel-1527086760157675-web-@bethesda.net<br/>
+pixel-1527086762127032-web-@bethesda.net<br/>
+susheel.vadlamudi@bethesda.net<br/>
+<br/>
+Using "-b all" was most helpful.</body></html>

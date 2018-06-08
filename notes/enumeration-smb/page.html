@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Enumeration-SMB</title>
+</head><body><br/>
+<br/>
+<br/>
+10.11.1.5<br/>
+OS: Windows XP (Windows 2000 LAN Manager)<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+smb-vuln-ms08-067: LIKELY VULNERABLE:<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.31<br/>
+OS: Windows Server 2003 3790 Service Pack 1 (Windows Server 2003 5.2)<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.73<br/>
+OS: Windows 7 Professional 7601 Service Pack 1 (Windows 7 Professional 6.1)<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp; open &nbsp;microsoft-ds<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.128<br/>
+OS: Windows 2000 (Windows 2000 LAN Manager)<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+443/tcp &nbsp;open &nbsp;https<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+smb-vuln-ms06-025: VULNERABLE:<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.145<br/>
+OS: Windows Server (R) 2008 Standard 6001 Service Pack 1 (Windows Server (R) 2008 Standard 6.0)<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+smb-vuln-cve2009-3103: VULNERABLE:<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+<br/>
+10.11.1.202<br/>
+OS: Windows 2000 (Windows 2000 LAN Manager)<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+<br/>
+10.11.1.218<br/>
+OS: Windows 7 Professional 7601 Service Pack 1 (Windows 7 Professional 6.1)<br/>
+135/tcp open &nbsp;msrpc<br/>
+139/tcp open &nbsp;netbios-ssn<br/>
+445/tcp open &nbsp;microsoft-ds<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+<br/>
+10.11.1.219<br/>
+OS: Windows Server 2008 R2 Standard 7601 Service Pack 1 (Windows Server 2008 R2 Standard 6.1)<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp; open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.220<br/>
+OS: Windows Server 2008 R2 Standard 7601 Service Pack 1 (Windows Server 2008 R2 Standard 6.1)<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+<br/>
+10.11.1.223<br/>
+OS: Windows Server (R) 2008 Standard 6001 Service Pack 1 (Windows Server (R) 2008 Standard 6.0)<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp; open &nbsp;microsoft-ds<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.227<br/>
+OS: Windows 2000 (Windows 2000 LAN Manager)<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+smb-vuln-ms08-067: VULNERABLE:<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+10.11.1.230<br/>
+OS: Windows 7 Ultimate N 7600 (Windows 7 Ultimate N 6.1)<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp; open &nbsp;microsoft-ds<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+msf auxiliary(scanner/smb/smb_version) &gt; run<br/>
+<br/>
+[*] 10.11.1.8:445 &nbsp; &nbsp; &nbsp; &nbsp; - Host could not be identified: Unix (Samba 3.0.33-0.17.el4)<br/>
+[+] 10.11.1.5:445 &nbsp; &nbsp; &nbsp; &nbsp; - Host is running Windows XP (name:ALICE) (domain:THINC)<br/>
+[*] 10.11.1.22:139 &nbsp; &nbsp; &nbsp; &nbsp;- Host could not be identified: Unix (Samba 2.2.3a)<br/>
+[*] 10.11.1.24:445 &nbsp; &nbsp; &nbsp; &nbsp;- Host could not be identified: Unix (Samba 3.0.26a)<br/>
+[+] 10.11.1.31:445 &nbsp; &nbsp; &nbsp; &nbsp;- Host is running Windows 2003 SP1 (build:3790) (name:RALPH)<br/>
+[*] Scanned &nbsp;29 of 254 hosts (11% complete)<br/>
+[*] 10.11.1.49:139 &nbsp; &nbsp; &nbsp; &nbsp;- Host could not be identified: &nbsp;()<br/>
+[*] Scanned &nbsp;54 of 254 hosts (21% complete)<br/>
+[*] 10.11.1.50:139 &nbsp; &nbsp; &nbsp; &nbsp;- Host could not be identified: &nbsp;()<br/>
+[+] 10.11.1.73:445 &nbsp; &nbsp; &nbsp; &nbsp;- Host is running Windows 7 Professional SP1 (build:7601) (name:GAMMA) (workgroup:WORKGROUP )<br/>
+[*] Scanned &nbsp;77 of 254 hosts (30% complete)<br/>
+[*] Scanned 103 of 254 hosts (40% complete)<br/>
+[*] 10.11.1.115:139 &nbsp; &nbsp; &nbsp; - Host could not be identified: Unix (Samba 2.2.7a)<br/>
+[+] 10.11.1.128:139 &nbsp; &nbsp; &nbsp; - Host is running Windows 2000 SP0 - 4 (language:English) (name:DJ)<br/>
+[*] Scanned 134 of 254 hosts (52% complete)<br/>
+[*] 10.11.1.136:445 &nbsp; &nbsp; &nbsp; - Host could not be identified: Unix (Samba 3.0.24)<br/>
+[+] 10.11.1.145:445 &nbsp; &nbsp; &nbsp; - Host is running Windows 2008 Standard SP1 (build:6001) (name:HELPDESK) (workgroup:WORKGROUP )<br/>
+[*] Scanned 154 of 254 hosts (60% complete)<br/>
+[*] Scanned 178 of 254 hosts (70% complete)<br/>
+[+] 10.11.1.202:445 &nbsp; &nbsp; &nbsp; - Host is running Windows 2000 SP4 with ms05-010+ (language:English) (name:ORACLE) (domain:ACME)<br/>
+[*] Scanned 204 of 254 hosts (80% complete)<br/>
+[+] 10.11.1.220:445 &nbsp; &nbsp; &nbsp; - Host is running Windows 2008 R2 Standard SP1 (build:7601) (name:MASTER) (domain:THINC)<br/>
+[+] 10.11.1.218:445 &nbsp; &nbsp; &nbsp; - Host is running Windows 7 Professional SP1 (build:7601) (name:OBSERVER) (domain:THINC)<br/>
+[+] 10.11.1.223:445 &nbsp; &nbsp; &nbsp; - Host is running Windows 2008 Standard SP1 (build:6001) (name:JEFF) (workgroup:WORKGROUP )<br/>
+[+] 10.11.1.227:445 &nbsp; &nbsp; &nbsp; - Host is running Windows 2000 SP0 - 4 (language:English) (name:JD)<br/>
+[+] 10.11.1.229:139 &nbsp; &nbsp; &nbsp; - Host is running Windows 2003 SP1 (build:3790) (name:MAIL) (workgroup:WORKGROUP )<br/>
+[*] Scanned 232 of 254 hosts (91% complete)<br/>
+[+] 10.11.1.230:445 &nbsp; &nbsp; &nbsp; - Host is running Windows 7 Ultimate N (build:7600) (name:KEVIN) (workgroup:WORKGROUP )<br/>
+[*] Scanned 254 of 254 hosts (100% complete)<br/>
+[*] Auxiliary module execution completed<br/>
+msf auxiliary(scanner/smb/smb_version) &gt; <br/>
+<br/>
+<br/>
+msf auxiliary(scanner/smb/smb_enumusers) &gt; run<br/>
+<br/>
+[+] 10.11.1.8:139 &nbsp; &nbsp; &nbsp; &nbsp; - PHOENIX [ &nbsp;] ( LockoutTries=0 PasswordMin=5 )<br/>
+[+] 10.11.1.24:139 &nbsp; &nbsp; &nbsp; &nbsp;- PAYDAY [ games, nobody, proxy, syslog, www-data, root, news, bin, mail, dhcp, daemon, sshd, man, lp, mysql, dovecot, gnats, backup, sys, klog, postfix, list, irc, sync, uucp ] ( LockoutTries=0 PasswordMin=5 )<br/>
+[*] Scanned &nbsp;26 of 254 hosts (10% complete)<br/>
+[+] 10.11.1.31:445 &nbsp; &nbsp; &nbsp; &nbsp;- RALPH [ &nbsp;] <br/>
+[*] Scanned &nbsp;58 of 254 hosts (22% complete)<br/>
+[*] Scanned &nbsp;78 of 254 hosts (30% complete)<br/>
+[*] Scanned 103 of 254 hosts (40% complete)<br/>
+Error: 10.11.1.115 Rex::Proto::DCERPC::Exceptions::Fault DCERPC FAULT =&gt; nca_op_rng_error<br/>
+[+] 10.11.1.128:445 &nbsp; &nbsp; &nbsp; - DJ [ Administrator, Guest, IUSR_SRV2, IWAM_SRV2, TsInternetUser, woot, yuntao ] ( LockoutTries=0 PasswordMin=0 )<br/>
+[*] Scanned 135 of 254 hosts (53% complete)<br/>
+[+] 10.11.1.136:139 &nbsp; &nbsp; &nbsp; - SUFFERANCE [ games, nobody, proxy, www-data, root, news, bin, mail, daemon, sshd, man, lp, Debian-exim, gnats, backup, sys, bob, identd, list, irc, statd, sync, uucp ] ( LockoutTries=0 PasswordMin=5 )<br/>
+[*] Scanned 153 of 254 hosts (60% complete)<br/>
+[*] Scanned 178 of 254 hosts (70% complete)<br/>
+[+] 10.11.1.202:445 &nbsp; &nbsp; &nbsp; - ORACLE [ admin, Administrator, alison, backup, david, Guest, IUSR_ORACLE, IWAM_ORACLE, john, lisa, mark, TsInternetUser ] ( LockoutTries=0 PasswordMin=3 )<br/>
+[*] Scanned 205 of 254 hosts (80% complete)<br/>
+[+] 10.11.1.227:445 &nbsp; &nbsp; &nbsp; - JD [ admin, Administrator, backup, david, gary, Guest, homer, IUSR_SRV2, IWAM_SRV2, john, lee, lisa, mark, ned, nick, simon, sqlusr, todd, TsInternetUser ] ( LockoutTries=0 PasswordMin=0 )<br/>
+[*] Scanned 231 of 254 hosts (90% complete)<br/>
+[*] Scanned 254 of 254 hosts (100% complete)<br/>
+[*] Auxiliary module execution completed<br/>
+msf auxiliary(scanner/smb/smb_enumusers) &gt; <br/>
+<br/>
+</body></html>

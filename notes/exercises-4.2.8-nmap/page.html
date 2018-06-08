@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Exercises-4.2.8-Nmap</title>
+</head><body>1. Use nmap to conduct a ping sweep of your target IP range and save the output<br/>
+to a file, so that you can grep for hosts that are online.<br/>
+2. Scan the IPs you found in exercise 1 for open webserver ports. Use nmap to find<br/>
+the web server and operating system versions.<br/>
+3. Use the NSE scripts to scan the servers in the labs which are running the SMB<br/>
+service.<br/>
+4. Explore the various command line options that nmap offers while scanning an<br/>
+online host you discovered within your target IP range. Monitor the bandwidth<br/>
+usage changes for the different options. Weigh the use of collecting as much<br/>
+information as possible against the resources it takes to gather it.<br/>
+<br/>
+1. <br/>
+nmap -sn 10.11.1.1-254 -oG n:q<br/>
+mapSweepPing.txt<br/>
+<br/>
+Hosts that are online:<br/>
+10.11.1.5<br/>
+10.11.1.7<br/>
+10.11.1.8<br/>
+10.11.1.10<br/>
+10.11.1.13<br/>
+10.11.1.14<br/>
+10.11.1.22<br/>
+10.11.1.24<br/>
+10.11.1.31<br/>
+10.11.1.35<br/>
+10.11.1.39<br/>
+10.11.1.44<br/>
+10.11.1.49<br/>
+10.11.1.50<br/>
+10.11.1.71<br/>
+10.11.1.72<br/>
+10.11.1.73<br/>
+10.11.1.115<br/>
+10.11.1.116<br/>
+10.11.1.125<br/>
+10.11.1.128<br/>
+10.11.1.133<br/>
+10.11.1.136<br/>
+10.11.1.141<br/>
+10.11.1.145<br/>
+10.11.1.146<br/>
+10.11.1.202<br/>
+10.11.1.209<br/>
+10.11.1.217<br/>
+10.11.1.218<br/>
+10.11.1.219<br/>
+10.11.1.220<br/>
+10.11.1.221<br/>
+10.11.1.223<br/>
+10.11.1.226<br/>
+10.11.1.227<br/>
+10.11.1.229<br/>
+10.11.1.230<br/>
+10.11.1.234<br/>
+10.11.1.237<br/>
+10.11.1.238<br/>
+10.11.1.247<br/>
+10.11.1.251<br/>
+10.11.1.252<br/>
+<br/>
+2.<br/>
+for ip in $(cat targetHostsOnline.txt); do nmap -sV -O -p 80 $ip; done | grep -E 'Nmap scan report for|80/tcp' &gt; targetWebServers.txt<br/>
+<br/>
+<br/>
+Web servers:<br/>
+10.11.1.7 80/tcp filtered http<br/>
+10.11.1.8 80/tcp open &nbsp;http &nbsp; &nbsp;Apache httpd 2.0.52 ((CentOS))<br/>
+10.11.1.10 80/tcp open &nbsp;http &nbsp; &nbsp;Microsoft IIS httpd 6.0<br/>
+10.11.1.13 80/tcp open &nbsp;http &nbsp; &nbsp;Microsoft IIS httpd 5.1<br/>
+10.11.1.14 80/tcp open &nbsp;http &nbsp; &nbsp;Microsoft IIS httpd 5.1<br/>
+10.11.1.22 80/tcp open &nbsp;http &nbsp; &nbsp;Apache httpd 1.3.23 ((Unix) &nbsp;(Red-Hat/Linux) mod_python/2.7.6 Python/1.5.2 mod_ssl/2.8.7 OpenSSL/0.9.6b DAV/1.0.3 PHP/4.1.2 mod_perl/1.26 mod_throttle/3.1.2)<br/>
+10.11.1.24 80/tcp open &nbsp;http &nbsp; &nbsp;Apache httpd 2.2.4 ((Ubuntu) PHP/5.2.3-1ubuntu6)<br/>
+10.11.1.31 80/tcp open &nbsp;http &nbsp; &nbsp;Microsoft IIS httpd 6.0<br/>
+10.11.1.35 80/tcp filtered http<br/>
+10.11.1.39 80/tcp open &nbsp;http &nbsp; &nbsp;nginx 1.6.3<br/>
+10.11.1.49 80/tcp open &nbsp;http &nbsp; &nbsp;Microsoft IIS httpd 8.5<br/>
+10.11.1.50 80/tcp open &nbsp;http &nbsp; &nbsp;Microsoft IIS httpd 8.5<br/>
+10.11.1.71 80/tcp open &nbsp;http &nbsp; &nbsp;Apache httpd 2.4.7 ((Ubuntu))<br/>
+10.11.1.72 80/tcp open &nbsp;http &nbsp; &nbsp;Apache httpd 2.2.20 ((Ubuntu))<br/>
+10.11.1.73 80/tcp filtered http<br/>
+10.11.1.115 80/tcp open &nbsp;http &nbsp; &nbsp;Apache httpd 2.0.40 ((Red Hat Linux))<br/>
+10.11.1.116 80/tcp open &nbsp;http &nbsp; &nbsp;Apache httpd 2.4.6 ((FreeBSD) PHP/5.4.23)<br/>
+10.11.1.125 80/tcp filtered http<br/>
+10.11.1.128 80/tcp open &nbsp;http &nbsp; &nbsp;Microsoft IIS httpd 5.0<br/>
+10.11.1.133 80/tcp open &nbsp;http &nbsp; &nbsp;Microsoft-IIS &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+10.11.1.145 80/tcp filtered http<br/>
+10.11.1.202 80/tcp open &nbsp;http &nbsp; &nbsp;Microsoft IIS httpd 5.0<br/>
+10.11.1.209 80/tcp open &nbsp;http &nbsp; &nbsp;Apache httpd 1.3.41 ((Unix) mod_perl/1.31)<br/>
+10.11.1.217 80/tcp open &nbsp;http &nbsp; &nbsp;Apache httpd 2.2.3<br/>
+10.11.1.218 80/tcp filtered http<br/>
+10.11.1.219 80/tcp open &nbsp;http &nbsp; &nbsp;Apache httpd<br/>
+10.11.1.221 80/tcp filtered http<br/>
+10.11.1.223 80/tcp open &nbsp;http &nbsp; &nbsp;Apache httpd 2.2.14 (DAV/2 mod_ssl/2.2.14 OpenSSL/0.9.8l mod_autoindex_color PHP/5.3.1 mod_apreq2-20090110/2.7.1 mod_perl/2.0.4 Perl/v5.10.1)<br/>
+10.11.1.226 80/tcp filtered http<br/>
+10.11.1.227 80/tcp open &nbsp;http &nbsp; &nbsp;Microsoft IIS httpd 5.0<br/>
+10.11.1.229 80/tcp filtered http<br/>
+10.11.1.234 80/tcp open &nbsp;http &nbsp; &nbsp;Apache httpd 2.2.14 ((Ubuntu))<br/>
+10.11.1.237 80/tcp open &nbsp;http &nbsp; &nbsp;Apache httpd 2.2.22 ((Debian))<br/>
+10.11.1.238 80/tcp open &nbsp;http &nbsp; &nbsp;Apache httpd 2.2.22 ((Debian))<br/>
+10.11.1.247 80/tcp filtered http<br/>
+10.11.1.251 80/tcp open &nbsp;http &nbsp; &nbsp;Apache httpd 2.2.11 ((Ubuntu) PHP/5.2.6-3ubuntu4.4 with Suhosin-Patch)<br/>
+10.11.1.252 80/tcp filtered http<br/>
+<br/>
+<br/>
+3.<br/>
+for ip in $(cat targetHostsOnline.txt); do nmap --script=smb-os-discovery.nse $ip; done &gt; targetSMB.txt<br/>
+<br/>
+10.11.1.5<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.7<br/>
+139/tcp &nbsp;open &nbsp; netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp; microsoft-ds<br/>
+<br/>
+10.11.1.22<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+<br/>
+10.11.1.24<br/>
+139/tcp open &nbsp;netbios-ssn<br/>
+445/tcp open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.31<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.49<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+<br/>
+10.11.1.50<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+<br/>
+10.11.1.73<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp; open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.115<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+<br/>
+10.11.1.128<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+443/tcp &nbsp;open &nbsp;https<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.136<br/>
+139/tcp &nbsp;open &nbsp; &nbsp; netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp; &nbsp; microsoft-ds<br/>
+<br/>
+10.11.1.145<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.202<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.218<br/>
+135/tcp open &nbsp;msrpc<br/>
+139/tcp open &nbsp;netbios-ssn<br/>
+445/tcp open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.219<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp; open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.220<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+<br/>
+10.11.1.221<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+<br/>
+10.11.1.223<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp; open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.227<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+<br/>
+10.11.1.230<br/>
+135/tcp &nbsp; open &nbsp;msrpc<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp; open &nbsp;microsoft-ds<br/>
+<br/>
+4.<br/>
+Use iptables command to monitor bandwidth changes. Try to target machines individually when interested in a particular service.<br/>
+<br/>
+<br/>
+<br/>
+</body></html>
