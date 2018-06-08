@@ -1,0 +1,98 @@
+
+*******************************************************************
+*                                                                 *
+* | |_| |__   ___    /\  /\__ _ _ ____   _____  ___| |_ ___ _ __  *
+* | __| '_ \ / _ \  / /_/ / _` | '__\ \ / / _ \/ __| __/ _ \ '__| *
+* | |_| | | |  __/ / __  / (_| | |   \ V /  __/\__ \ ||  __/ |    *
+*  \__|_| |_|\___| \/ /_/ \__,_|_|    \_/ \___||___/\__\___|_|    *
+*                                                                 *
+* TheHarvester Ver. 2.7                                           *
+* Coded by Christian Martorella                                   *
+* Edge-Security Research                                          *
+* cmartorella@edge-security.com                                   *
+*******************************************************************
+
+
+Full harvest..
+[-] Searching in Google..
+	Searching 0 results...
+	Searching 100 results...
+[-] Searching in PGP Key server..
+[-] Searching in Bing..
+	Searching 50 results...
+	Searching 100 results...
+[-] Searching in Exalead..
+	Searching 50 results...
+	Searching 100 results...
+	Searching 150 results...
+
+
+[+] Emails found:
+------------------
+mark.stouffer@bethesda.net
+pixel-1527086760157675-web-@bethesda.net
+pixel-1527086762127032-web-@bethesda.net
+susheel.vadlamudi@bethesda.net
+
+[+] Hosts found in search engines:
+------------------------------------
+[-] Resolving hostnames IPs... 
+104.239.207.44:2Faccount.bethesda.net
+198.105.254.130:2Fmods.bethesda.net
+104.239.207.44:2Fwww.bethesda.net
+54.230.204.96:account.bethesda.net
+54.231.73.17:community.bethesda.net
+104.16.88.39:creationclub.bethesda.net
+74.117.206.119:help.bethesda.net
+74.117.206.119:hilfe.bethesda.net
+104.16.88.39:legends.bethesda.net
+216.137.41.68:mods.bethesda.net
+104.16.87.39:prey.bethesda.net
+104.16.87.39:quake.bethesda.net
+45.60.149.59:store.bethesda.net
+104.16.87.39:theevilwithin2.bethesda.net
+216.137.41.185:www.bethesda.net
+[+] Virtual hosts:
+==================
+54.231.73.17	moebio.com
+104.16.88.39	prey
+104.16.88.39	theevilwithin
+104.16.88.39	dishonored
+104.16.88.39	elderscrolls.bethesda.net
+104.16.88.39	fallout
+74.117.206.119	help.bethesda
+74.117.206.119	help.bethesda.net
+74.117.206.119	aide.bethesda.net
+74.117.206.119	aiuto.bethesda.net
+74.117.206.119	ayuda.bethesda.net
+74.117.206.119	hilfe.bethesda.net
+216.137.41.68	ファミ通App
+216.137.41.68	confluence.atlassian.com
+216.137.41.68	www.morgan-properties.com
+216.137.41.68	blognews.ameba.jp
+104.16.87.39	elderscrolls
+104.16.87.39	quake.bethesda.net
+104.16.87.39	elderscrolls.bethesda.net
+45.60.149.59	www.microsofthup.com
+45.60.149.59	store.trendmicro
+45.60.149.59	shop.sandisk
+45.60.149.59	marketing
+45.60.149.59	store.ptc
+45.60.149.59	store.vmware.com
+45.60.149.59	store.digitalriver.com
+45.60.149.59	shop.sandisk.com
+45.60.149.59	eu.furla.com
+45.60.149.59	usstore.lg.com
+45.60.149.59	www.findmyorder.com
+45.60.149.59	store.kaspersky.com
+45.60.149.59	store.citrix
+45.60.149.59	store.nvidia.com
+45.60.149.59	shop.nuance.com
+45.60.149.59	shop.us.samsung.com
+216.137.41.185	www.aztechradiology
+216.137.41.185	library.e.abb.com
+216.137.41.185	www.efteling.com
+216.137.41.185	www.autoscout24.be
+216.137.41.185	supremo.vlex.es
+216.137.41.185	www.cerezo.jp
+216.137.41.185	vlex.es

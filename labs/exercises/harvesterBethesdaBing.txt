@@ -1,0 +1,38 @@
+
+*******************************************************************
+*                                                                 *
+* | |_| |__   ___    /\  /\__ _ _ ____   _____  ___| |_ ___ _ __  *
+* | __| '_ \ / _ \  / /_/ / _` | '__\ \ / / _ \/ __| __/ _ \ '__| *
+* | |_| | | |  __/ / __  / (_| | |   \ V /  __/\__ \ ||  __/ |    *
+*  \__|_| |_|\___| \/ /_/ \__,_|_|    \_/ \___||___/\__\___|_|    *
+*                                                                 *
+* TheHarvester Ver. 2.7                                           *
+* Coded by Christian Martorella                                   *
+* Edge-Security Research                                          *
+* cmartorella@edge-security.com                                   *
+*******************************************************************
+
+
+[-] Searching in Bing:
+	Searching 50 results...
+	Searching 100 results...
+
+
+[+] Emails found:
+------------------
+No emails found
+
+[+] Hosts found in search engines:
+------------------------------------
+[-] Resolving hostnames IPs... 
+54.230.204.96:account.bethesda.net
+52.216.133.130:community.bethesda.net
+104.16.87.39:creationclub.bethesda.net
+104.16.88.39:elderscrolls.bethesda.net
+23.227.38.32:gear.bethesda.net
+74.117.206.119:help.bethesda.net
+74.117.206.119:hilfe.bethesda.net
+104.16.87.39:legends.bethesda.net
+104.16.87.39:quake.bethesda.net
+104.16.88.39:wolfenstein.bethesda.net
+216.137.41.173:www.bethesda.net

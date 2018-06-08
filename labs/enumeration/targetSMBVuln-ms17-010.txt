@@ -1,0 +1,569 @@
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-05-30 12:12 EDT
+NSE: Loaded 1 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.00s elapsed
+Initiating ARP Ping Scan at 12:12
+Scanning 10.11.1.5 [1 port]
+Completed ARP Ping Scan at 12:12, 0.22s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 12:12
+Completed Parallel DNS resolution of 1 host. at 12:12, 0.04s elapsed
+Initiating SYN Stealth Scan at 12:12
+Scanning 10.11.1.5 [2 ports]
+Discovered open port 139/tcp on 10.11.1.5
+Discovered open port 445/tcp on 10.11.1.5
+Completed SYN Stealth Scan at 12:12, 0.22s elapsed (2 total ports)
+NSE: Script scanning 10.11.1.5.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.47s elapsed
+Nmap scan report for 10.11.1.5
+Host is up (0.055s latency).
+
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:50:56:89:05:E5 (VMware)
+
+Host script results:
+| smb-vuln-ms17-010: 
+|   VULNERABLE:
+|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2017-0143
+|     Risk factor: HIGH
+|       A critical remote code execution vulnerability exists in Microsoft SMBv1
+|        servers (ms17-010).
+|           
+|     Disclosure date: 2017-03-14
+|     References:
+|       https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+|_      https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
+
+NSE: Script Post-scanning.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 1.31 seconds
+           Raw packets sent: 3 (116B) | Rcvd: 3 (116B)
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-05-30 12:12 EDT
+NSE: Loaded 1 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.00s elapsed
+Initiating ARP Ping Scan at 12:12
+Scanning 10.11.1.31 [1 port]
+Completed ARP Ping Scan at 12:12, 0.22s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 12:12
+Completed Parallel DNS resolution of 1 host. at 12:12, 0.02s elapsed
+Initiating SYN Stealth Scan at 12:12
+Scanning 10.11.1.31 [2 ports]
+Discovered open port 139/tcp on 10.11.1.31
+Discovered open port 445/tcp on 10.11.1.31
+Completed SYN Stealth Scan at 12:12, 0.22s elapsed (2 total ports)
+NSE: Script scanning 10.11.1.31.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.29s elapsed
+Nmap scan report for 10.11.1.31
+Host is up (0.040s latency).
+
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:50:56:89:68:22 (VMware)
+
+Host script results:
+| smb-vuln-ms17-010: 
+|   VULNERABLE:
+|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2017-0143
+|     Risk factor: HIGH
+|       A critical remote code execution vulnerability exists in Microsoft SMBv1
+|        servers (ms17-010).
+|           
+|     Disclosure date: 2017-03-14
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+|       https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+|_      https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
+
+NSE: Script Post-scanning.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 1.08 seconds
+           Raw packets sent: 3 (116B) | Rcvd: 3 (116B)
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-05-30 12:12 EDT
+NSE: Loaded 1 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.00s elapsed
+Initiating ARP Ping Scan at 12:12
+Scanning 10.11.1.73 [1 port]
+Completed ARP Ping Scan at 12:12, 0.22s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 12:12
+Completed Parallel DNS resolution of 1 host. at 12:12, 0.02s elapsed
+Initiating SYN Stealth Scan at 12:12
+Scanning 10.11.1.73 [2 ports]
+Discovered open port 139/tcp on 10.11.1.73
+Discovered open port 445/tcp on 10.11.1.73
+Completed SYN Stealth Scan at 12:12, 1.46s elapsed (2 total ports)
+NSE: Script scanning 10.11.1.73.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.41s elapsed
+Nmap scan report for 10.11.1.73
+Host is up (0.043s latency).
+
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:50:56:89:61:CD (VMware)
+
+Host script results:
+| smb-vuln-ms17-010: 
+|   VULNERABLE:
+|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2017-0143
+|     Risk factor: HIGH
+|       A critical remote code execution vulnerability exists in Microsoft SMBv1
+|        servers (ms17-010).
+|           
+|     Disclosure date: 2017-03-14
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+|       https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
+|_      https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+
+NSE: Script Post-scanning.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 2.43 seconds
+           Raw packets sent: 4 (160B) | Rcvd: 3 (116B)
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-05-30 12:12 EDT
+NSE: Loaded 1 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.00s elapsed
+Initiating ARP Ping Scan at 12:12
+Scanning 10.11.1.128 [1 port]
+Completed ARP Ping Scan at 12:12, 0.22s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 12:12
+Completed Parallel DNS resolution of 1 host. at 12:12, 0.01s elapsed
+Initiating SYN Stealth Scan at 12:12
+Scanning 10.11.1.128 [2 ports]
+Discovered open port 139/tcp on 10.11.1.128
+Discovered open port 445/tcp on 10.11.1.128
+Completed SYN Stealth Scan at 12:12, 0.22s elapsed (2 total ports)
+NSE: Script scanning 10.11.1.128.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.42s elapsed
+Nmap scan report for 10.11.1.128
+Host is up (0.041s latency).
+
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:50:56:89:0A:DE (VMware)
+
+Host script results:
+| smb-vuln-ms17-010: 
+|   VULNERABLE:
+|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2017-0143
+|     Risk factor: HIGH
+|       A critical remote code execution vulnerability exists in Microsoft SMBv1
+|        servers (ms17-010).
+|           
+|     Disclosure date: 2017-03-14
+|     References:
+|       https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
+|       https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+
+NSE: Script Post-scanning.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 1.20 seconds
+           Raw packets sent: 3 (116B) | Rcvd: 3 (116B)
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-05-30 12:12 EDT
+NSE: Loaded 1 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.00s elapsed
+Initiating ARP Ping Scan at 12:12
+Scanning 10.11.1.145 [1 port]
+Completed ARP Ping Scan at 12:12, 0.22s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 12:12
+Completed Parallel DNS resolution of 1 host. at 12:12, 0.02s elapsed
+Initiating SYN Stealth Scan at 12:12
+Scanning 10.11.1.145 [2 ports]
+Discovered open port 139/tcp on 10.11.1.145
+Discovered open port 445/tcp on 10.11.1.145
+Completed SYN Stealth Scan at 12:12, 1.45s elapsed (2 total ports)
+NSE: Script scanning 10.11.1.145.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.35s elapsed
+Nmap scan report for 10.11.1.145
+Host is up (0.046s latency).
+
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:50:56:89:44:7E (VMware)
+
+Host script results:
+| smb-vuln-ms17-010: 
+|   VULNERABLE:
+|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2017-0143
+|     Risk factor: HIGH
+|       A critical remote code execution vulnerability exists in Microsoft SMBv1
+|        servers (ms17-010).
+|           
+|     Disclosure date: 2017-03-14
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+|       https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
+|_      https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+
+NSE: Script Post-scanning.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 2.33 seconds
+           Raw packets sent: 4 (160B) | Rcvd: 3 (116B)
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-05-30 12:12 EDT
+NSE: Loaded 1 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.00s elapsed
+Initiating ARP Ping Scan at 12:12
+Scanning 10.11.1.202 [1 port]
+Completed ARP Ping Scan at 12:12, 0.22s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 12:12
+Completed Parallel DNS resolution of 1 host. at 12:12, 0.02s elapsed
+Initiating SYN Stealth Scan at 12:12
+Scanning 10.11.1.202 [2 ports]
+Discovered open port 139/tcp on 10.11.1.202
+Discovered open port 445/tcp on 10.11.1.202
+Completed SYN Stealth Scan at 12:12, 0.23s elapsed (2 total ports)
+NSE: Script scanning 10.11.1.202.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 2.62s elapsed
+Nmap scan report for 10.11.1.202
+Host is up (0.040s latency).
+
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:50:56:89:6D:B7 (VMware)
+
+Host script results:
+| smb-vuln-ms17-010: 
+|   VULNERABLE:
+|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2017-0143
+|     Risk factor: HIGH
+|       A critical remote code execution vulnerability exists in Microsoft SMBv1
+|        servers (ms17-010).
+|           
+|     Disclosure date: 2017-03-14
+|     References:
+|       https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
+|       https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+
+NSE: Script Post-scanning.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 3.37 seconds
+           Raw packets sent: 3 (116B) | Rcvd: 3 (116B)
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-05-30 12:12 EDT
+NSE: Loaded 1 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 12:12
+Completed NSE at 12:12, 0.00s elapsed
+Initiating ARP Ping Scan at 12:12
+Scanning 10.11.1.218 [1 port]
+Completed ARP Ping Scan at 12:12, 0.22s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 12:12
+Completed Parallel DNS resolution of 1 host. at 12:12, 0.02s elapsed
+Initiating SYN Stealth Scan at 12:12
+Scanning 10.11.1.218 [2 ports]
+Discovered open port 445/tcp on 10.11.1.218
+Discovered open port 139/tcp on 10.11.1.218
+Completed SYN Stealth Scan at 12:13, 1.46s elapsed (2 total ports)
+NSE: Script scanning 10.11.1.218.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.36s elapsed
+Nmap scan report for 10.11.1.218
+Host is up (0.046s latency).
+
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:50:56:89:79:21 (VMware)
+
+Host script results:
+| smb-vuln-ms17-010: 
+|   VULNERABLE:
+|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2017-0143
+|     Risk factor: HIGH
+|       A critical remote code execution vulnerability exists in Microsoft SMBv1
+|        servers (ms17-010).
+|           
+|     Disclosure date: 2017-03-14
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+|       https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
+|_      https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+
+NSE: Script Post-scanning.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 2.36 seconds
+           Raw packets sent: 4 (160B) | Rcvd: 3 (116B)
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-05-30 12:13 EDT
+NSE: Loaded 1 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.00s elapsed
+Initiating ARP Ping Scan at 12:13
+Scanning 10.11.1.219 [1 port]
+Completed ARP Ping Scan at 12:13, 0.22s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 12:13
+Completed Parallel DNS resolution of 1 host. at 12:13, 0.02s elapsed
+Initiating SYN Stealth Scan at 12:13
+Scanning 10.11.1.219 [2 ports]
+Completed SYN Stealth Scan at 12:13, 1.42s elapsed (2 total ports)
+NSE: Script scanning 10.11.1.219.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.00s elapsed
+Nmap scan report for 10.11.1.219
+Host is up (0.038s latency).
+
+PORT    STATE    SERVICE
+139/tcp filtered netbios-ssn
+445/tcp filtered microsoft-ds
+MAC Address: 00:50:56:89:12:24 (VMware)
+
+NSE: Script Post-scanning.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 1.96 seconds
+           Raw packets sent: 5 (204B) | Rcvd: 1 (28B)
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-05-30 12:13 EDT
+NSE: Loaded 1 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.00s elapsed
+Initiating ARP Ping Scan at 12:13
+Scanning 10.11.1.220 [1 port]
+Completed ARP Ping Scan at 12:13, 0.23s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 12:13
+Completed Parallel DNS resolution of 1 host. at 12:13, 0.02s elapsed
+Initiating SYN Stealth Scan at 12:13
+Scanning 10.11.1.220 [2 ports]
+Discovered open port 139/tcp on 10.11.1.220
+Discovered open port 445/tcp on 10.11.1.220
+Completed SYN Stealth Scan at 12:13, 1.45s elapsed (2 total ports)
+NSE: Script scanning 10.11.1.220.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.37s elapsed
+Nmap scan report for 10.11.1.220
+Host is up (0.045s latency).
+
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:50:56:89:7B:55 (VMware)
+
+Host script results:
+| smb-vuln-ms17-010: 
+|   VULNERABLE:
+|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2017-0143
+|     Risk factor: HIGH
+|       A critical remote code execution vulnerability exists in Microsoft SMBv1
+|        servers (ms17-010).
+|           
+|     Disclosure date: 2017-03-14
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+|       https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+|_      https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
+
+NSE: Script Post-scanning.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 2.41 seconds
+           Raw packets sent: 4 (160B) | Rcvd: 3 (116B)
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-05-30 12:13 EDT
+NSE: Loaded 1 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.00s elapsed
+Initiating ARP Ping Scan at 12:13
+Scanning 10.11.1.223 [1 port]
+Completed ARP Ping Scan at 12:13, 0.21s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 12:13
+Completed Parallel DNS resolution of 1 host. at 12:13, 0.02s elapsed
+Initiating SYN Stealth Scan at 12:13
+Scanning 10.11.1.223 [2 ports]
+Discovered open port 139/tcp on 10.11.1.223
+Completed SYN Stealth Scan at 12:13, 1.43s elapsed (2 total ports)
+NSE: Script scanning 10.11.1.223.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.41s elapsed
+Nmap scan report for 10.11.1.223
+Host is up (0.043s latency).
+
+PORT    STATE    SERVICE
+139/tcp open     netbios-ssn
+445/tcp filtered microsoft-ds
+MAC Address: 00:50:56:89:5D:C4 (VMware)
+
+Host script results:
+| smb-vuln-ms17-010: 
+|   VULNERABLE:
+|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2017-0143
+|     Risk factor: HIGH
+|       A critical remote code execution vulnerability exists in Microsoft SMBv1
+|        servers (ms17-010).
+|           
+|     Disclosure date: 2017-03-14
+|     References:
+|       https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+|       https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+
+NSE: Script Post-scanning.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 2.37 seconds
+           Raw packets sent: 4 (160B) | Rcvd: 2 (72B)
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-05-30 12:13 EDT
+NSE: Loaded 1 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.00s elapsed
+Initiating ARP Ping Scan at 12:13
+Scanning 10.11.1.227 [1 port]
+Completed ARP Ping Scan at 12:13, 0.23s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 12:13
+Completed Parallel DNS resolution of 1 host. at 12:13, 0.02s elapsed
+Initiating SYN Stealth Scan at 12:13
+Scanning 10.11.1.227 [2 ports]
+Discovered open port 139/tcp on 10.11.1.227
+Discovered open port 445/tcp on 10.11.1.227
+Completed SYN Stealth Scan at 12:13, 0.22s elapsed (2 total ports)
+NSE: Script scanning 10.11.1.227.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.28s elapsed
+Nmap scan report for 10.11.1.227
+Host is up (0.039s latency).
+
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:50:56:89:72:CB (VMware)
+
+Host script results:
+| smb-vuln-ms17-010: 
+|   VULNERABLE:
+|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2017-0143
+|     Risk factor: HIGH
+|       A critical remote code execution vulnerability exists in Microsoft SMBv1
+|        servers (ms17-010).
+|           
+|     Disclosure date: 2017-03-14
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+|       https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
+|_      https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+
+NSE: Script Post-scanning.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 1.03 seconds
+           Raw packets sent: 3 (116B) | Rcvd: 3 (116B)
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-05-30 12:13 EDT
+NSE: Loaded 1 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.00s elapsed
+Initiating ARP Ping Scan at 12:13
+Scanning 10.11.1.230 [1 port]
+Completed ARP Ping Scan at 12:13, 0.22s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 12:13
+Completed Parallel DNS resolution of 1 host. at 12:13, 0.03s elapsed
+Initiating SYN Stealth Scan at 12:13
+Scanning 10.11.1.230 [2 ports]
+Discovered open port 445/tcp on 10.11.1.230
+Discovered open port 139/tcp on 10.11.1.230
+Completed SYN Stealth Scan at 12:13, 1.46s elapsed (2 total ports)
+NSE: Script scanning 10.11.1.230.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.36s elapsed
+Nmap scan report for 10.11.1.230
+Host is up (0.049s latency).
+
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:50:56:89:4D:82 (VMware)
+
+Host script results:
+| smb-vuln-ms17-010: 
+|   VULNERABLE:
+|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2017-0143
+|     Risk factor: HIGH
+|       A critical remote code execution vulnerability exists in Microsoft SMBv1
+|        servers (ms17-010).
+|           
+|     Disclosure date: 2017-03-14
+|     References:
+|       https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+|_      https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
+
+NSE: Script Post-scanning.
+Initiating NSE at 12:13
+Completed NSE at 12:13, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 2.35 seconds
+           Raw packets sent: 4 (160B) | Rcvd: 3 (116B)

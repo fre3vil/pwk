@@ -1,0 +1,39 @@
+
+*******************************************************************
+*                                                                 *
+* | |_| |__   ___    /\  /\__ _ _ ____   _____  ___| |_ ___ _ __  *
+* | __| '_ \ / _ \  / /_/ / _` | '__\ \ / / _ \/ __| __/ _ \ '__| *
+* | |_| | | |  __/ / __  / (_| | |   \ V /  __/\__ \ ||  __/ |    *
+*  \__|_| |_|\___| \/ /_/ \__,_|_|    \_/ \___||___/\__\___|_|    *
+*                                                                 *
+* TheHarvester Ver. 2.7                                           *
+* Coded by Christian Martorella                                   *
+* Edge-Security Research                                          *
+* cmartorella@edge-security.com                                   *
+*******************************************************************
+
+
+[-] Searching in Linkedin..
+	Searching 100 results..
+Users from Linkedin:
+====================
+Harold Kimball - Enterprise ETL Engineer - ZeniMax Media
+Sue Do - HR and Recruiting Manager - BattleCry Studios
+Gian Sellare - Senior Cyber Intel Analyst - Lockheed Martin
+Chad Compton - Team Lead Network Projects - NTT DATA
+Elizabeth Chepul - HR Generalist - ZeniMax Media
+Oliver Murillo - Software Engineer - ZeniMax Media
+Troy Gillis - Quality Assurance Tester - ZeniMax Media
+Syed Ashraf
+Maya Jevremovic
+Tony Spyrka
+Gwen Halterman
+Raphael Colantonio
+Jay Hsu - Manager - Verizon Wireless
+Christopher Palmer
+Jonathan Goodwin - Marketing Manager - 2K
+John Goldsmith - Principal Consultant - Verys
+Alain HUYNH - Character Animator - Arkane Studios
+Jamie Thornton
+Mario Suarez - Xamarin Developer - Pariveda Solutions
+Robert McGovern - CEO and Founder - PreciseTarget

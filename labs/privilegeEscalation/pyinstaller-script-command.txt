@@ -1,0 +1,3 @@
+# Invoke this script on the victim machine after the python code has already been downloaded and saved in the pyinstaller directory.
+python pyinstaller.py --onefile ms11-080.py
+

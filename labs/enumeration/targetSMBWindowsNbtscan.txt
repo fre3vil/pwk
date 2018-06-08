@@ -1,0 +1,177 @@
+Doing NBT name scan for addresses from 10.11.1.5
+
+
+NetBIOS Name Table for Host 10.11.1.5:
+
+Name             Service          Type             
+----------------------------------------
+ALICE            <00>             UNIQUE
+THINC            <00>              GROUP
+ALICE            <03>             UNIQUE
+ALICE            <20>             UNIQUE
+THINC            <1e>              GROUP
+
+Adapter address: 00:50:56:89:05:e5
+----------------------------------------
+Doing NBT name scan for addresses from 10.11.1.31
+
+
+NetBIOS Name Table for Host 10.11.1.31:
+
+Name             Service          Type             
+----------------------------------------
+RALPH            <00>             UNIQUE
+THINC            <00>              GROUP
+RALPH            <1f>             UNIQUE
+RALPH            <03>             UNIQUE
+RALPH            <20>             UNIQUE
+THINC            <1e>              GROUP
+THINC            <1d>             UNIQUE
+__MSBROWSE__  <01>              GROUP
+
+Adapter address: 00:50:56:89:68:22
+----------------------------------------
+Doing NBT name scan for addresses from 10.11.1.73
+
+
+NetBIOS Name Table for Host 10.11.1.73:
+
+Incomplete packet, 173 bytes long.
+Name             Service          Type             
+----------------------------------------
+GAMMA            <00>             UNIQUE
+WORKGROUP        <00>              GROUP
+GAMMA            <20>             UNIQUE
+WORKGROUP        <1e>              GROUP
+
+Adapter address: 00:50:56:89:61:cd
+----------------------------------------
+Doing NBT name scan for addresses from 10.11.1.128
+
+
+NetBIOS Name Table for Host 10.11.1.128:
+
+Name             Service          Type             
+----------------------------------------
+DJ               <00>             UNIQUE
+DJ               <20>             UNIQUE
+WORKGROUP        <00>              GROUP
+INet~Services    <1c>              GROUP
+WORKGROUP        <1e>              GROUP
+DJ               <03>             UNIQUE
+IS~DJ            <00>             UNIQUE
+
+Adapter address: 00:50:56:89:0a:de
+----------------------------------------
+Doing NBT name scan for addresses from 10.11.1.145
+
+
+NetBIOS Name Table for Host 10.11.1.145:
+
+Incomplete packet, 155 bytes long.
+Name             Service          Type             
+----------------------------------------
+HELPDESK         <00>             UNIQUE
+WORKGROUP        <00>              GROUP
+HELPDESK         <20>             UNIQUE
+
+Adapter address: 00:50:56:89:44:7e
+----------------------------------------
+Doing NBT name scan for addresses from 10.11.1.202
+
+
+NetBIOS Name Table for Host 10.11.1.202:
+
+Name             Service          Type             
+----------------------------------------
+ORACLE           <00>             UNIQUE
+ACME             <00>              GROUP
+ORACLE           <03>             UNIQUE
+ORACLE           <20>             UNIQUE
+ACME             <1e>              GROUP
+INet~Services    <1c>              GROUP
+IS~ORACLE        <00>             UNIQUE
+ACME             <1d>             UNIQUE
+__MSBROWSE__  <01>              GROUP
+
+Adapter address: 00:50:56:89:6d:b7
+----------------------------------------
+Doing NBT name scan for addresses from 10.11.1.218
+
+
+NetBIOS Name Table for Host 10.11.1.218:
+
+Incomplete packet, 173 bytes long.
+Name             Service          Type             
+----------------------------------------
+OBSERVER         <00>             UNIQUE
+THINC            <00>              GROUP
+OBSERVER         <20>             UNIQUE
+THINC            <1e>              GROUP
+
+Adapter address: 00:50:56:89:79:21
+----------------------------------------
+Doing NBT name scan for addresses from 10.11.1.219
+
+Doing NBT name scan for addresses from 10.11.1.220
+
+
+NetBIOS Name Table for Host 10.11.1.220:
+
+Incomplete packet, 191 bytes long.
+Name             Service          Type             
+----------------------------------------
+MASTER           <00>             UNIQUE
+THINC            <00>              GROUP
+THINC            <1c>              GROUP
+MASTER           <20>             UNIQUE
+THINC            <1b>             UNIQUE
+
+Adapter address: 00:50:56:89:7b:55
+----------------------------------------
+Doing NBT name scan for addresses from 10.11.1.223
+
+
+NetBIOS Name Table for Host 10.11.1.223:
+
+Incomplete packet, 155 bytes long.
+Name             Service          Type             
+----------------------------------------
+JEFF             <00>             UNIQUE
+WORKGROUP        <00>              GROUP
+JEFF             <20>             UNIQUE
+
+Adapter address: 00:50:56:89:5d:c4
+----------------------------------------
+Doing NBT name scan for addresses from 10.11.1.227
+
+
+NetBIOS Name Table for Host 10.11.1.227:
+
+Name             Service          Type             
+----------------------------------------
+JD               <00>             UNIQUE
+JD               <20>             UNIQUE
+WORKGROUP        <00>              GROUP
+WORKGROUP        <1e>              GROUP
+JD               <03>             UNIQUE
+INet~Services    <1c>              GROUP
+IS~JD            <00>             UNIQUE
+
+Adapter address: 00:50:56:89:72:cb
+----------------------------------------
+Doing NBT name scan for addresses from 10.11.1.230
+
+
+NetBIOS Name Table for Host 10.11.1.230:
+
+Incomplete packet, 173 bytes long.
+Name             Service          Type             
+----------------------------------------
+KEVIN            <00>             UNIQUE
+WORKGROUP        <00>              GROUP
+KEVIN            <20>             UNIQUE
+WORKGROUP        <1e>              GROUP
+
+Adapter address: 00:50:56:89:4d:82
+----------------------------------------

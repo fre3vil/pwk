@@ -1,0 +1,54 @@
+
+*******************************************************************
+*                                                                 *
+* | |_| |__   ___    /\  /\__ _ _ ____   _____  ___| |_ ___ _ __  *
+* | __| '_ \ / _ \  / /_/ / _` | '__\ \ / / _ \/ __| __/ _ \ '__| *
+* | |_| | | |  __/ / __  / (_| | |   \ V /  __/\__ \ ||  __/ |    *
+*  \__|_| |_|\___| \/ /_/ \__,_|_|    \_/ \___||___/\__\___|_|    *
+*                                                                 *
+* TheHarvester Ver. 2.7                                           *
+* Coded by Christian Martorella                                   *
+* Edge-Security Research                                          *
+* cmartorella@edge-security.com                                   *
+*******************************************************************
+
+
+[-] Searching in Twitter ..
+	Searching 100 results..
+Users from Twitter:
+====================
+@-moz-keyframes gb__a
+@keyframes gb__a
+@media 
+@-moz-keyframes progressmove
+@keyframes progressmove
+@-moz-keyframes gb__nb
+@keyframes gb__nb
+@BethesdaSupport. Welcome to 
+@bethesdasupport 
+@Jack41242341 Hello
+@Quake ...
+@TESLegends ...
+@SovereignWalrus. 20 year old Games Design student. Also known as EdibleGrenade12. Character artist and Fallout 4 modder.
+@TESOnline NA and EU PC ...
+@TESOnline NA and EU ...
+@BethesdaSupport Just as a heads up- when I went to download the 
+@bethesda 
+@bethesda when are u guys going to fix http
+@aegies You talking about the Vine thing ...
+@LivImagination Thank you for you ...
+@TESOnline European 
+@TESOnline NA ...
+@DOOM have been ...
+@Warrior_Pride22 If you can
+@Quake is currently undergoing ...
+@Quake have been ...
+@TESLegends is currently ...
+@TESOnline Website is now ...
+@bakerlerat Please note that having a ...
+@TESOnline European PC
+@TESLegends have ...
+@TESOnline NA and EU 
+@TESOnline store and account ...
+@
+@broofa.com
