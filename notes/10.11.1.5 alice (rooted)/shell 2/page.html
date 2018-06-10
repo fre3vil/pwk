@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>shell</title>
+</head><body>Summary:<br/>
+Nmap sweep. Saw SMB services.<br/>
+Ran SMB NSE script vulnerabilities. Noticed it is vulnerable to MS17-010 and likely MS08-067.<br/>
+Tried Metasploit MS17-010 (EternalBlue) but couldn't get it to work.<br/>
+Tried Metasploit MS08-067 which worked immediately.<br/>
+Dug around. Found bank-account.zip and proof.txt<br/>
+Copied ftp commands and downloaded plink.exe embedded with tcp reverse shell to gain additional shell. <br/>
+Sent bank-account.zip file via ftp and opened on Kali. It contained a bank password for Bob.<br/>
+Created os38553 user account and placed in Administrators group. (Gained root permissions)<br/>
+RDP with os38553 account.<br/>
+Dumped hashes with fgdump.<br/>
+Cracked Alice's password with https://www.objectif-securite.ch/en/ophcrack.php. (Password: aliceishere)<br/>
+<br/>
+<br/>
+<img src="image 2.png" /><br/>
+<br/>
+<img src="image.png" /><br/>
+<br/>
+<img src="image 3.png" /><br/>
+<br/>
+C:\Documents and Settings\Administrator\Desktop&gt;type proof.txt<br/>
+type proof.txt<br/>
+ed20b785808f615be2c588ed925b18ce<br/>
+<br/>
+<img src="image 5.png" /><br/>
+<br/>
+<img src="image 6.png" /><br/>
+<br/>
+<img src="image 7.png" /><br/>
+<br/>
+<img src="image 8.png" /><br/>
+<br/>
+<br/>
+<br/>
+<img src="image 4.png" /><br/>
+<br/>
+C:\Program Files\freeSSHd&gt;type root<br/>
+type root<br/>
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAzx6C2kxbb2qPx9eRyW072CYpMhpa2zAlzgdBcElRS49cvTJlDcjqvC8DlpZL9FplzcfpCmD2xisb0VdHUtG2iteYQG5WaxUEeHd4t9XRqA9zCU3QjKq4jIDoT1A54HYLoEBk/jTxjUbaczfoFSgcZEOivBIZEM6usJW4gDgbpok1UoxHfmn7rRs43rgBKxKMpFZyp0+MsDlvKMZUie6F0mY60E2YSlwoyLAJKi0q1/oWB5Kmd3YtP20LIsVqvmbX7zcMXwXgztff0Wxj1dps0x6i1StYx1l14sU84comlceyZjzeYpqMoL+4OtWt4goqTqpiQasnXfv2vhNvCQXQaQ== root@explorer<br/>
+<br/>
+C:\Program Files\freeSSHd&gt;<br/>
+<br/>
+C:\Program Files\freeSSHd&gt;dir<br/>
+dir<br/>
+&nbsp;Volume in drive C has no label.<br/>
+&nbsp;Volume Serial Number is 50C3-3741<br/>
+<br/>
+&nbsp;Directory of C:\Program Files\freeSSHd<br/>
+<br/>
+12/27/2012 &nbsp;05:21 AM &nbsp; &nbsp;&lt;DIR&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;.<br/>
+12/27/2012 &nbsp;05:21 AM &nbsp; &nbsp;&lt;DIR&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;..<br/>
+09/26/2008 &nbsp;02:42 PM &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 668 DSAKey.cfg<br/>
+09/26/2008 &nbsp;02:55 PM &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1,107 FreeSSHDService.ini<br/>
+09/26/2008 &nbsp;02:52 PM &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 395 root<br/>
+09/26/2008 &nbsp;02:42 PM &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 887 RSAKey.cfg<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;4 File(s) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3,057 bytes<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2 Dir(s) &nbsp; 1,701,433,344 bytes free<br/>
+<br/>
+C:\Program Files\freeSSHd&gt;type toor<br/>
+type toor<br/>
+The system cannot find the file specified.<br/>
+<br/>
+C:\Program Files\freeSSHd&gt;type root<br/>
+<br/>
+<img src="image 9.png" /><br/>
+<br/>
+Added user to administrators group<br/>
+<br/>
+<img src="image 10.png" /><br/>
+<br/>
+Got RDP<br/>
+<br/>
+<img src="image 11.png" /><br/>
+<br/>
+<img src="image 12.png" /><br/>
+<br/>
+<br/>
+<img src="image 13.png" /><br/>
+<br/>
+<br/>
+Got passwords by downloading fgdump.exe from Kali<br/>
+<br/>
+<br/>
+<br/>
+Administrator:500:NO PASSWORD*********************:A8C8B7A37513B7EB9308952B814B522B:::<br/>
+alice:1004:NO PASSWORD*********************:B74242F37E47371AFF835A6EBCAC4FFE:::<br/>
+Guest:501:NO PASSWORD*********************:NO PASSWORD*********************:::<br/>
+HelpAssistant:1000:05FA67EAEC4D789EC4BD52F48E5A6B28:2733CDB0D8A1FEC3F976F3B8AD1DEEEF:::<br/>
+SUPPORT_388945a0:1002:NO PASSWORD*********************:0F7A50DD4B95CEC4C1DEA566F820F4E7:::<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<img src="image 14.png" /><br/>
+<br/>
+Also copied bank-account.xls to Kali machine<br/>
+Gold Swiss &nbsp; 2342364-KIETGGE-298074 &nbsp; swisgi &nbsp; <u><a href="mailto:bobw@acme.local">bobw@acme.local</a></u>&nbsp; &nbsp;<u><a href="mailto:3v1lp@ss">3v1lp@ss</a></u>&nbsp; &nbsp; &nbsp;<br/>
+(from ALICE bank-account.xls)<br/>
+<br/>
+</body></html>

