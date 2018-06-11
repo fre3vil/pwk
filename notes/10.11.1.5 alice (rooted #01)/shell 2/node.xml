@@ -2,14 +2,14 @@
 <node>
 <version>6</version>
 <dict>
-  <key>title</key><string>Credentials</string>
-  <key>nodeid</key><string>922b411d-c7dc-4c32-a3f9-022e0d1dae44</string>
-  <key>modified_time</key><integer>1528654417</integer>
+  <key>title</key><string>shell</string>
+  <key>nodeid</key><string>a212bf60-172c-42ae-85a5-e61b8a15d92a</string>
+  <key>modified_time</key><integer>1528652324</integer>
   <key>version</key><integer>6</integer>
   <key>content_type</key><string>text/xhtml+xml</string>
-  <key>created_time</key><integer>1528596901</integer>
+  <key>created_time</key><integer>1528572502</integer>
   <key>info_sort_dir</key><integer>1</integer>
-  <key>order</key><integer>0</integer>
+  <key>order</key><integer>2</integer>
   <key>info_sort</key><string>order</string>
 </dict>
 </node>

