@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>nmap -sC</title>
+</head><body>root@:~/megacorpone&gt; nmap -sC 10.11.1.128<br/>
+<br/>
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-06-12 13:33 EDT<br/>
+Nmap scan report for 10.11.1.128<br/>
+Host is up (0.051s latency).<br/>
+Not shown: 987 closed ports<br/>
+PORT &nbsp; &nbsp; STATE SERVICE<br/>
+21/tcp &nbsp; open &nbsp;ftp<br/>
+25/tcp &nbsp; open &nbsp;smtp<br/>
+| smtp-commands: dj.acme.local Hello [10.11.0.187], AUTH GSSAPI NTLM LOGIN, AUTH=LOGIN, TURN, ATRN, SIZE 2097152, ETRN, PIPELINING, DSN, ENHANCEDSTATUSCODES, 8bitmime, BINARYMIME, CHUNKING, VRFY, OK, <br/>
+|_ This server supports the following commands: HELO EHLO STARTTLS RCPT DATA RSET MAIL QUIT HELP AUTH TURN ATRN ETRN BDAT VRFY <br/>
+| smtp-ntlm-info: <br/>
+| &nbsp; Target_Name: DJ<br/>
+| &nbsp; NetBIOS_Domain_Name: DJ<br/>
+| &nbsp; NetBIOS_Computer_Name: DJ<br/>
+| &nbsp; DNS_Domain_Name: dj.acme.local<br/>
+| &nbsp; DNS_Computer_Name: dj.acme.local<br/>
+|_ &nbsp;Product_Version: 5.0.2195<br/>
+80/tcp &nbsp; open &nbsp;http<br/>
+| http-cookie-flags: <br/>
+| &nbsp; /: <br/>
+| &nbsp; &nbsp; ASPSESSIONIDQAQRDBSD: <br/>
+|_ &nbsp; &nbsp; &nbsp;httponly flag not set<br/>
+| http-methods: <br/>
+|_ &nbsp;Potentially risky methods: TRACE<br/>
+| http-ntlm-info: <br/>
+| &nbsp; Target_Name: DJ<br/>
+| &nbsp; NetBIOS_Domain_Name: DJ<br/>
+| &nbsp; NetBIOS_Computer_Name: DJ<br/>
+| &nbsp; DNS_Domain_Name: dj.acme.local<br/>
+| &nbsp; DNS_Computer_Name: dj.acme.local<br/>
+|_ &nbsp;Product_Version: 5.0.2195<br/>
+|_http-title: Login<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+443/tcp &nbsp;open &nbsp;https<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+1025/tcp open &nbsp;NFS-or-IIS<br/>
+1026/tcp open &nbsp;LSA-or-nterm<br/>
+1029/tcp open &nbsp;ms-lsa<br/>
+3372/tcp open &nbsp;msdtc<br/>
+5800/tcp open &nbsp;vnc-http<br/>
+|_http-title: TightVNC desktop [dj]<br/>
+5900/tcp open &nbsp;vnc<br/>
+| vnc-info: <br/>
+| &nbsp; Protocol version: 3.8<br/>
+| &nbsp; Security types: <br/>
+| &nbsp; &nbsp; VNC Authentication (2)<br/>
+| &nbsp; &nbsp; Tight (16)<br/>
+| &nbsp; Tight auth subtypes: <br/>
+|_ &nbsp; &nbsp;STDV VNCAUTH_ (2)<br/>
+MAC Address: 00:50:56:89:0A:DE (VMware)<br/>
+<br/>
+Host script results:<br/>
+|_clock-skew: mean: -1s, deviation: 0s, median: -1s<br/>
+| ms-sql-info: <br/>
+| &nbsp; Windows server name: DJ<br/>
+| &nbsp; 10.11.1.128\MSSQLSERVER: <br/>
+| &nbsp; &nbsp; Instance name: MSSQLSERVER<br/>
+| &nbsp; &nbsp; Version: <br/>
+| &nbsp; &nbsp; &nbsp; name: Microsoft SQL Server 2000<br/>
+| &nbsp; &nbsp; &nbsp; Product: Microsoft SQL Server 2000<br/>
+| &nbsp; &nbsp; <span style="color: #ff0000">TCP port: 27900</span><br/>
+| &nbsp; &nbsp; Named pipe: \\10.11.1.128\pipe\sql\query<br/>
+|_ &nbsp; &nbsp;Clustered: false<br/>
+|_nbstat: NetBIOS name: DJ, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 00:50:56:89:0a:de (VMware)<br/>
+| smb-os-discovery: <br/>
+| &nbsp; OS: Windows 2000 (Windows 2000 LAN Manager)<br/>
+| &nbsp; OS CPE: cpe:/o:microsoft:windows_2000::-<br/>
+| &nbsp; Computer name: dj<br/>
+| &nbsp; NetBIOS computer name: DJ\x00<br/>
+| &nbsp; Workgroup: WORKGROUP\x00<br/>
+|_ &nbsp;System time: 2018-06-12T19:47:43+02:00<br/>
+| smb-security-mode: <br/>
+| &nbsp; account_used: guest<br/>
+| &nbsp; authentication_level: user<br/>
+| &nbsp; challenge_response: supported<br/>
+|_ &nbsp;message_signing: disabled (dangerous, but default)<br/>
+|_smb2-time: Protocol negotiation failed (SMB2)<br/>
+<br/>
+Nmap done: 1 IP address (1 host up) scanned in 1106.71 seconds<br/>
+</body></html>

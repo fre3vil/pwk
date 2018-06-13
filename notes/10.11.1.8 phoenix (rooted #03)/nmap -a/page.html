@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>nmap -A</title>
+</head><body>root@:~/megacorpone&gt; nmap -A 10.11.1.8<br/>
+<br/>
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-06-10 18:46 EDT<br/>
+Nmap scan report for 10.11.1.8<br/>
+Host is up (0.056s latency).<br/>
+Not shown: 990 filtered ports<br/>
+PORT &nbsp; &nbsp; STATE &nbsp;SERVICE &nbsp; &nbsp; VERSION<br/>
+21/tcp &nbsp; open &nbsp; ftp &nbsp; &nbsp; &nbsp; &nbsp; vsftpd 2.0.1<br/>
+<span style="color: #ff0000">| ftp-anon: Anonymous FTP login allowed (FTP code 230)</span><br/>
+|_Can't get directory listing: ERROR<br/>
+| ftp-syst: <br/>
+| &nbsp; STAT: <br/>
+| FTP server status:<br/>
+| &nbsp; &nbsp; &nbsp;Connected to 10.11.0.187<br/>
+| &nbsp; &nbsp; &nbsp;Logged in as ftp<br/>
+| &nbsp; &nbsp; &nbsp;TYPE: ASCII<br/>
+| &nbsp; &nbsp; &nbsp;No session bandwidth limit<br/>
+| &nbsp; &nbsp; &nbsp;Session timeout in seconds is 300<br/>
+| &nbsp; &nbsp; &nbsp;Control connection is plain text<br/>
+| &nbsp; &nbsp; &nbsp;Data connections will be plain text<br/>
+| &nbsp; &nbsp; &nbsp;At session startup, client count was 2<br/>
+| &nbsp; &nbsp; &nbsp;vsFTPd 2.0.1 - secure, fast, stable<br/>
+|_End of status<br/>
+<span style="color: #ff0000">22/tcp &nbsp; open &nbsp; ssh &nbsp; &nbsp; &nbsp; &nbsp; OpenSSH 3.9p1 (protocol 1.99)</span><br/>
+| ssh-hostkey: <br/>
+| &nbsp; 1024 89:94:af:2e:5d:c1:da:84:25:11:2c:12:45:c6:70:ac (RSA1)<br/>
+| &nbsp; 1024 c1:c5:d1:83:0f:4d:d8:9e:8f:82:4c:be:53:4b:6e:14 (DSA)<br/>
+|_ &nbsp;1024 bc:e1:e6:dd:ab:5e:fd:d1:21:2e:11:7c:d5:b2:03:52 (RSA)<br/>
+|_sshv1: Server supports SSHv1<br/>
+25/tcp &nbsp; closed smtp<br/>
+<span style="color: #ff0000">80/tcp &nbsp; open &nbsp; http &nbsp; &nbsp; &nbsp; &nbsp;Apache httpd 2.0.52 ((CentOS))</span><br/>
+| http-methods: <br/>
+|_ &nbsp;Potentially risky methods: TRACE<br/>
+| http-robots.txt: 2 disallowed entries <br/>
+|_/internal/ &nbsp;/tmp/ <br/>
+|_http-server-header: Apache/2.0.52 (CentOS)<br/>
+|_http-title: Site doesn't have a title (text/html; charset=UTF-8).<br/>
+111/tcp &nbsp;open &nbsp; rpcbind &nbsp; &nbsp; 2 (RPC #100000)<br/>
+| rpcinfo: <br/>
+| &nbsp; program version &nbsp; port/proto &nbsp;service<br/>
+| &nbsp; 100000 &nbsp;2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;111/tcp &nbsp;rpcbind<br/>
+| &nbsp; 100000 &nbsp;2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;111/udp &nbsp;rpcbind<br/>
+| &nbsp; 100024 &nbsp;1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;840/udp &nbsp;status<br/>
+|_ &nbsp;100024 &nbsp;1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;843/tcp &nbsp;status<br/>
+139/tcp &nbsp;open &nbsp; netbios-ssn Samba smbd 3.X - 4.X (workgroup: MYGROUP)<br/>
+443/tcp &nbsp;open &nbsp; ssl/https?<br/>
+|_ssl-date: 2018-06-10T22:50:43+00:00; -8s from scanner time.<br/>
+| sslv2: <br/>
+| &nbsp; SSLv2 supported<br/>
+| &nbsp; ciphers: <br/>
+| &nbsp; &nbsp; SSL2_RC4_128_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC2_128_CBC_EXPORT40_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC4_128_EXPORT40_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC4_64_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC2_128_CBC_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_DES_192_EDE3_CBC_WITH_MD5<br/>
+|_ &nbsp; &nbsp;SSL2_DES_64_CBC_WITH_MD5<br/>
+445/tcp &nbsp;open &nbsp; netbios-ssn Samba smbd 3.0.33-0.17.el4 (workgroup: MYGROUP)<br/>
+<span style="color: #ff0000">631/tcp &nbsp;open &nbsp; ipp &nbsp; &nbsp; &nbsp; &nbsp; CUPS 1.1</span><br/>
+| http-methods: <br/>
+|_ &nbsp;Potentially risky methods: PUT<br/>
+|_http-server-header: CUPS/1.1<br/>
+|_http-title: 403 Forbidden<br/>
+<span style="color: #ff0000">3306/tcp open &nbsp; mysql?</span><br/>
+|_mysql-info: ERROR: Script execution failed (use -d to debug)<br/>
+MAC Address: 00:50:56:89:56:03 (VMware)<br/>
+Device type: general purpose|WAP|broadband router|remote management|switch|specialized|media device<br/>
+Running (JUST GUESSING): Linux 2.6.X|2.4.X (87%), AVM embedded (85%), D-Link embedded (85%), Dell embedded (85%), Extreme Networks ExtremeXOS 12.X (85%), Google embedded (85%), HP embedded (85%), Philips embedded (85%)<br/>
+OS CPE: cpe:/o:linux:linux_kernel:2.6.18 cpe:/h:avm:fritz%21box_fon_wlan_7170 cpe:/h:dlink:dsl-2540b cpe:/h:dell:remote_access_card:5 cpe:/o:extremenetworks:extremexos:12.5.4 cpe:/o:linux:linux_kernel:2.4.20 cpe:/o:linux:linux_kernel:2.4.21<br/>
+Aggressive OS guesses: Linux 2.6.18 (87%), Linux 2.6.24 (Debian) (86%), Linux 2.6.26 (86%), AVM FRITZ!Box FON WLAN 7170 WAP (85%), D-Link DSL-2540B ADSL router (85%), Dell Remote Access Controller 5/I (DRAC 5/I) (85%), Extreme Networks ExtremeXOS 12.5.4 (85%), Google Mini search appliance (85%), HP Brocade 4Gb SAN switch or (85%), Linux 2.4.20 (85%)<br/>
+No exact OS matches for host (test conditions non-ideal).<br/>
+Network Distance: 1 hop<br/>
+Service Info: OS: Unix<br/>
+<br/>
+Host script results:<br/>
+|_clock-skew: mean: -8s, deviation: 0s, median: -8s<br/>
+| smb-os-discovery: <br/>
+| &nbsp; OS: Unix (Samba 3.0.33-0.17.el4)<br/>
+| &nbsp; Computer name: phoenix<br/>
+| &nbsp; NetBIOS computer name: <br/>
+| &nbsp; Domain name: <br/>
+| &nbsp; FQDN: phoenix<br/>
+|_ &nbsp;System time: 2018-06-10T18:50:44-04:00<br/>
+| smb-security-mode: <br/>
+| &nbsp; account_used: &lt;blank&gt;<br/>
+| &nbsp; authentication_level: user<br/>
+| &nbsp; challenge_response: supported<br/>
+|_ &nbsp;message_signing: disabled (dangerous, but default)<br/>
+|_smb2-time: Protocol negotiation failed (SMB2)<br/>
+<br/>
+TRACEROUTE<br/>
+HOP RTT &nbsp; &nbsp; &nbsp;ADDRESS<br/>
+1 &nbsp; 56.42 ms 10.11.1.8<br/>
+<br/>
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .<br/>
+Nmap done: 1 IP address (1 host up) scanned in 350.09 seconds<br/>
+root@:~/megacorpone&gt; <br/>
+</body></html>

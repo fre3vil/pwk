@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Rinse &amp; Repeat</title>
+</head><body>BULK:<br/>
+- nmap -sn 10.11.1.1-254 -oG for ping sweep<br/>
+- nmap -sT --top-ports 20 -oG nmap-top-ports.txt 10.11.1.1-254<br/>
+- nmap -sV -O -p 80 $ip to identify Web servers<br/>
+- onesixtyone to identify SNMP servers<br/>
+- .vrfy.py script to identify SMTP servers<br/>
+<br/>
+- nmap -A scan<br/>
+- nmap -sC scan<br/>
+- nmap -sU scan for UDP ports<br/>
+<br/>
+- Identify non-standard ports<br/>
+<br/>
+If SMB is open:<br/>
+- enum4linux<br/>
+- nmap -v -p 139,445 --script=smb-vuln-XXXXXX --script-args=unsafe=1 $ip<br/>
+- SMB null session:<br/>
+&nbsp; &nbsp; &nbsp;net use \\192.168.1.1\ipc$ "" /u:""<br/>
+&nbsp; &nbsp; &nbsp;net view \\ip_address<br/>
+&nbsp; &nbsp; &nbsp;Dumpsec<br/>
+- rpcclient -U "" ip to exploit null session<br/>
+&nbsp; &nbsp; &nbsp;- srvinfo<br/>
+&nbsp; &nbsp; &nbsp;enumdomusers<br/>
+<br/>
+If Web is open:<br/>
+- Nikto<br/>
+- Dirbuster<br/>
+- Sparta<br/>
+- Medusa<br/>
+- Try collected passwords<br/>
+- Try SQL injection, RFI, LFI<br/>
+<br/>
+If FTP is open:<br/>
+- ftp anonymous login<br/>
+- ftp brute force<br/>
+<br/>
+If SNMP is open:<br/>
+- snmpcheck<br/>
+<br/>
+If SMTP is open:<br/>
+- telnet ip to banner grab<br/>
+- vrfy username to see if account exists<br/>
+- expn username to verify username is valid<br/>
+<br/>
+If SSH is open:<br/>
+- brutessh or hydra<br/>
+<br/>
+<br/>
+<br/>
+</body></html>

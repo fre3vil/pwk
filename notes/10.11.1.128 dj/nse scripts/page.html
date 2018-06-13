@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>nse scripts</title>
+</head><body>root@:/var/www/html&gt; ls -lh /usr/share/nmap/scripts/ | grep vnc<br/>
+-rw-r--r-- 1 root root 3.2K Aug 11 &nbsp;2017 realvnc-auth-bypass.nse<br/>
+-rw-r--r-- 1 root root 4.3K Aug 11 &nbsp;2017 vnc-brute.nse<br/>
+-rw-r--r-- 1 root root 4.3K Aug 11 &nbsp;2017 vnc-info.nse<br/>
+-rw-r--r-- 1 root root 3.0K Aug 11 &nbsp;2017 vnc-title.nse<br/>
+root@:/var/www/html&gt; ls -lh /usr/share/nmap/scripts/ | grep msrpc<br/>
+-rw-r--r-- 1 root root 3.2K Aug 11 &nbsp;2017 msrpc-enum.nse<br/>
+root@:/var/www/html&gt; nmap --script=msrpc-enum.nse 10.11.1.128<br/>
+<br/>
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-06-12 01:19 EDT<br/>
+Nmap scan report for 10.11.1.128<br/>
+Host is up (0.043s latency).<br/>
+Not shown: 987 closed ports<br/>
+PORT &nbsp; &nbsp; STATE SERVICE<br/>
+21/tcp &nbsp; open &nbsp;ftp<br/>
+25/tcp &nbsp; open &nbsp;smtp<br/>
+80/tcp &nbsp; open &nbsp;http<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+443/tcp &nbsp;open &nbsp;https<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+1025/tcp open &nbsp;NFS-or-IIS<br/>
+1026/tcp open &nbsp;LSA-or-nterm<br/>
+1029/tcp open &nbsp;ms-lsa<br/>
+3372/tcp open &nbsp;msdtc<br/>
+5800/tcp open &nbsp;vnc-http<br/>
+5900/tcp open &nbsp;vnc<br/>
+MAC Address: 00:50:56:89:0A:DE (VMware)<br/>
+<br/>
+Host script results:<br/>
+| msrpc-enum: <br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; udp_port: 1030<br/>
+| &nbsp; &nbsp; uuid: bfa951d1-2f0e-11d3-bfd1-00c04fa3490a<br/>
+| &nbsp; &nbsp; ip_addr: 10.11.1.128<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 906b0ce0-c70b-1067-b317-00dd010662da<br/>
+| &nbsp; &nbsp; ncalrpc: LRPC000001fc.00000001<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; tcp_port: 1025<br/>
+| &nbsp; &nbsp; uuid: 906b0ce0-c70b-1067-b317-00dd010662da<br/>
+| &nbsp; &nbsp; ip_addr: 10.11.1.128<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 906b0ce0-c70b-1067-b317-00dd010662da<br/>
+| &nbsp; &nbsp; ncalrpc: LRPC000001fc.00000001<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; tcp_port: 1025<br/>
+| &nbsp; &nbsp; uuid: 906b0ce0-c70b-1067-b317-00dd010662da<br/>
+| &nbsp; &nbsp; ip_addr: 10.11.1.128<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 906b0ce0-c70b-1067-b317-00dd010662da<br/>
+| &nbsp; &nbsp; ncalrpc: LRPC000001fc.00000001<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; tcp_port: 1025<br/>
+| &nbsp; &nbsp; uuid: 906b0ce0-c70b-1067-b317-00dd010662da<br/>
+| &nbsp; &nbsp; ip_addr: 10.11.1.128<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 906b0ce0-c70b-1067-b317-00dd010662da<br/>
+| &nbsp; &nbsp; ncalrpc: LRPC000001fc.00000001<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; tcp_port: 1025<br/>
+| &nbsp; &nbsp; uuid: 906b0ce0-c70b-1067-b317-00dd010662da<br/>
+| &nbsp; &nbsp; ip_addr: 10.11.1.128<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 1ff70682-a51-30e8-076d-740be8cee98b<br/>
+| &nbsp; &nbsp; ncalrpc: LRPC00000304.00000001<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; tcp_port: 1026<br/>
+| &nbsp; &nbsp; uuid: 1ff70682-a51-30e8-076d-740be8cee98b<br/>
+| &nbsp; &nbsp; ip_addr: 10.11.1.128<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 1ff70682-a51-30e8-076d-740be8cee98b<br/>
+| &nbsp; &nbsp; netbios: \\DJ<br/>
+| &nbsp; &nbsp; ncacn_np: \PIPE\atsvc<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 378e52b0-c0a9-11cf-822d-00aa0051e40f<br/>
+| &nbsp; &nbsp; ncalrpc: LRPC00000304.00000001<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; tcp_port: 1026<br/>
+| &nbsp; &nbsp; uuid: 378e52b0-c0a9-11cf-822d-00aa0051e40f<br/>
+| &nbsp; &nbsp; ip_addr: 10.11.1.128<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 378e52b0-c0a9-11cf-822d-00aa0051e40f<br/>
+| &nbsp; &nbsp; netbios: \\DJ<br/>
+| &nbsp; &nbsp; ncacn_np: \PIPE\atsvc<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 906b0ce0-c70b-1067-b317-00dd010662da<br/>
+| &nbsp; &nbsp; ncalrpc: LRPC000002a4.00000001<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 82ad4280-36b-11cf-972c-00aa006887b0<br/>
+| &nbsp; &nbsp; ncalrpc: OLED1BE1247CB9A427DA2E3509F156D<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 82ad4280-36b-11cf-972c-00aa006887b0<br/>
+| &nbsp; &nbsp; ncalrpc: INETINFO_LPC<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; tcp_port: 1029<br/>
+| &nbsp; &nbsp; uuid: 82ad4280-36b-11cf-972c-00aa006887b0<br/>
+| &nbsp; &nbsp; ip_addr: 10.11.1.128<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 82ad4280-36b-11cf-972c-00aa006887b0<br/>
+| &nbsp; &nbsp; netbios: \\DJ<br/>
+| &nbsp; &nbsp; ncacn_np: \PIPE\INETINFO<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 8cfb5d70-31a4-11cf-a7d8-00805f48a135<br/>
+| &nbsp; &nbsp; ncalrpc: OLED1BE1247CB9A427DA2E3509F156D<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 8cfb5d70-31a4-11cf-a7d8-00805f48a135<br/>
+| &nbsp; &nbsp; ncalrpc: INETINFO_LPC<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; tcp_port: 1029<br/>
+| &nbsp; &nbsp; uuid: 8cfb5d70-31a4-11cf-a7d8-00805f48a135<br/>
+| &nbsp; &nbsp; ip_addr: 10.11.1.128<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 8cfb5d70-31a4-11cf-a7d8-00805f48a135<br/>
+| &nbsp; &nbsp; netbios: \\DJ<br/>
+| &nbsp; &nbsp; ncacn_np: \PIPE\INETINFO<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 8cfb5d70-31a4-11cf-a7d8-00805f48a135<br/>
+| &nbsp; &nbsp; ncalrpc: SMTPSVC_LPC<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: 8cfb5d70-31a4-11cf-a7d8-00805f48a135<br/>
+| &nbsp; &nbsp; netbios: \\DJ<br/>
+| &nbsp; &nbsp; ncacn_np: \PIPE\SMTPSVC<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: bfa951d1-2f0e-11d3-bfd1-00c04fa3490a<br/>
+| &nbsp; &nbsp; ncalrpc: OLED1BE1247CB9A427DA2E3509F156D<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: bfa951d1-2f0e-11d3-bfd1-00c04fa3490a<br/>
+| &nbsp; &nbsp; ncalrpc: INETINFO_LPC<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; tcp_port: 1029<br/>
+| &nbsp; &nbsp; uuid: bfa951d1-2f0e-11d3-bfd1-00c04fa3490a<br/>
+| &nbsp; &nbsp; ip_addr: 10.11.1.128<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: bfa951d1-2f0e-11d3-bfd1-00c04fa3490a<br/>
+| &nbsp; &nbsp; netbios: \\DJ<br/>
+| &nbsp; &nbsp; ncacn_np: \PIPE\INETINFO<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: bfa951d1-2f0e-11d3-bfd1-00c04fa3490a<br/>
+| &nbsp; &nbsp; ncalrpc: SMTPSVC_LPC<br/>
+| &nbsp; <br/>
+| &nbsp; &nbsp; uuid: bfa951d1-2f0e-11d3-bfd1-00c04fa3490a<br/>
+| &nbsp; &nbsp; netbios: \\DJ<br/>
+|_ &nbsp; &nbsp;ncacn_np: \PIPE\SMTPSVC<br/>
+<br/>
+Nmap done: 1 IP address (1 host up) scanned in 8.96 seconds<br/>
+root@:/var/www/html&gt; <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+root@:/var/www/html&gt; nmap 10.11.1.128 --script=vnc-brute.nse<br/>
+<br/>
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-06-12 01:21 EDT<br/>
+Nmap scan report for 10.11.1.128<br/>
+Host is up (0.039s latency).<br/>
+Not shown: 987 closed ports<br/>
+PORT &nbsp; &nbsp; STATE SERVICE<br/>
+21/tcp &nbsp; open &nbsp;ftp<br/>
+25/tcp &nbsp; open &nbsp;smtp<br/>
+80/tcp &nbsp; open &nbsp;http<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+443/tcp &nbsp;open &nbsp;https<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+1025/tcp open &nbsp;NFS-or-IIS<br/>
+1026/tcp open &nbsp;LSA-or-nterm<br/>
+1029/tcp open &nbsp;ms-lsa<br/>
+3372/tcp open &nbsp;msdtc<br/>
+5800/tcp open &nbsp;vnc-http<br/>
+5900/tcp open &nbsp;vnc<br/>
+| vnc-brute: <br/>
+| &nbsp; Accounts: No valid accounts found<br/>
+| &nbsp; Statistics: Performed 5 guesses in 1 seconds, average tps: 5.0<br/>
+|_ &nbsp;ERROR: Your connection has been rejected.<br/>
+MAC Address: 00:50:56:89:0A:DE (VMware)<br/>
+<br/>
+Nmap done: 1 IP address (1 host up) scanned in 7.81 seconds<br/>
+<br/>
+<br/>
+root@:~&gt; ls -lh /usr/share/nmap/scripts/ | grep nfs<br/>
+-rw-r--r-- 1 root root &nbsp;15K Aug 11 &nbsp;2017 nfs-ls.nse<br/>
+-rw-r--r-- 1 root root 2.6K Aug 11 &nbsp;2017 nfs-showmount.nse<br/>
+-rw-r--r-- 1 root root 9.7K Aug 11 &nbsp;2017 nfs-statfs.nse<br/>
+root@:~&gt; ls -lh /usr/share/nmap/scripts/ | grep iis<br/>
+-rw-r--r-- 1 root root 6.0K Aug 11 &nbsp;2017 http-iis-short-name-brute.nse<br/>
+-rw-r--r-- 1 root root 7.8K Aug 11 &nbsp;2017 http-iis-webdav-vuln.nse<br/>
+root@:~&gt; ls -lh /usr/share/nmap/scripts/ | grep lsa<br/>
+-rw-r--r-- 1 root root 5.2K Aug 11 &nbsp;2017 smb-double-pulsar-backdoor.nse<br/>
+root@:~&gt; ls -lh /usr/share/nmap/scripts/ | grep nterm<br/>
+root@:~&gt; ls -lh /usr/share/nmap/scripts/ | grep ms-lsa<br/>
+<br/>
+<br/>
+root@:~&gt; nmap 10.11.1.128 --script=smb-double-pulsar-backdoor.nse<br/>
+root@:~&gt; nmap 10.11.1.128 --script=nfs-ls.nse<br/>
+root@:/var/www/html&gt; nmap 10.11.1.128 --script=realvnc-auth-bypass.nse<br/>
+didn't show anything different<br/>
+<br/>
+</body></html>

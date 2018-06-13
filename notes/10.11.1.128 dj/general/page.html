@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>General</title>
+</head><body>Web page has login<br/>
+<br/>
+Nmap scan report for 10.11.1.128 OS: Windows 2000 (Windows 2000 LAN Manager)<br/>
+smb-vuln-ms06-025: VULNERABLE:<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+Host is up (0.038s latency).<br/>
+<br/>
+PORT &nbsp; &nbsp; STATE &nbsp;SERVICE<br/>
+21/tcp &nbsp; open &nbsp; ftp<br/>
+22/tcp &nbsp; closed ssh<br/>
+23/tcp &nbsp; closed telnet<br/>
+25/tcp &nbsp; open &nbsp; smtp <b>252 2.1.5 Cannot VRFY user, but will take message for &lt;root@dj.acme.local&gt;</b><br/>
+53/tcp &nbsp; closed domain<br/>
+80/tcp &nbsp; open &nbsp; http<br/>
+110/tcp &nbsp;closed pop3<br/>
+111/tcp &nbsp;closed rpcbind<br/>
+135/tcp &nbsp;open &nbsp; msrpc<br/>
+139/tcp &nbsp;open &nbsp; netbios-ssn<br/>
+143/tcp &nbsp;closed imap<br/>
+443/tcp &nbsp;open &nbsp; https<br/>
+445/tcp &nbsp;open &nbsp; microsoft-ds<br/>
+993/tcp &nbsp;closed imaps<br/>
+995/tcp &nbsp;closed pop3s<br/>
+1723/tcp closed pptp<br/>
+3306/tcp closed mysql<br/>
+3389/tcp closed ms-wbt-server<br/>
+5900/tcp open &nbsp; vnc<br/>
+8080/tcp closed http-proxy<br/>
+MAC Address: 00:50:56:89:0A:DE (VMware)<br/>
+<br/>
+[*] User accounts:<br/>
+<br/>
+&nbsp; Guest &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; IUSR_SRV2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; IWAM_SRV2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; Administrator &nbsp; &nbsp; &nbsp; <br/>
+&nbsp; <span style="color: #ff0000">TsInternetUser --&gt; can ftp</span><br/>
+<br/>
+10.11.1.128<br/>
+smb-vuln-ms06-025: VULNERABLE:<br/>
+smb-vuln-ms17-010: VULNERABLE:<br/>
+<br/>
+root@:~/megacorpone&gt; medusa -h 10.11.1.128 -u Administrator -P password-list.txt -M http -T 20<br/>
+--&gt; medusa doesn't work. it says everything is a success.<br/>
+<br/>
+smb null session didn't work<br/>
+<br/>
+Somebody got in via web app (iis?)<br/>
+Somebody got in via vnc, probably metasploit<br/>
+Somebody got in goign after the unknown service<br/>
+enumeration said to be key<br/>
+nmap not only scanner<br/>
+banner grabbing important<br/>
+ms-sql server is running on non-standard port 27900, fopund with nmap -sC<br/>
+<br/>
+saw the shares:<br/>
+nmblookup -A target<br/>
+<br/>
+smbclient //MOUNT/share -I target -N<br/>
+--&gt; mounted the IPC: share but couldn't do anything<br/>
+<br/>
+can ftp with tsinternetuser account but doesn't get anywhere<br/>
+<br/>
+<br/>
+</body></html>

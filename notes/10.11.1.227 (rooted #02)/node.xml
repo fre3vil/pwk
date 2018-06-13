@@ -2,6 +2,7 @@
 <node>
 <version>6</version>
 <dict>
+  <key>title_fgcolor</key><string>#ff0000</string>
   <key>expanded</key><true/>
   <key>title</key><string>10.11.1.227 (rooted #02)</string>
   <key>nodeid</key><string>02e2739d-6587-4a52-9f22-ca746db2c026</string>

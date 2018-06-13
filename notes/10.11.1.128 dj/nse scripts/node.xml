@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>nse scripts</string>
+  <key>nodeid</key><string>ded053ac-53b0-41b4-9d28-de05c8d78e7d</string>
+  <key>modified_time</key><integer>1528816016</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1528780825</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>order</key><integer>5</integer>
+  <key>info_sort</key><string>order</string>
+</dict>
+</node>

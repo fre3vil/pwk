@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>nmap -A</title>
+</head><body>root@:~/megacorpone/labs/web-application-attacks&gt; nmap -A 10.11.1.128<br/>
+<br/>
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-06-11 15:35 EDT<br/>
+Nmap scan report for 10.11.1.128<br/>
+Host is up (0.047s latency).<br/>
+Not shown: 987 closed ports<br/>
+PORT &nbsp; &nbsp; STATE SERVICE &nbsp; &nbsp; &nbsp;VERSION<br/>
+21/tcp &nbsp; open &nbsp;ftp &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Microsoft ftpd 5.0<br/>
+25/tcp &nbsp; open &nbsp;smtp &nbsp; &nbsp; &nbsp; &nbsp; Microsoft ESMTP 5.0.2195.6713<br/>
+| smtp-commands: dj.acme.local Hello [10.11.0.187], AUTH GSSAPI NTLM LOGIN, AUTH=LOGIN, TURN, ATRN, SIZE 2097152, ETRN, PIPELINING, DSN, ENHANCEDSTATUSCODES, 8bitmime, BINARYMIME, CHUNKING, VRFY, OK, <br/>
+|_ This server supports the following commands: HELO EHLO STARTTLS RCPT DATA RSET MAIL QUIT HELP AUTH TURN ATRN ETRN BDAT VRFY <br/>
+| smtp-ntlm-info: <br/>
+| &nbsp; Target_Name: DJ<br/>
+| &nbsp; NetBIOS_Domain_Name: DJ<br/>
+| &nbsp; NetBIOS_Computer_Name: DJ<br/>
+| &nbsp; DNS_Domain_Name: dj.acme.local<br/>
+| &nbsp; DNS_Computer_Name: dj.acme.local<br/>
+|_ &nbsp;Product_Version: 5.0.2195<br/>
+80/tcp &nbsp; open &nbsp;http &nbsp; &nbsp; &nbsp; &nbsp; Microsoft IIS httpd 5.0<br/>
+| http-cookie-flags: <br/>
+| &nbsp; /: <br/>
+| &nbsp; &nbsp; ASPSESSIONIDCCSCDDSQ: <br/>
+|_ &nbsp; &nbsp; &nbsp;httponly flag not set<br/>
+| http-methods: <br/>
+|_ &nbsp;Potentially risky methods: TRACE<br/>
+|_http-server-header: Microsoft-IIS/5.0<br/>
+|_http-title: Login<br/>
+135/tcp &nbsp;open &nbsp;msrpc &nbsp; &nbsp; &nbsp; &nbsp;Microsoft Windows RPC<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn &nbsp;Microsoft Windows netbios-ssn<br/>
+443/tcp &nbsp;open &nbsp;https?<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds Windows 2000 microsoft-ds<br/>
+1025/tcp open &nbsp;msrpc &nbsp; &nbsp; &nbsp; &nbsp;Microsoft Windows RPC<br/>
+1026/tcp open &nbsp;msrpc &nbsp; &nbsp; &nbsp; &nbsp;Microsoft Windows RPC<br/>
+1031/tcp open &nbsp;msrpc &nbsp; &nbsp; &nbsp; &nbsp;Microsoft Windows RPC<br/>
+3372/tcp open &nbsp;msdtc &nbsp; &nbsp; &nbsp; &nbsp;Microsoft Distributed Transaction Coordinator<br/>
+5800/tcp open &nbsp;vnc-http &nbsp; &nbsp; TightVNC<br/>
+|_http-title: TightVNC desktop [dj]<br/>
+5900/tcp open &nbsp;vnc &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;VNC (protocol 3.8)<br/>
+| vnc-info: <br/>
+| &nbsp; Protocol version: 3.8<br/>
+| &nbsp; Security types: <br/>
+| &nbsp; &nbsp; VNC Authentication (2)<br/>
+| &nbsp; &nbsp; Tight (16)<br/>
+| &nbsp; Tight auth subtypes: <br/>
+|_ &nbsp; &nbsp;STDV VNCAUTH_ (2)<br/>
+MAC Address: 00:50:56:89:0A:DE (VMware)<br/>
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).<br/>
+TCP/IP fingerprint:<br/>
+OS:SCAN(V=7.60%E=4%D=6/11%OT=21%CT=1%CU=37832%PV=Y%DS=1%DC=D%G=Y%M=005056%T<br/>
+OS:M=5B1ED402%P=i686-pc-linux-gnu)SEQ(SP=108%GCD=1%ISR=10D%TI=I%II=I%SS=S%T<br/>
+OS:S=0)SEQ(SP=109%GCD=1%ISR=10D%TI=I%TS=0)OPS(O1=M529NW0NNT00NNS%O2=M529NW0<br/>
+OS:NNT00NNS%O3=M529NW0NNT00%O4=M529NW0NNT00NNS%O5=M529NW0NNT00NNS%O6=M529NN<br/>
+OS:T00NNS)WIN(W1=FAF0%W2=FAF0%W3=FAF0%W4=FAF0%W5=FAF0%W6=FAF0)ECN(R=Y%DF=Y%<br/>
+OS:T=80%W=FAF0%O=M529NW0NNS%CC=N%Q=)ECN(R=N)T1(R=Y%DF=Y%T=80%S=O%A=S+%F=AS%<br/>
+OS:RD=0%Q=)T1(R=N)T2(R=N)T3(R=N)T4(R=N)T5(R=Y%DF=N%T=80%W=0%S=Z%A=S+%F=AR%O<br/>
+OS:=%RD=0%Q=)T5(R=N)T6(R=N)T7(R=N)U1(R=Y%DF=N%T=80%IPL=38%UN=0%RIPL=G%RID=G<br/>
+OS:%RIPCK=G%RUCK=G%RUD=G)U1(R=N)IE(R=Y%DFI=S%T=80%CD=Z)IE(R=N)<br/>
+<br/>
+Network Distance: 1 hop<br/>
+Service Info: Host: dj.acme.local; OSs: Windows, Windows 2000; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_2000<br/>
+<br/>
+Host script results:<br/>
+|_clock-skew: mean: -12s, deviation: 0s, median: -12s<br/>
+| ms-sql-info: <br/>
+| &nbsp; \\10.11.1.128\pipe\sql\query: <br/>
+| &nbsp; &nbsp; Version: <br/>
+| &nbsp; &nbsp; &nbsp; name: Microsoft SQL Server 2000 RTM<br/>
+| &nbsp; &nbsp; &nbsp; number: 8.00.194.00<br/>
+| &nbsp; &nbsp; &nbsp; Product: Microsoft SQL Server 2000<br/>
+| &nbsp; &nbsp; &nbsp; Service pack level: RTM<br/>
+| &nbsp; &nbsp; &nbsp; Post-SP patches applied: false<br/>
+|_ &nbsp; &nbsp;Named pipe: \\10.11.1.128\pipe\sql\query<br/>
+|_nbstat: NetBIOS name: DJ, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 00:50:56:89:0a:de (VMware)<br/>
+| smb-os-discovery: <br/>
+| &nbsp; OS: Windows 2000 (Windows 2000 LAN Manager)<br/>
+| &nbsp; OS CPE: cpe:/o:microsoft:windows_2000::-<br/>
+| &nbsp; Computer name: dj<br/>
+| &nbsp; NetBIOS computer name: DJ\x00<br/>
+| &nbsp; Workgroup: WORKGROUP\x00<br/>
+|_ &nbsp;System time: 2018-06-11T21:52:20+02:00<br/>
+| smb-security-mode: <br/>
+| &nbsp; account_used: guest<br/>
+| &nbsp; authentication_level: user<br/>
+| &nbsp; challenge_response: supported<br/>
+|_ &nbsp;message_signing: disabled (dangerous, but default)<br/>
+|_smb2-time: Protocol negotiation failed (SMB2)<br/>
+<br/>
+TRACEROUTE<br/>
+HOP RTT &nbsp; &nbsp; &nbsp;ADDRESS<br/>
+1 &nbsp; 47.32 ms 10.11.1.128<br/>
+<br/>
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .<br/>
+Nmap done: 1 IP address (1 host up) scanned in 1265.54 seconds<br/>
+</body></html>

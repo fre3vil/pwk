@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>shell</title>
+</head><body>bash-3.00$ whoami<br/>
+apache<br/>
+bash-3.00$ <br/>
+<br/>
+Processes running as root:<br/>
+bash-3.00$ ps aux | grep root<br/>
+root &nbsp; &nbsp; &nbsp; &nbsp; 1 &nbsp;0.0 &nbsp;0.1 &nbsp;1984 &nbsp;544 ? &nbsp; &nbsp; &nbsp; &nbsp;S &nbsp; &nbsp;12:59 &nbsp; 0:00 init [3] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+root &nbsp; &nbsp; &nbsp; &nbsp; 2 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;SN &nbsp; 12:59 &nbsp; 0:00 [ksoftirqd/0]<br/>
+root &nbsp; &nbsp; &nbsp; &nbsp; 3 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S&lt; &nbsp; 12:59 &nbsp; 0:00 [events/0]<br/>
+root &nbsp; &nbsp; &nbsp; &nbsp; 4 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S&lt; &nbsp; 12:59 &nbsp; 0:00 [khelper]<br/>
+root &nbsp; &nbsp; &nbsp; &nbsp; 5 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S&lt; &nbsp; 12:59 &nbsp; 0:00 [kthread]<br/>
+root &nbsp; &nbsp; &nbsp; &nbsp; 6 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S&lt; &nbsp; 12:59 &nbsp; 0:00 [kacpid]<br/>
+root &nbsp; &nbsp; &nbsp; &nbsp;84 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S&lt; &nbsp; 12:59 &nbsp; 0:00 [kblockd/0]<br/>
+root &nbsp; &nbsp; &nbsp; &nbsp;85 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S &nbsp; &nbsp;12:59 &nbsp; 0:00 [khubd]<br/>
+root &nbsp; &nbsp; &nbsp; 102 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S &nbsp; &nbsp;12:59 &nbsp; 0:00 [pdflush]<br/>
+root &nbsp; &nbsp; &nbsp; 103 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S &nbsp; &nbsp;12:59 &nbsp; 0:00 [pdflush]<br/>
+root &nbsp; &nbsp; &nbsp; 104 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S &nbsp; &nbsp;12:59 &nbsp; 0:00 [kswapd0]<br/>
+root &nbsp; &nbsp; &nbsp; 105 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S&lt; &nbsp; 12:59 &nbsp; 0:00 [aio/0]<br/>
+root &nbsp; &nbsp; &nbsp; 251 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S &nbsp; &nbsp;12:59 &nbsp; 0:00 [kseriod]<br/>
+root &nbsp; &nbsp; &nbsp; 484 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S &nbsp; &nbsp;12:59 &nbsp; 0:00 [scsi_eh_0]<br/>
+root &nbsp; &nbsp; &nbsp; 494 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S&lt; &nbsp; 12:59 &nbsp; 0:00 [ata/0]<br/>
+root &nbsp; &nbsp; &nbsp; 495 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S&lt; &nbsp; 12:59 &nbsp; 0:00 [ata_aux]<br/>
+root &nbsp; &nbsp; &nbsp; 510 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S &nbsp; &nbsp;12:59 &nbsp; 0:00 [kjournald]<br/>
+root &nbsp; &nbsp; &nbsp;1174 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S&lt; &nbsp; 12:59 &nbsp; 0:00 [kauditd]<br/>
+root &nbsp; &nbsp; &nbsp;1360 &nbsp;0.0 &nbsp;0.1 &nbsp;2844 &nbsp;600 ? &nbsp; &nbsp; &nbsp; &nbsp;Ss &nbsp; 12:59 &nbsp; 0:00 udevd<br/>
+root &nbsp; &nbsp; &nbsp;2443 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S &nbsp; &nbsp;12:59 &nbsp; 0:00 [kjournald]<br/>
+root &nbsp; &nbsp; &nbsp;2671 &nbsp;0.0 &nbsp;0.0 &nbsp; &nbsp; 0 &nbsp; &nbsp;0 ? &nbsp; &nbsp; &nbsp; &nbsp;S&lt; &nbsp; 12:59 &nbsp; 0:00 [vmmemctl]<br/>
+root &nbsp; &nbsp; &nbsp;2912 &nbsp;0.0 &nbsp;0.7 38204 3808 ? &nbsp; &nbsp; &nbsp; &nbsp;Sl &nbsp; 12:59 &nbsp; 0:03 /usr/sbin/vmtoolsd<br/>
+root &nbsp; &nbsp; &nbsp;3165 &nbsp;0.0 &nbsp;0.1 &nbsp;3496 &nbsp;580 ? &nbsp; &nbsp; &nbsp; &nbsp;Ss &nbsp; 12:59 &nbsp; 0:00 syslogd -m 0<br/>
+root &nbsp; &nbsp; &nbsp;3169 &nbsp;0.0 &nbsp;0.0 &nbsp;3216 &nbsp;384 ? &nbsp; &nbsp; &nbsp; &nbsp;Ss &nbsp; 12:59 &nbsp; 0:00 klogd -x<br/>
+root &nbsp; &nbsp; &nbsp;3232 &nbsp;0.0 &nbsp;0.0 &nbsp;5320 &nbsp;384 ? &nbsp; &nbsp; &nbsp; &nbsp;Ss &nbsp; 12:59 &nbsp; 0:00 rpc.idmapd<br/>
+root &nbsp; &nbsp; &nbsp;3297 &nbsp;0.0 &nbsp;0.0 &nbsp;2344 &nbsp;432 ? &nbsp; &nbsp; &nbsp; &nbsp;Ss &nbsp; 12:59 &nbsp; 0:00 /usr/sbin/acpid<br/>
+root &nbsp; &nbsp; &nbsp;3358 &nbsp;0.0 &nbsp;0.2 &nbsp;4956 1148 ? &nbsp; &nbsp; &nbsp; &nbsp;Ss &nbsp; 12:59 &nbsp; 0:00 /usr/sbin/sshd<br/>
+root &nbsp; &nbsp; &nbsp;3394 &nbsp;0.0 &nbsp;0.1 &nbsp;3020 &nbsp;748 ? &nbsp; &nbsp; &nbsp; &nbsp;Ss &nbsp; 12:59 &nbsp; 0:00 xinetd -stayalive -pidfile /var/run/xinetd.pid<br/>
+root &nbsp; &nbsp; &nbsp;3406 &nbsp;0.0 &nbsp;0.0 &nbsp;4920 &nbsp;504 ? &nbsp; &nbsp; &nbsp; &nbsp;Ss &nbsp; 12:59 &nbsp; 0:00 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf --force-background<br/>
+root &nbsp; &nbsp; &nbsp;3435 &nbsp;0.0 &nbsp;0.2 &nbsp;4576 1236 ? &nbsp; &nbsp; &nbsp; &nbsp;S &nbsp; &nbsp;12:59 &nbsp; 0:00 /bin/sh /usr/bin/mysqld_safe --datadir=/var/lib/mysql --socket=/var/lib/mysql/mysql.sock --err-log=/var/log/mysqld.log --pid-file=/var/run/mysqld/mysqld.pid<br/>
+root &nbsp; &nbsp; &nbsp;3504 &nbsp;0.0 &nbsp;0.0 &nbsp;2520 &nbsp;340 ? &nbsp; &nbsp; &nbsp; &nbsp;Ss &nbsp; 13:00 &nbsp; 0:00 gpm -m /dev/input/mice -t imps2<br/>
+root &nbsp; &nbsp; &nbsp;3514 &nbsp;0.0 &nbsp;1.9 20020 10288 ? &nbsp; &nbsp; &nbsp; Ss &nbsp; 13:00 &nbsp; 0:00 /usr/sbin/httpd<br/>
+root &nbsp; &nbsp; &nbsp;3523 &nbsp;0.0 &nbsp;0.2 &nbsp;5800 1040 ? &nbsp; &nbsp; &nbsp; &nbsp;Ss &nbsp; 13:00 &nbsp; 0:00 crond<br/>
+root &nbsp; &nbsp; &nbsp;3570 &nbsp;0.0 &nbsp;0.5 12048 2756 ? &nbsp; &nbsp; &nbsp; &nbsp;Ss &nbsp; 13:00 &nbsp; 0:00 smbd -D<br/>
+root &nbsp; &nbsp; &nbsp;3574 &nbsp;0.0 &nbsp;0.2 &nbsp;9064 1468 ? &nbsp; &nbsp; &nbsp; &nbsp;Ss &nbsp; 13:00 &nbsp; 0:00 nmbd -D<br/>
+root &nbsp; &nbsp; &nbsp;3591 &nbsp;0.0 &nbsp;0.0 &nbsp;3496 &nbsp;432 ? &nbsp; &nbsp; &nbsp; &nbsp;Ss &nbsp; 13:00 &nbsp; 0:00 /usr/sbin/atd<br/>
+root &nbsp; &nbsp; &nbsp;3599 &nbsp;0.0 &nbsp;0.1 12048 &nbsp;988 ? &nbsp; &nbsp; &nbsp; &nbsp;S &nbsp; &nbsp;13:00 &nbsp; 0:00 smbd -D<br/>
+root &nbsp; &nbsp; &nbsp;3613 &nbsp;0.0 &nbsp;0.5 &nbsp;5012 2772 ? &nbsp; &nbsp; &nbsp; &nbsp;Ss &nbsp; 13:00 &nbsp; 0:01 hald<br/>
+root &nbsp; &nbsp; &nbsp;3620 &nbsp;0.0 &nbsp;0.0 &nbsp;3072 &nbsp;396 tty1 &nbsp; &nbsp; Ss+ &nbsp;13:00 &nbsp; 0:00 /sbin/mingetty tty1<br/>
+root &nbsp; &nbsp; &nbsp;3621 &nbsp;0.0 &nbsp;0.0 &nbsp;2104 &nbsp;396 tty2 &nbsp; &nbsp; Ss+ &nbsp;13:00 &nbsp; 0:00 /sbin/mingetty tty2<br/>
+root &nbsp; &nbsp; &nbsp;3622 &nbsp;0.0 &nbsp;0.0 &nbsp;2204 &nbsp;392 tty3 &nbsp; &nbsp; Ss+ &nbsp;13:00 &nbsp; 0:00 /sbin/mingetty tty3<br/>
+root &nbsp; &nbsp; &nbsp;3623 &nbsp;0.0 &nbsp;0.0 &nbsp;2856 &nbsp;396 tty4 &nbsp; &nbsp; Ss+ &nbsp;13:00 &nbsp; 0:00 /sbin/mingetty tty4<br/>
+root &nbsp; &nbsp; &nbsp;3624 &nbsp;0.0 &nbsp;0.0 &nbsp;2296 &nbsp;396 tty5 &nbsp; &nbsp; Ss+ &nbsp;13:00 &nbsp; 0:00 /sbin/mingetty tty5<br/>
+root &nbsp; &nbsp; &nbsp;3683 &nbsp;0.0 &nbsp;0.0 &nbsp;3196 &nbsp;392 tty6 &nbsp; &nbsp; Ss+ &nbsp;13:00 &nbsp; 0:00 /sbin/mingetty tty6<br/>
+root &nbsp; &nbsp; &nbsp;4854 &nbsp;0.0 &nbsp;0.4 &nbsp;8416 2280 ? &nbsp; &nbsp; &nbsp; &nbsp;SNs &nbsp;14:05 &nbsp; 0:00 cupsd<br/>
+bash-3.00$ <br/>
+<br/>
+Looked at running services:<br/>
+ps aux<br/>
+ps -ef<br/>
+<br/>
+What version is this?:<br/>
+bash-3.00$ cat /proc/version<br/>
+<span style="color: #ff0000">Linux version 2.6.9-89.EL</span>&nbsp;(mockbuild@builder10.centos.org) (gcc version 3.4.6 20060404 (Red Hat 3.4.6-11)) #1 Mon Jun 22 12:19:40 EDT 2009<br/>
+<br/>
+<br/>
+</body></html>
