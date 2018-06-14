@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>nmap -A</title>
+</head><body>root@:~/megacorpone&gt; nmap -A 10.11.1.22<br/>
+<br/>
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-06-13 17:58 EDT<br/>
+Nmap scan report for 10.11.1.22<br/>
+Host is up (0.060s latency).<br/>
+Not shown: 989 closed ports<br/>
+PORT &nbsp; &nbsp; &nbsp;STATE SERVICE &nbsp; &nbsp; VERSION<br/>
+21/tcp &nbsp; &nbsp;open &nbsp;ftp?<br/>
+22/tcp &nbsp; &nbsp;open &nbsp;ssh &nbsp; &nbsp; &nbsp; &nbsp; OpenSSH 3.1p1 (protocol 1.99)<br/>
+| ssh-hostkey: <br/>
+| &nbsp; 1024 4a:e3:f8:07:d5:d6:b1:b5:bf:54:ac:e7:17:36:7e:e8 (RSA1)<br/>
+| &nbsp; 1024 77:67:f2:2c:3d:7c:45:24:fe:5e:0f:de:07:65:b3:57 (DSA)<br/>
+|_ &nbsp;1024 42:b1:48:0b:41:f8:a9:12:cc:9b:c4:ed:26:74:64:2c (RSA)<br/>
+|_sshv1: Server supports SSHv1<br/>
+23/tcp &nbsp; &nbsp;open &nbsp;telnet?<br/>
+25/tcp &nbsp; &nbsp;open &nbsp;smtp?<br/>
+|_smtp-commands: Couldn't establish connection on port 25<br/>
+80/tcp &nbsp; &nbsp;open &nbsp;http &nbsp; &nbsp; &nbsp; &nbsp;Apache httpd 1.3.23 ((Unix) &nbsp;(Red-Hat/Linux) mod_python/2.7.6 Python/1.5.2 mod_ssl/2.8.7 OpenSSL/0.9.6b DAV/1.0.3 PHP/4.1.2 mod_perl/1.26 mod_throttle/3.1.2)<br/>
+| http-methods: <br/>
+|_ &nbsp;Potentially risky methods: PUT DELETE CONNECT PATCH PROPFIND PROPPATCH MKCOL COPY MOVE LOCK UNLOCK TRACE<br/>
+|_http-server-header: Apache/1.3.23 (Unix) &nbsp;(Red-Hat/Linux) mod_python/2.7.6 Python/1.5.2 mod_ssl/2.8.7 OpenSSL/0.9.6b DAV/1.0.3 PHP/4.1.2 mod_perl/1.26 mod_throttle/3.1.2<br/>
+|_http-title: Test Page for the Apache Web Server on Red Hat Linux<br/>
+111/tcp &nbsp; open &nbsp;rpcbind &nbsp; &nbsp; 2 (RPC #100000)<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn Samba smbd (workgroup: MYGROUP)<br/>
+199/tcp &nbsp; open &nbsp;smux &nbsp; &nbsp; &nbsp; &nbsp;Linux SNMP multiplexer<br/>
+443/tcp &nbsp; open &nbsp;ssl/https &nbsp; Apache/1.3.23 (Unix) &nbsp;(Red-Hat/Linux) mod_python/2.7.6 Python/1.5.2 mod_ssl/2.8.<br/>
+|_http-server-header: Apache/1.3.23 (Unix) &nbsp;(Red-Hat/Linux) mod_python/2.7.6 Python/1.5.2 mod_ssl/2.8.7 OpenSSL/0.9.6b DAV/1.0.3 PHP/4.1.2 mod_perl/1.26 mod_throttle/3.1.2<br/>
+|_http-title: 400 Bad Request<br/>
+|_ssl-date: 2018-06-13T22:18:19+00:00; -9s from scanner time.<br/>
+| sslv2: <br/>
+| &nbsp; SSLv2 supported<br/>
+| &nbsp; ciphers: <br/>
+| &nbsp; &nbsp; SSL2_RC4_64_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC2_128_CBC_EXPORT40_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC2_128_CBC_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC4_128_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_DES_192_EDE3_CBC_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_DES_64_CBC_WITH_MD5<br/>
+|_ &nbsp; &nbsp;SSL2_RC4_128_EXPORT40_WITH_MD5<br/>
+995/tcp &nbsp; open &nbsp;ssl/pop3s?<br/>
+|_ssl-date: 2018-06-13T22:18:17+00:00; -10s from scanner time.<br/>
+| sslv2: <br/>
+| &nbsp; SSLv2 supported<br/>
+| &nbsp; ciphers: <br/>
+| &nbsp; &nbsp; SSL2_RC2_128_CBC_EXPORT40_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC2_128_CBC_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC4_128_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_DES_192_EDE3_CBC_WITH_MD5<br/>
+|_ &nbsp; &nbsp;SSL2_RC4_128_EXPORT40_WITH_MD5<br/>
+32768/tcp open &nbsp;status &nbsp; &nbsp; &nbsp;1 (RPC #100024)<br/>
+MAC Address: 00:50:56:89:6A:75 (VMware)<br/>
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).<br/>
+TCP/IP fingerprint:<br/>
+OS:SCAN(V=7.60%E=4%D=6/13%OT=21%CT=1%CU=41442%PV=Y%DS=1%DC=D%G=Y%M=005056%T<br/>
+OS:M=5B21994C%P=i686-pc-linux-gnu)SEQ(SP=CC%GCD=1%ISR=D1%TI=Z%II=I%TS=7)OPS<br/>
+OS:(O1=M529ST11NW0%O2=M529ST11NW0%O3=M529NNT11NW0%O4=M529ST11NW0%O5=M529ST1<br/>
+OS:1NW0%O6=M529ST11)WIN(W1=16A0%W2=16A0%W3=16A0%W4=16A0%W5=16A0%W6=16A0)ECN<br/>
+OS:(R=Y%DF=Y%T=40%W=16D0%O=M529NNSNW0%CC=N%Q=)ECN(R=N)T1(R=Y%DF=Y%T=40%S=O%<br/>
+OS:A=S+%F=AS%RD=0%Q=)T1(R=N)T2(R=N)T3(R=N)T4(R=N)T5(R=Y%DF=Y%T=FF%W=0%S=Z%A<br/>
+OS:=S+%F=AR%O=%RD=0%Q=)T5(R=N)T6(R=N)T7(R=N)U1(R=Y%DF=N%T=FF%IPL=164%UN=0%R<br/>
+OS:IPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)U1(R=N)IE(R=Y%DFI=N%T=FF%CD=S)IE(R=N)<br/>
+<br/>
+Network Distance: 1 hop<br/>
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel<br/>
+<br/>
+Host script results:<br/>
+|_clock-skew: mean: -9s, deviation: 0s, median: -10s<br/>
+|_nbstat: NetBIOS name: BARRY, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: &lt;unknown&gt; (unknown)<br/>
+|_smb2-time: Protocol negotiation failed (SMB2)<br/>
+<br/>
+TRACEROUTE<br/>
+HOP RTT &nbsp; &nbsp; &nbsp;ADDRESS<br/>
+1 &nbsp; 60.05 ms 10.11.1.22<br/>
+<br/>
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .<br/>
+Nmap done: 1 IP address (1 host up) scanned in 1498.09 seconds<br/>
+root@:~/megacorpone&gt; <br/>
+</body></html>

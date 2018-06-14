@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>enum4linux</title>
+</head><body>root@:~&gt; enum4linux 10.11.1.22<br/>
+Starting enum4linux v0.8.9 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Wed Jun 13 17:58:24 2018<br/>
+<br/>
+&nbsp;========================== <br/>
+| &nbsp; &nbsp;Target Information &nbsp; &nbsp;|<br/>
+&nbsp;========================== <br/>
+Target ........... 10.11.1.22<br/>
+RID Range ........ 500-550,1000-1050<br/>
+Username ......... ''<br/>
+Password ......... ''<br/>
+Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none<br/>
+<br/>
+<br/>
+&nbsp;================================================== <br/>
+| &nbsp; &nbsp;Enumerating Workgroup/Domain on 10.11.1.22 &nbsp; &nbsp;|<br/>
+&nbsp;================================================== <br/>
+[+] Got domain/workgroup name: MYGROUP<br/>
+<br/>
+&nbsp;========================================== <br/>
+| &nbsp; &nbsp;Nbtstat Information for 10.11.1.22 &nbsp; &nbsp;|<br/>
+&nbsp;========================================== <br/>
+Looking up status of 10.11.1.22<br/>
+&#09;BARRY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;00&gt; - &nbsp; &nbsp; &nbsp; &nbsp; B &lt;ACTIVE&gt; &nbsp;Workstation Service<br/>
+&#09;BARRY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;03&gt; - &nbsp; &nbsp; &nbsp; &nbsp; B &lt;ACTIVE&gt; &nbsp;Messenger Service<br/>
+&#09;BARRY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;20&gt; - &nbsp; &nbsp; &nbsp; &nbsp; B &lt;ACTIVE&gt; &nbsp;File Server Service<br/>
+&#09;..__MSBROWSE__. &lt;01&gt; - &lt;GROUP&gt; B &lt;ACTIVE&gt; &nbsp;Master Browser<br/>
+&#09;MYGROUP &nbsp; &nbsp; &nbsp; &nbsp; &lt;00&gt; - &lt;GROUP&gt; B &lt;ACTIVE&gt; &nbsp;Domain/Workgroup Name<br/>
+&#09;MYGROUP &nbsp; &nbsp; &nbsp; &nbsp; &lt;1d&gt; - &nbsp; &nbsp; &nbsp; &nbsp; B &lt;ACTIVE&gt; &nbsp;Master Browser<br/>
+&#09;MYGROUP &nbsp; &nbsp; &nbsp; &nbsp; &lt;1e&gt; - &lt;GROUP&gt; B &lt;ACTIVE&gt; &nbsp;Browser Service Elections<br/>
+<br/>
+&#09;MAC Address = 00-00-00-00-00-00<br/>
+<br/>
+&nbsp;=================================== <br/>
+| &nbsp; &nbsp;Session Check on 10.11.1.22 &nbsp; &nbsp;|<br/>
+&nbsp;=================================== <br/>
+[+] Server 10.11.1.22 allows sessions using username '', password ''<br/>
+<br/>
+&nbsp;========================================= <br/>
+| &nbsp; &nbsp;Getting domain SID for 10.11.1.22 &nbsp; &nbsp;|<br/>
+&nbsp;========================================= <br/>
+Domain Name: MYGROUP<br/>
+Domain Sid: (NULL SID)<br/>
+[+] Can't determine if host is part of domain or part of a workgroup<br/>
+<br/>
+&nbsp;==================================== <br/>
+| &nbsp; &nbsp;OS information on 10.11.1.22 &nbsp; &nbsp;|<br/>
+&nbsp;==================================== <br/>
+[+] Got OS info for 10.11.1.22 from smbclient: Domain=[MYGROUP] OS=[Unix] Server=[Samba 2.2.3a]<br/>
+[+] Got OS info for 10.11.1.22 from srvinfo:<br/>
+&#09;BARRY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Wk Sv PrQ Unx NT SNT Samba Server<br/>
+&#09;platform_id &nbsp; &nbsp; :&#09;500<br/>
+&#09;os version &nbsp; &nbsp; &nbsp;:&#09;4.5<br/>
+&#09;server type &nbsp; &nbsp; :&#09;0x9a03<br/>
+<br/>
+&nbsp;=========================== <br/>
+| &nbsp; &nbsp;Users on 10.11.1.22 &nbsp; &nbsp;|<br/>
+&nbsp;=========================== <br/>
+Use of uninitialized value $users in print at ./enum4linux.pl line 874.<br/>
+Use of uninitialized value $users in pattern match (m//) at ./enum4linux.pl line 877.<br/>
+<br/>
+Use of uninitialized value $users in print at ./enum4linux.pl line 888.<br/>
+Use of uninitialized value $users in pattern match (m//) at ./enum4linux.pl line 890.<br/>
+<br/>
+&nbsp;======================================= <br/>
+| &nbsp; &nbsp;Share Enumeration on 10.11.1.22 &nbsp; &nbsp;|<br/>
+&nbsp;======================================= <br/>
+WARNING: The "syslog" option is deprecated<br/>
+Domain=[MYGROUP] OS=[Unix] Server=[<span style="color: #ff0000">Samba 2.2.3a</span>]<br/>
+Domain=[MYGROUP] OS=[Unix] Server=[Samba 2.2.3a]<br/>
+<br/>
+&#09;Sharename &nbsp; &nbsp; &nbsp; Type &nbsp; &nbsp; &nbsp;Comment<br/>
+&#09;--------- &nbsp; &nbsp; &nbsp; ---- &nbsp; &nbsp; &nbsp;-------<br/>
+&#09;IPC$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IPC &nbsp; &nbsp; &nbsp; IPC Service (Samba Server)<br/>
+&#09;ADMIN$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IPC &nbsp; &nbsp; &nbsp; IPC Service (Samba Server)<br/>
+<br/>
+&#09;Server &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Comment<br/>
+&#09;--------- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-------<br/>
+&#09;BARRY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Samba Server<br/>
+&#09;TOPHAT &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Samba Server<br/>
+<br/>
+&#09;Workgroup &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Master<br/>
+&#09;--------- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-------<br/>
+&#09;ACME &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ORACLE<br/>
+&#09;MSHOME &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PAYDAY<br/>
+&#09;MYGROUP &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;BARRY<br/>
+&#09;THINC &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;RALPH<br/>
+&#09;THINC.LOCAL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SUFFERANCE<br/>
+&#09;WORKGROUP &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;BOB<br/>
+<br/>
+[+] Attempting to map shares on 10.11.1.22<br/>
+//10.11.1.22/IPC$&#09;[E] Can't understand response:<br/>
+WARNING: The "syslog" option is deprecated<br/>
+Domain=[MYGROUP] OS=[Unix] Server=[Samba 2.2.3a]<br/>
+NT_STATUS_NETWORK_ACCESS_DENIED listing \*<br/>
+//10.11.1.22/ADMIN$&#09;[E] Can't understand response:<br/>
+WARNING: The "syslog" option is deprecated<br/>
+Domain=[MYGROUP] OS=[Unix] Server=[Samba 2.2.3a]<br/>
+tree connect failed: NT_STATUS_WRONG_PASSWORD<br/>
+<br/>
+&nbsp;================================================== <br/>
+| &nbsp; &nbsp;Password Policy Information for 10.11.1.22 &nbsp; &nbsp;|<br/>
+&nbsp;================================================== <br/>
+[E] Unexpected error from polenum:<br/>
+Traceback (most recent call last):<br/>
+&nbsp; File "/usr/bin/polenum", line 33, in &lt;module&gt;<br/>
+&nbsp; &nbsp; from impacket.dcerpc import dcerpc_v4, dcerpc, transport, samr<br/>
+ImportError: cannot import name dcerpc_v4<br/>
+[+] Retieved partial password policy with rpcclient:<br/>
+<br/>
+Password Complexity: Disabled<br/>
+Minimum Password Length: 0<br/>
+<br/>
+<br/>
+&nbsp;============================ <br/>
+| &nbsp; &nbsp;Groups on 10.11.1.22 &nbsp; &nbsp;|<br/>
+&nbsp;============================ <br/>
+<br/>
+[+] Getting builtin groups:<br/>
+group:[Administrators] rid:[0x220]<br/>
+group:[Users] rid:[0x221]<br/>
+group:[Guests] rid:[0x222]<br/>
+group:[Power Users] rid:[0x223]<br/>
+group:[Account Operators] rid:[0x224]<br/>
+group:[System Operators] rid:[0x225]<br/>
+group:[Print Operators] rid:[0x226]<br/>
+group:[Backup Operators] rid:[0x227]<br/>
+group:[Replicator] rid:[0x228]<br/>
+<br/>
+[+] Getting builtin group memberships:<br/>
+Group 'Backup Operators' (RID: 551) has member: Couldn't find group Backup Operators<br/>
+Group 'Replicator' (RID: 552) has member: Couldn't find group Replicator<br/>
+Group 'System Operators' (RID: 549) has member: Couldn't find group System Operators<br/>
+Group 'Administrators' (RID: 544) has member: Couldn't find group Administrators<br/>
+Group 'Account Operators' (RID: 548) has member: Couldn't find group Account Operators<br/>
+Group 'Print Operators' (RID: 550) has member: Couldn't find group Print Operators<br/>
+Group 'Power Users' (RID: 547) has member: Couldn't find group Power Users<br/>
+Group 'Users' (RID: 545) has member: Couldn't find group Users<br/>
+Group 'Guests' (RID: 546) has member: Couldn't find group Guests<br/>
+<br/>
+[+] Getting local groups:<br/>
+<br/>
+[+] Getting local group memberships:<br/>
+<br/>
+[+] Getting domain groups:<br/>
+group:[Domain Admins] rid:[0x200]<br/>
+group:[Domain Users] rid:[0x201]<br/>
+<br/>
+[+] Getting domain group memberships:<br/>
+Group 'Domain Users' (RID: 513) has member: Couldn't find group Domain Users<br/>
+Group 'Domain Admins' (RID: 512) has member: Couldn't find group Domain Admins<br/>
+<br/>
+&nbsp;===================================================================== <br/>
+| &nbsp; &nbsp;Users on 10.11.1.22 via RID cycling (RIDS: 500-550,1000-1050) &nbsp; &nbsp;|<br/>
+&nbsp;===================================================================== <br/>
+[I] Found new SID: S-1-5-21-2974263341-3895402545-469881541<br/>
+[+] Enumerating users using SID S-1-5-21-2974263341-3895402545-469881541 and logon username '', password ''<br/>
+S-1-5-21-2974263341-3895402545-469881541-500 BARRY\Administrator (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-501 BARRY\(ý ┐ (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-502 BARRY\unix_group.2147483399 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-503 BARRY\unix_group.2147483399 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-504 BARRY\unix_group.2147483400 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-505 BARRY\unix_group.2147483400 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-506 BARRY\unix_group.2147483401 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-507 BARRY\unix_group.2147483401 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-508 BARRY\unix_group.2147483402 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-509 BARRY\unix_group.2147483402 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-510 BARRY\unix_group.2147483403 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-511 BARRY\unix_group.2147483403 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-512 BARRY\unix_group.2147483404 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-513 BARRY\unix_group.2147483404 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-514 BARRY\unix_group.2147483405 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-515 BARRY\unix_group.2147483405 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-516 BARRY\unix_group.2147483406 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-517 BARRY\unix_group.2147483406 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-518 BARRY\unix_group.2147483407 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-519 BARRY\unix_group.2147483407 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-520 BARRY\unix_group.2147483408 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-521 BARRY\unix_group.2147483408 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-522 BARRY\unix_group.2147483409 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-523 BARRY\unix_group.2147483409 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-524 BARRY\unix_group.2147483410 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-525 BARRY\unix_group.2147483410 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-526 BARRY\unix_group.2147483411 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-527 BARRY\unix_group.2147483411 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-528 BARRY\unix_group.2147483412 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-529 BARRY\unix_group.2147483412 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-530 BARRY\unix_group.2147483413 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-531 BARRY\unix_group.2147483413 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-532 BARRY\unix_group.2147483414 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-533 BARRY\unix_group.2147483414 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-534 BARRY\unix_group.2147483415 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-535 BARRY\unix_group.2147483415 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-536 BARRY\unix_group.2147483416 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-537 BARRY\unix_group.2147483416 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-538 BARRY\unix_group.2147483417 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-539 BARRY\unix_group.2147483417 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-540 BARRY\unix_group.2147483418 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-541 BARRY\unix_group.2147483418 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-542 BARRY\unix_group.2147483419 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-543 BARRY\unix_group.2147483419 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-544 BARRY\unix_group.2147483420 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-545 BARRY\unix_group.2147483420 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-546 BARRY\unix_group.2147483421 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-547 BARRY\unix_group.2147483421 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-548 BARRY\unix_group.2147483422 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-549 BARRY\unix_group.2147483422 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-550 BARRY\unix_group.2147483423 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1000 BARRY\root (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1001 BARRY\root (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1002 BARRY\bin (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1003 BARRY\bin (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1004 BARRY\daemon (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1005 BARRY\daemon (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1006 BARRY\adm (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1007 BARRY\sys (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1008 BARRY\lp (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1009 BARRY\adm (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1010 BARRY\sync (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1011 BARRY\tty (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1012 BARRY\shutdown (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1013 BARRY\disk (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1014 BARRY\halt (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1015 BARRY\lp (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1016 BARRY\mail (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1017 BARRY\mem (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1018 BARRY\news (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1019 BARRY\kmem (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1020 BARRY\uucp (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1021 BARRY\wheel (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1022 BARRY\operator (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1023 BARRY\unix_group.11 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1024 BARRY\games (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1025 BARRY\mail (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1026 BARRY\gopher (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1027 BARRY\news (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1028 BARRY\ftp (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1029 BARRY\uucp (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1030 BARRY\unix_user.15 (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1031 BARRY\man (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1032 BARRY\unix_user.16 (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1033 BARRY\unix_group.16 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1034 BARRY\unix_user.17 (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1035 BARRY\unix_group.17 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1036 BARRY\unix_user.18 (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1037 BARRY\unix_group.18 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1038 BARRY\unix_user.19 (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1039 BARRY\floppy (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1040 BARRY\unix_user.20 (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1041 BARRY\games (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1042 BARRY\unix_user.21 (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1043 BARRY\slocate (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1044 BARRY\unix_user.22 (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1045 BARRY\utmp (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1046 BARRY\squid (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1047 BARRY\squid (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1048 BARRY\unix_user.24 (Local User)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1049 BARRY\unix_group.24 (Local Group)<br/>
+S-1-5-21-2974263341-3895402545-469881541-1050 BARRY\unix_user.25 (Local User)<br/>
+<br/>
+&nbsp;=========================================== <br/>
+| &nbsp; &nbsp;Getting printer info for 10.11.1.22 &nbsp; &nbsp;|<br/>
+&nbsp;=========================================== <br/>
+No printers returned.<br/>
+<br/>
+<br/>
+enum4linux complete on Wed Jun 13 18:01:26 2018<br/>
+<br/>
+root@:~&gt; <br/>
+<br/>
+<br/>
+</body></html>

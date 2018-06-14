@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>nmap -sC</title>
+</head><body>root@:~/megacorpone&gt; nmap -sC 10.11.1.22<br/>
+<br/>
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-06-13 17:19 EDT<br/>
+Nmap scan report for 10.11.1.22<br/>
+Host is up (0.21s latency).<br/>
+Not shown: 989 closed ports<br/>
+PORT &nbsp; &nbsp; &nbsp;STATE SERVICE<br/>
+21/tcp &nbsp; &nbsp;open &nbsp;ftp<br/>
+22/tcp &nbsp; &nbsp;open &nbsp;ssh<br/>
+| ssh-hostkey: <br/>
+| &nbsp; 1024 4a:e3:f8:07:d5:d6:b1:b5:bf:54:ac:e7:17:36:7e:e8 (RSA1)<br/>
+| &nbsp; 1024 77:67:f2:2c:3d:7c:45:24:fe:5e:0f:de:07:65:b3:57 (DSA)<br/>
+|_ &nbsp;1024 42:b1:48:0b:41:f8:a9:12:cc:9b:c4:ed:26:74:64:2c (RSA)<br/>
+|_sshv1: Server supports SSHv1<br/>
+23/tcp &nbsp; &nbsp;open &nbsp;telnet<br/>
+25/tcp &nbsp; &nbsp;open &nbsp;smtp<br/>
+|_smtp-commands: Couldn't establish connection on port 25<br/>
+80/tcp &nbsp; &nbsp;open &nbsp;http<br/>
+| http-methods: <br/>
+|_ &nbsp;Potentially risky methods: PUT DELETE CONNECT PATCH PROPFIND PROPPATCH MKCOL COPY MOVE LOCK UNLOCK TRACE<br/>
+|_http-title: Test Page for the Apache Web Server on Red Hat Linux<br/>
+111/tcp &nbsp; open &nbsp;rpcbind<br/>
+| rpcinfo: <br/>
+| &nbsp; program version &nbsp; port/proto &nbsp;service<br/>
+| &nbsp; 100000 &nbsp;2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;111/tcp &nbsp;rpcbind<br/>
+| &nbsp; 100000 &nbsp;2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;111/udp &nbsp;rpcbind<br/>
+| &nbsp; 100024 &nbsp;1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;32768/tcp &nbsp;status<br/>
+|_ &nbsp;100024 &nbsp;1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;32768/udp &nbsp;status<br/>
+139/tcp &nbsp; open &nbsp;netbios-ssn<br/>
+199/tcp &nbsp; open &nbsp;smux<br/>
+443/tcp &nbsp; open &nbsp;https<br/>
+|_http-title: 400 Bad Request<br/>
+|_ssl-date: 2018-06-13T21:29:18+00:00; -2s from scanner time.<br/>
+| sslv2: <br/>
+| &nbsp; SSLv2 supported<br/>
+| &nbsp; ciphers: <br/>
+| &nbsp; &nbsp; SSL2_DES_192_EDE3_CBC_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC4_128_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_DES_64_CBC_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC4_64_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC2_128_CBC_EXPORT40_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC2_128_CBC_WITH_MD5<br/>
+|_ &nbsp; &nbsp;SSL2_RC4_128_EXPORT40_WITH_MD5<br/>
+995/tcp &nbsp; open &nbsp;pop3s<br/>
+|_ssl-date: 2018-06-13T21:29:17+00:00; -2s from scanner time.<br/>
+| sslv2: <br/>
+| &nbsp; SSLv2 supported<br/>
+| &nbsp; ciphers: <br/>
+| &nbsp; &nbsp; SSL2_DES_192_EDE3_CBC_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC4_128_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC2_128_CBC_EXPORT40_WITH_MD5<br/>
+| &nbsp; &nbsp; SSL2_RC2_128_CBC_WITH_MD5<br/>
+|_ &nbsp; &nbsp;SSL2_RC4_128_EXPORT40_WITH_MD5<br/>
+32768/tcp open &nbsp;status<br/>
+MAC Address: 00:50:56:89:6A:75 (VMware)<br/>
+<br/>
+Host script results:<br/>
+|_clock-skew: mean: -2s, deviation: 0s, median: -2s<br/>
+|_nbstat: NetBIOS name: BARRY, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: &lt;unknown&gt; (unknown)<br/>
+|_smb2-time: Protocol negotiation failed (SMB2)<br/>
+<br/>
+Nmap done: 1 IP address (1 host up) scanned in 848.03 seconds<br/>
+root@:~/megacorpone&gt; <br/>
+</body></html>

