@@ -18,7 +18,8 @@
 <br/>
 If SMB is open:<br/>
 - enum4linux<br/>
-- smbclient<br/>
+- smbclient -L to list shares<br/>
+- smbclient //10.11.1.31/wwwroot to connect to the open share<br/>
 - nmap -v -p 139,445 --script=smb-vuln-XXXXXX --script-args=unsafe=1 $ip<br/>
 - SMB null session:<br/>
 &nbsp; &nbsp; &nbsp;net use \\192.168.1.1\ipc$ "" /u:""<br/>
@@ -27,9 +28,11 @@ If SMB is open:<br/>
 - rpcclient -U "" ip to exploit null session<br/>
 &nbsp; &nbsp; &nbsp;- srvinfo<br/>
 &nbsp; &nbsp; &nbsp;enumdomusers<br/>
+- nmap -p 139,445 --script smb-enum-users ip<br/>
+- nmap -p 139,445 --script smb-check-vulns --script-args=unsafe=1 ip<br/>
 <br/>
 If Web is open:<br/>
-- Nikto<br/>
+- Nikto -h<br/>
 - Dirbuster<br/>
 - Sparta<br/>
 - Medusa<br/>

@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>enum4linux</title>
+</head><body>root@:~/megacorpone&gt; enum4linux 10.11.1.31<br/>
+Starting enum4linux v0.8.9 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Thu Jun 14 12:44:36 2018<br/>
+<br/>
+&nbsp;========================== <br/>
+| &nbsp; &nbsp;Target Information &nbsp; &nbsp;|<br/>
+&nbsp;========================== <br/>
+Target ........... 10.11.1.31<br/>
+RID Range ........ 500-550,1000-1050<br/>
+Username ......... ''<br/>
+Password ......... ''<br/>
+Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none<br/>
+<br/>
+<br/>
+&nbsp;================================================== <br/>
+| &nbsp; &nbsp;Enumerating Workgroup/Domain on 10.11.1.31 &nbsp; &nbsp;|<br/>
+&nbsp;================================================== <br/>
+[+] Got domain/workgroup name: THINC<br/>
+<br/>
+&nbsp;========================================== <br/>
+| &nbsp; &nbsp;Nbtstat Information for 10.11.1.31 &nbsp; &nbsp;|<br/>
+&nbsp;========================================== <br/>
+Looking up status of 10.11.1.31<br/>
+&#09;RALPH &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;00&gt; - &nbsp; &nbsp; &nbsp; &nbsp; B &lt;ACTIVE&gt; &nbsp;Workstation Service<br/>
+&#09;THINC &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;00&gt; - &lt;GROUP&gt; B &lt;ACTIVE&gt; &nbsp;Domain/Workgroup Name<br/>
+&#09;RALPH &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;1f&gt; - &nbsp; &nbsp; &nbsp; &nbsp; B &lt;ACTIVE&gt; &nbsp;NetDDE Service<br/>
+&#09;RALPH &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;03&gt; - &nbsp; &nbsp; &nbsp; &nbsp; B &lt;ACTIVE&gt; &nbsp;Messenger Service<br/>
+&#09;RALPH &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;20&gt; - &nbsp; &nbsp; &nbsp; &nbsp; B &lt;ACTIVE&gt; &nbsp;File Server Service<br/>
+&#09;THINC &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;1e&gt; - &lt;GROUP&gt; B &lt;ACTIVE&gt; &nbsp;Browser Service Elections<br/>
+&#09;THINC &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;1d&gt; - &nbsp; &nbsp; &nbsp; &nbsp; B &lt;ACTIVE&gt; &nbsp;Master Browser<br/>
+&#09;..__MSBROWSE__. &lt;01&gt; - &lt;GROUP&gt; B &lt;ACTIVE&gt; &nbsp;Master Browser<br/>
+&#09;RON &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;03&gt; - &nbsp; &nbsp; &nbsp; &nbsp; B &lt;ACTIVE&gt; &nbsp;Messenger Service<br/>
+<br/>
+&#09;MAC Address = 00-50-56-89-68-22<br/>
+<br/>
+&nbsp;=================================== <br/>
+| &nbsp; &nbsp;Session Check on 10.11.1.31 &nbsp; &nbsp;|<br/>
+&nbsp;=================================== <br/>
+[+] Server 10.11.1.31 allows sessions using username '', password ''<br/>
+<br/>
+&nbsp;========================================= <br/>
+| &nbsp; &nbsp;Getting domain SID for 10.11.1.31 &nbsp; &nbsp;|<br/>
+&nbsp;========================================= <br/>
+Cannot connect to server. &nbsp;Error was NT_STATUS_INVALID_PARAMETER<br/>
+[+] Can't determine if host is part of domain or part of a workgroup<br/>
+<br/>
+&nbsp;==================================== <br/>
+| &nbsp; &nbsp;OS information on 10.11.1.31 &nbsp; &nbsp;|<br/>
+&nbsp;==================================== <br/>
+[+] Got OS info for 10.11.1.31 from smbclient: Domain=[RALPH] OS=[<span style="color: #ff0000">Windows Server 2003 3790 Service Pack 1</span>] Server=[Windows Server 2003 5.2]<br/>
+[+] Got OS info for 10.11.1.31 from srvinfo:<br/>
+Cannot connect to server. &nbsp;Error was NT_STATUS_INVALID_PARAMETER<br/>
+<br/>
+&nbsp;=========================== <br/>
+| &nbsp; &nbsp;Users on 10.11.1.31 &nbsp; &nbsp;|<br/>
+&nbsp;=========================== <br/>
+Use of uninitialized value $users in print at ./enum4linux.pl line 874.<br/>
+Use of uninitialized value $users in pattern match (m//) at ./enum4linux.pl line 877.<br/>
+<br/>
+Use of uninitialized value $users in print at ./enum4linux.pl line 888.<br/>
+Use of uninitialized value $users in pattern match (m//) at ./enum4linux.pl line 890.<br/>
+<br/>
+&nbsp;======================================= <br/>
+| &nbsp; &nbsp;Share Enumeration on 10.11.1.31 &nbsp; &nbsp;|<br/>
+&nbsp;======================================= <br/>
+[E] Can't list shares: NT_STATUS_ACCESS_DENIED<br/>
+<br/>
+[+] Attempting to map shares on 10.11.1.31<br/>
+<br/>
+&nbsp;================================================== <br/>
+| &nbsp; &nbsp;Password Policy Information for 10.11.1.31 &nbsp; &nbsp;|<br/>
+&nbsp;================================================== <br/>
+[E] Unexpected error from polenum:<br/>
+Traceback (most recent call last):<br/>
+&nbsp; File "/usr/bin/polenum", line 33, in &lt;module&gt;<br/>
+&nbsp; &nbsp; from impacket.dcerpc import dcerpc_v4, dcerpc, transport, samr<br/>
+ImportError: cannot import name dcerpc_v4<br/>
+[+] Retieved partial password policy with rpcclient:<br/>
+<br/>
+<br/>
+<br/>
+&nbsp;============================ <br/>
+| &nbsp; &nbsp;Groups on 10.11.1.31 &nbsp; &nbsp;|<br/>
+&nbsp;============================ <br/>
+<br/>
+[+] Getting builtin groups:<br/>
+<br/>
+[+] Getting builtin group memberships:<br/>
+<br/>
+[+] Getting local groups:<br/>
+<br/>
+[+] Getting local group memberships:<br/>
+<br/>
+[+] Getting domain groups:<br/>
+<br/>
+[+] Getting domain group memberships:<br/>
+<br/>
+&nbsp;===================================================================== <br/>
+| &nbsp; &nbsp;Users on 10.11.1.31 via RID cycling (RIDS: 500-550,1000-1050) &nbsp; &nbsp;|<br/>
+&nbsp;===================================================================== <br/>
+<br/>
+&nbsp;=========================================== <br/>
+| &nbsp; &nbsp;Getting printer info for 10.11.1.31 &nbsp; &nbsp;|<br/>
+&nbsp;=========================================== <br/>
+Cannot connect to server. &nbsp;Error was NT_STATUS_INVALID_PARAMETER<br/>
+<br/>
+<br/>
+enum4linux complete on Thu Jun 14 12:44:43 2018<br/>
+<br/>
+root@:~/megacorpone&gt; <br/>
+</body></html>

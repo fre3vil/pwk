@@ -3,15 +3,15 @@
 <version>6</version>
 <dict>
   <key>title_fgcolor</key><string>#ff0000</string>
-  <key>expanded</key><true/>
-  <key>title</key><string>10.11.1.22 BARRY (rooted #04)</string>
+  <key>expanded</key><false/>
   <key>nodeid</key><string>b3a2d72f-fb82-45d2-9330-0e901f7d4c67</string>
   <key>modified_time</key><integer>1528924787</integer>
-  <key>version</key><integer>6</integer>
   <key>content_type</key><string>application/x-notebook-dir</string>
   <key>created_time</key><integer>1528924787</integer>
   <key>info_sort_dir</key><integer>1</integer>
-  <key>order</key><integer>4</integer>
+  <key>title</key><string>10.11.1.22 BARRY (rooted #04)</string>
+  <key>version</key><integer>6</integer>
+  <key>order</key><integer>3</integer>
   <key>info_sort</key><string>order</string>
 </dict>
 </node>

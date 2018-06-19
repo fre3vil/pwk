@@ -1,0 +1,43 @@
+root:x:0:0:root:/root:/bin/bash
+bin:*:1:1:bin:/bin:/sbin/nologin
+daemon:*:2:2:daemon:/sbin:/sbin/nologin
+adm:*:3:4:adm:/var/adm:/sbin/nologin
+lp:*:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:*:5:0:sync:/sbin:/bin/sync
+shutdown:*:6:0:shutdown:/sbin:/sbin/shutdown
+halt:*:7:0:halt:/sbin:/sbin/halt
+mail:*:8:12:mail:/var/spool/mail:/sbin/nologin
+news:*:9:13:news:/var/spool/news:
+uucp:*:10:14:uucp:/var/spool/uucp:/sbin/nologin
+operator:*:11:0:operator:/root:/sbin/nologin
+games:*:12:100:games:/usr/games:/sbin/nologin
+gopher:*:13:30:gopher:/var/gopher:/sbin/nologin
+ftp:*:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:*:99:99:Nobody:/:/sbin/nologin
+vcsa:!!:69:69:virtual console memory owner:/dev:/sbin/nologin
+mailnull:!!:47:47::/var/spool/mqueue:/dev/null
+rpm:!!:37:37::/var/lib/rpm:/bin/bash
+ntp:!!:38:38::/etc/ntp:/sbin/nologin
+rpc:!!:32:32:Portmapper RPC user:/:/sbin/nologin
+xfs:!!:43:43:X Font Server:/etc/X11/fs:/bin/false
+rpcuser:!!:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:!!:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+nscd:!!:28:28:NSCD Daemon:/:/bin/false
+ident:!!:98:98:pident user:/:/sbin/nologin
+radvd:!!:75:75:radvd user:/:/bin/false
+postgres:!!:26:26:PostgreSQL Server:/var/lib/pgsql:/bin/bash
+apache:!!:48:48:Apache:/var/www:/bin/false
+squid:!!:23:23::/var/spool/squid:/dev/null
+pcap:!!:77:77::/var/arpwatch:/sbin/nologin
+www:$1$VecCeDiL$UZUNXBjX8bDgfFKzf6PJu/:500:500::/home/www:/bin/bash
+adam:$1$5wAs2Vek$MolttqqR2ngg29PV6DacY1:501:501::/home/adam:/bin/bash
+alex:$1$Shz.u.XB$bpMoeWo8.l/3Ax26cXhFj1:502:502::/home/alex:/bin/bash
+antony:$1$p9W6HC6.$Rdw5y0LzvmvapVuuUVckW/:503:503::/home/antony:/bin/bash
+barry:$1$9hVNZdAB$ssBW32YG9a5AXDXVbuzHL1:504:504::/home/barry:/bin/bash
+enrico:$1$ZjW99/iG$CyQaE9XapKtFNK5aqPmsy.:505:505::/home/enrico:/bin/bash
+frank:$1$UzPvwaR7$AAo12TQaGMXmU5EirJazF.:506:506::/home/frank:/bin/bash
+kevin:$1$FGLGAH8c$q3yzSO9SkKKhiUr5GWAD7.:507:507::/home/kevin:/bin/bash
+phill:!!:508:508::/home/phill:/bin/bash
+peter:$1$IwKAMzzI$n978X1DIk/Chq3I4pVykS/:509:509::/home/peter:/bin/bash
+robert:$1$3JT4XB1Y$LieyXtMMPdMheCejoS00I1:510:510::/home/robert:/bin/bash
+william:$1$WPUOfpyd$Keugnzs0xjJkca5kWvlhs0:511:511::/home/william:/bin/bash

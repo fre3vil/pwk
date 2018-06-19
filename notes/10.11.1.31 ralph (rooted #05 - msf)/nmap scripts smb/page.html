@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>nmap scripts smb</title>
+</head><body>root@:~&gt; nmap 10.11.1.31 --script=smb-enum-shares.nse<br/>
+<br/>
+Starting Nmap 7.60 ( https://nmap.org ) at 2018-06-15 14:27 EDT<br/>
+Nmap scan report for 10.11.1.31<br/>
+Host is up (0.035s latency).<br/>
+Not shown: 993 closed ports<br/>
+PORT &nbsp; &nbsp; STATE SERVICE<br/>
+80/tcp &nbsp; open &nbsp;http<br/>
+135/tcp &nbsp;open &nbsp;msrpc<br/>
+139/tcp &nbsp;open &nbsp;netbios-ssn<br/>
+445/tcp &nbsp;open &nbsp;microsoft-ds<br/>
+1025/tcp open &nbsp;NFS-or-IIS<br/>
+1433/tcp open &nbsp;ms-sql-s<br/>
+3389/tcp open &nbsp;ms-wbt-server<br/>
+MAC Address: 00:50:56:89:68:22 (VMware)<br/>
+<br/>
+Host script results:<br/>
+| smb-enum-shares: <br/>
+| &nbsp; account_used: guest<br/>
+| &nbsp; \\10.11.1.31\ADMIN$: <br/>
+| &nbsp; &nbsp; Type: STYPE_DISKTREE_HIDDEN<br/>
+| &nbsp; &nbsp; Comment: Remote Admin<br/>
+| &nbsp; &nbsp; Anonymous access: &lt;none&gt;<br/>
+| &nbsp; &nbsp; Current user access: &lt;none&gt;<br/>
+| &nbsp; \\10.11.1.31\C$: <br/>
+| &nbsp; &nbsp; Type: STYPE_DISKTREE_HIDDEN<br/>
+| &nbsp; &nbsp; Comment: Default share<br/>
+| &nbsp; &nbsp; Anonymous access: &lt;none&gt;<br/>
+| &nbsp; &nbsp; Current user access: &lt;none&gt;<br/>
+| &nbsp; \\10.11.1.31\IPC$: <br/>
+| &nbsp; &nbsp; Type: STYPE_IPC_HIDDEN<br/>
+| &nbsp; &nbsp; Comment: Remote IPC<br/>
+| &nbsp; &nbsp; Anonymous access: READ<br/>
+| &nbsp; &nbsp; Current user access: READ/WRITE<br/>
+<span style="color: #ff0000">| &nbsp; \\10.11.1.31\wwwroot: <br/>
+| &nbsp; &nbsp; Type: STYPE_DISKTREE<br/>
+| &nbsp; &nbsp; Comment: <br/>
+| &nbsp; &nbsp; Anonymous access: &lt;none&gt;<br/>
+|_ &nbsp; &nbsp;Current user access: READ<br/>
+</span><br/>
+Nmap done: 1 IP address (1 host up) scanned in 89.69 seconds<br/>
+<br/>
+read access to wwwroot<br/>
+<br/>
+</body></html>
